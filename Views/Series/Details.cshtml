@@ -1,0 +1,56 @@
+﻿@model ContosoUniversity.Models.Series
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Details</h2>
+    </div>
+    <div class="row">
+        <h4>Series</h4>
+        <hr/>
+    </div>
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Publisher.Name)
+            </dd>
+        </dl>
+
+    </div>
+    <div class="row">
+        @foreach (var image in Model.Postcards)
+        {
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="@image.ImageLink" class="img-responsive"/>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.SeriesId }) |
+            @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

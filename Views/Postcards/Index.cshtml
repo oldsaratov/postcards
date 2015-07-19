@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ContosoUniversity.Models.Postcard>
+
+@{
+    ViewBag.Title = "Series";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Postcards</h2>
+
+        <p>
+            @Html.ActionLink("Create new", "Create")
+        </p>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            <p>
+                Select series: @Html.DropDownList("SelectedSeries", "All")
+                Select photographer: @Html.DropDownList("SelectedPhotographers", "All")
+                <input class="btn btn-lg" type="submit" value="Filter"/>
+            </p>
+        }
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Photographer.FullName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Photographer.FullName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PostcardId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PostcardId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PostcardId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

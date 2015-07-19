@@ -1,0 +1,32 @@
+﻿@model ContosoUniversity.Models.Publisher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Details</h2>
+    </div>
+    <div class="row">
+        <h4>Publisher</h4>
+        <hr/>
+    </div>
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
+    </div>
+    <div class="row">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
