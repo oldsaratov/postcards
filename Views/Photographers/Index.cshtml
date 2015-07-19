@@ -1,0 +1,57 @@
+﻿@model PagedList.IPagedList<ContosoUniversity.Models.Photographer>
+
+@{
+    ViewBag.Title = "Photographers";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Photographers</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm("Index", "Photographers", FormMethod.Get))
+        {
+            <p>
+                Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Search"/>
+            </p>
+        }
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    @Html.ActionLink("Postcard Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PhotographerId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PhotographerId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PhotographerId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

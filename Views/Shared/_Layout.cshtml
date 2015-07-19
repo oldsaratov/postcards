@@ -4,50 +4,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Contoso University</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/indexcss")
     @Scripts.Render("~/bundles/modernizr")
     <script type="text/javascript">
-        var appInsights=window.appInsights||function(config){
-            function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+        var appInsights = window.appInsights || function (config) {
+            function s(config) {
+                t[config] = function () {
+                    var i = arguments;
+                    t.queue.push(function () { t[config].apply(t, i) })
+                }
+            }
+
+            var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u;
+            for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) s("track" + i.pop());
+            return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function (config, r, f, e, o) {
+                var s = u && u(config, r, f, e, o);
+                return s !== !0 && t["_" + i](config, r, f, e, o), s
+            }), t
         }({
-            instrumentationKey:"615aadc5-8508-46e7-aa93-713181a155ae"
+            instrumentationKey: "615aadc5-8508-46e7-aa93-713181a155ae"
         });
-        
-        window.appInsights=appInsights;
+
+        window.appInsights = appInsights;
         appInsights.trackPageView();
     </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Contoso University", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                    <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
-                    <li>@Html.ActionLink("Departments", "Index", "Department")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Contoso University</p>
-        </footer>
-    </div>
-
+    <div class="rb-page-content" data-role="page-content">
+        <section class="rb-art" id="rb-art">
+            <header class="rb-art-header">
+                <div class="rb-art-header__item -logo">
+                    <a class="rb-logo" href="/">
+                        <div class="rb-logo__img"></div>
+                        <div class="rb-logo__name">Фотографии старого Саратова</div>
+                    </a>
+                </div>
+                <div class="rb-art-header__menu">
+                    <div class="rb-art-header__line -fs"></div>
+                    <div class="rb-art-header__line -sd"></div>
+                    <div class="rb-art-header__line -lt"></div>
+                </div>
+                <div class="rb-art-header__sidebar">
+                    <div class="rb-art-header__item -menu">
+                        <div class="rb-art-menu__item">
+                            <a class="rb-art-menu__link" href="@Url.Action("Index", "Postcards")">Postcards</a>
+                        </div>
+                        <div class="rb-art-menu__item">
+                            <a class="rb-art-menu__link" href="@Url.Action("Index", "Publisher")">Publishers</a>
+                        </div>
+                        <div class="rb-art-menu__item">
+                            <a class="rb-art-menu__link" href="@Url.Action("Index", "Series")">Series</a>
+                        </div>
+                        <div class="rb-art-menu__item">
+                            <a class="rb-art-menu__link" href="@Url.Action("Index", "Photographers")">Photographers</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            @RenderBody()
+        </section>
+    </div>    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

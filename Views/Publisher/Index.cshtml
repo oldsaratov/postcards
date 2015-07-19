@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ContosoUniversity.Models.Publisher>
+
+@{
+    ViewBag.Title = "Publishers";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Publishers</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PublisherId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PublisherId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PublisherId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
