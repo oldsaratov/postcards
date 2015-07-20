@@ -1,12 +1,12 @@
-﻿@model ContosoUniversity.Models.Photographer
+﻿@model PostcardsManager.Models.Photographer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resourses.Resources.Edit;
 }
 
 <div class="container">
     <div class="row">
-        <h2>Edit</h2>
+        <h2>@Resourses.Resources.Edit</h2>
     </div>
     <div class="row">
         @using (Html.BeginForm())
@@ -14,7 +14,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Photographer</h4>
+                <h4>@Resourses.Resources.Photographer</h4>
                 <hr/>
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
                 @Html.HiddenFor(model => model.PhotographerId)
@@ -37,14 +37,14 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default"/>
+                        <input type="submit" value="@Resourses.Resources.Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="row">
-         @Html.ActionLink("Back to List", "Index")
+         @Html.ActionLink(Resourses.Resources.BackToList, "Index")
     </div>
 </div>
 

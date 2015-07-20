@@ -1,12 +1,11 @@
 ﻿using System.Data.Entity;
 
-namespace ContosoUniversity.DAL
+namespace PostcardsManager.DAL
 {
     public class SchoolInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
     {
         protected override void Seed(SchoolContext context)
         {
-            
         }
     }
 }

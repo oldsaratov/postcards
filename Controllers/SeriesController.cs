@@ -1,24 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using ContosoUniversity.DAL;
-using ContosoUniversity.Models;
+using PostcardsManager.DAL;
+using PostcardsManager.Models;
+using Resourses;
 
-namespace ContosoUniversity.Controllers
+namespace PostcardsManager.Controllers
 {
     public class SeriesController : Controller
     {
-        private SchoolContext db = new SchoolContext();
-
+        private readonly SchoolContext db = new SchoolContext();
         // GET: Series
         public ActionResult Index(int? selectedPublisher)
         {
             var publishers = db.Publishers;
             ViewBag.SelectedPublisher = new SelectList(publishers, "PublisherId", "Name", selectedPublisher);
-            int publisherId = selectedPublisher.GetValueOrDefault();
+            var publisherId = selectedPublisher.GetValueOrDefault();
 
             var series = db.Series
                 .Where(c => !selectedPublisher.HasValue || c.PublisherId == publisherId)
@@ -35,14 +34,13 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Series series = db.Series.Find(id);
+            var series = db.Series.Find(id);
             if (series == null)
             {
                 return HttpNotFound();
             }
             return View(series);
         }
-
 
         public ActionResult Create()
         {
@@ -52,7 +50,7 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SeriesID,Title,Year,PublisherId")]Series series)
+        public ActionResult Create([Bind(Include = "SeriesID,Title,Year,PublisherId")] Series series)
         {
             try
             {
@@ -66,7 +64,9 @@ namespace ContosoUniversity.Controllers
             catch (RetryLimitExceededException /* dex */)
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.)
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                ModelState.AddModelError("",
+                    Resources
+                        .SeriesController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
             }
             PopulatePublishersDropDownList(series.PublisherId);
             return View(series);
@@ -78,7 +78,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Series series = db.Series.Find(id);
+            var series = db.Series.Find(id);
             if (series == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace ContosoUniversity.Controllers
             }
             var courseToUpdate = db.Series.Find(id);
             if (TryUpdateModel(courseToUpdate, "",
-               new string[] { "Title","Year","PublisherId" }))
+                new[] {"Title", "Year", "PublisherId"}))
             {
                 try
                 {
@@ -107,7 +107,9 @@ namespace ContosoUniversity.Controllers
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                    ModelState.AddModelError("",
+                        Resources
+                            .SeriesController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
                 }
             }
             PopulatePublishersDropDownList(courseToUpdate.PublisherId);
@@ -117,10 +119,9 @@ namespace ContosoUniversity.Controllers
         private void PopulatePublishersDropDownList(object selectedPublisher = null)
         {
             var publishersQuery = from d in db.Publishers
-                                   select d;
+                select d;
             ViewBag.PublisherID = new SelectList(publishersQuery, "PublisherID", "Name", selectedPublisher);
         }
-
 
         // GET: Series/Delete/5
         public ActionResult Delete(int? id)
@@ -129,7 +130,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Series series = db.Series.Find(id);
+            var series = db.Series.Find(id);
             if (series == null)
             {
                 return HttpNotFound();
@@ -142,7 +143,7 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Series series = db.Series.Find(id);
+            var series = db.Series.Find(id);
             db.Series.Remove(series);
             db.SaveChanges();
             return RedirectToAction("Index");

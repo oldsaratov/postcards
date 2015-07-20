@@ -118,189 +118,189 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title" xml:space="preserve">
-    <value>Title</value>
+    <value>Название</value>
   </data>
   <data name="Photographer_LastName_Last_Name" xml:space="preserve">
-    <value>Last Name</value>
+    <value>Фамилия</value>
   </data>
   <data name="Photographer_MiddleName_Middle_name_cannot_be_longer_than_50_characters_" xml:space="preserve">
-    <value>Middle name cannot be longer than 50 characters.</value>
+    <value>Отчество не может быть длиннее 50 символов</value>
   </data>
   <data name="Photographer_MiddleName_Middle_Name" xml:space="preserve">
-    <value>Middle Name</value>
+    <value>Отчество</value>
   </data>
   <data name="Photographer_FirstName_First_name_cannot_be_longer_than_50_characters_" xml:space="preserve">
-    <value>First name cannot be longer than 50 characters.</value>
+    <value>Имя не может быть длиннее 50 символов</value>
   </data>
   <data name="Photographer_FirstName_First_Name" xml:space="preserve">
-    <value>First Name</value>
+    <value>Имя</value>
   </data>
   <data name="Photographer_FullName_Full_Name" xml:space="preserve">
-    <value>Full Name</value>
+    <value>Полное имя</value>
   </data>
   <data name="Postcard_Title_Title" xml:space="preserve">
-    <value>Title</value>
+    <value>Надпись</value>
   </data>
   <data name="Postcard_Year_Year" xml:space="preserve">
-    <value>Year</value>
+    <value>Год</value>
   </data>
   <data name="Postcard_ImageLinkBack_Image" xml:space="preserve">
-    <value>Image back</value>
+    <value>Обратная сторона</value>
   </data>
   <data name="Postcard_SeriesId_Series" xml:space="preserve">
-    <value>Series</value>
+    <value>Серия</value>
   </data>
   <data name="Postcard_PhotographerId_Photographer" xml:space="preserve">
-    <value>Photographer</value>
+    <value>Фотограф</value>
   </data>
   <data name="Publisher_Name_Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="Series_Title_Title" xml:space="preserve">
-    <value>Title</value>
+    <value>Название</value>
   </data>
   <data name="Series_Year_Year" xml:space="preserve">
-    <value>Year</value>
+    <value>Год</value>
   </data>
   <data name="Series_PublisherId_Publisher" xml:space="preserve">
-    <value>Publisher</value>
+    <value>Издатель</value>
   </data>
   <data name="AreYouSureDelete" xml:space="preserve">
-    <value>Are you sure you want to delete this?</value>
+    <value>Вы точно хотите это удалить?</value>
   </data>
   <data name="BackToList" xml:space="preserve">
-    <value>Back to List</value>
+    <value>К списку</value>
   </data>
   <data name="Count" xml:space="preserve">
-    <value>Count</value>
+    <value>Количество</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Create</value>
+    <value>Создать</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
-    <value>CreateNew</value>
+    <value>Создать</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Удалить</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>Детали</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Редактировать</value>
   </data>
   <data name="Filter" xml:space="preserve">
-    <value>Filter</value>
+    <value>Фильтр</value>
   </data>
   <data name="FindByName" xml:space="preserve">
-    <value>Find By Name</value>
+    <value>Найти по имени</value>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value>First Name</value>
+    <value>Имя</value>
   </data>
   <data name="HomePage" xml:space="preserve">
-    <value>Home Page</value>
+    <value>Главная</value>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value>Last Name</value>
+    <value>Фамилия</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Открыть</value>
   </data>
   <data name="Photographer" xml:space="preserve">
-    <value>Photographer</value>
+    <value>Фотограф</value>
   </data>
   <data name="Photographers" xml:space="preserve">
-    <value>Photographers</value>
+    <value>Фотографы</value>
   </data>
   <data name="Postcard" xml:space="preserve">
-    <value>Postcard</value>
+    <value>Открытка</value>
   </data>
   <data name="Postcards" xml:space="preserve">
-    <value>Postcards</value>
+    <value>Открытки</value>
   </data>
   <data name="Publisher" xml:space="preserve">
     <value>Publisher</value>
   </data>
   <data name="Publishers" xml:space="preserve">
-    <value>Publishers</value>
+    <value>Издатели</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Сохранить</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>Поиск</value>
   </data>
   <data name="SelectPhotographer" xml:space="preserve">
-    <value>Select Photographer</value>
+    <value>Выбрать фотографа:</value>
   </data>
   <data name="SelectPublisher" xml:space="preserve">
-    <value>Select Publisher:</value>
+    <value>Выбрать издателя:</value>
   </data>
   <data name="SelectSeries" xml:space="preserve">
-    <value>Select Series:</value>
+    <value>Выбрать серию:</value>
   </data>
   <data name="Series" xml:space="preserve">
-    <value>Series</value>
+    <value>Серии</value>
   </data>
   <data name="BrandName" xml:space="preserve">
-    <value>Old Saratov postcards</value>
+    <value>Открытки старого Саратова</value>
   </data>
   <data name="PhotographersController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists_see_your_system_administrator_" xml:space="preserve">
-    <value>Unable to save changes. Try again, and if the problem persists see your system administrator.</value>
+    <value>Не могу сохранить изменения. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="PhotographersController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_" xml:space="preserve">
-    <value>Unable to save changes. Try again, and if the problem persists, see your system administrator.</value>
+    <value>Не могу сохранить изменения. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="PostcardsController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_" xml:space="preserve">
-    <value>Unable to save changes. Try again, and if the problem persists, see your system administrator.</value>
+    <value>Не могу сохранить изменения. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="PublisherController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_" xml:space="preserve">
-    <value>Unable to save changes. Try again, and if the problem persists, see your system administrator.</value>
+    <value>Не могу сохранить изменения. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="PublisherController_Delete_Unable_to_delete__Try_again__and_if_the_problem_persists_contact_your_system_administrator_" xml:space="preserve">
-    <value>Unable to delete. Try again, and if the problem persists contact your system administrator.</value>
+    <value>Не могу удалить. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="SeriesController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_" xml:space="preserve">
-    <value>Unable to save changes. Try again, and if the problem persists, see your system administrator.</value>
+    <value>Не могу сохранить изменения. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к администратору.</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="EmptyDB" xml:space="preserve">
-    <value>No postcards in database!</value>
+    <value>В базе данных еще нет открыток!</value>
   </data>
   <data name="EmptyDBHelp" xml:space="preserve">
-    <value>First of all, please add publishers, series, postcards and other to database.</value>
+    <value>Для начала добавьте в базу данных издателей, серии, открытки и все остальное.</value>
   </data>
   <data name="PostcardsManager" xml:space="preserve">
-    <value>Postcards Manager</value>
+    <value>Менеджер открыток</value>
   </data>
   <data name="Postcard_ImageLinkFront_Image" xml:space="preserve">
-    <value>Image front</value>
-  </data>
-  <data name="Postcard_FrontTitleFont_Front_title_font" xml:space="preserve">
-    <value>Front title font</value>
-  </data>
-  <data name="Postcard_BackTitleFont_Back_title_font" xml:space="preserve">
-    <value>Back title font</value>
-  </data>
-  <data name="Postcard_FrontTitleFontColor_Front_title_font_color" xml:space="preserve">
-    <value>Front title font color</value>
+    <value>Лицевая сторона</value>
   </data>
   <data name="Postcard_BackTitleFontColor_Back_title_font_color" xml:space="preserve">
-    <value>Back title font color</value>
+    <value>Цвет обратной надписи</value>
   </data>
-  <data name="Postcard_NumberInSeries_Number_in_series" xml:space="preserve">
-    <value>Number in series</value>
-  </data>
-  <data name="Postcard_BackType_Back_type" xml:space="preserve">
-    <value>Back type</value>
+  <data name="Postcard_BackTitleFont_Back_title_font" xml:space="preserve">
+    <value>Шрифт обратной надписи</value>
   </data>
   <data name="Postcard_BackTitlePlace_Back_title_place" xml:space="preserve">
-    <value>Back title place</value>
+    <value>Положение обратной надписи</value>
+  </data>
+  <data name="Postcard_BackType_Back_type" xml:space="preserve">
+    <value>Тип обратной стороны</value>
+  </data>
+  <data name="Postcard_FrontTitleFontColor_Front_title_font_color" xml:space="preserve">
+    <value>Цвет передней надеписи</value>
+  </data>
+  <data name="Postcard_FrontTitleFont_Front_title_font" xml:space="preserve">
+    <value>Шрифт передней надписи</value>
+  </data>
+  <data name="Postcard_NumberInSeries_Number_in_series" xml:space="preserve">
+    <value>Номер в серии</value>
   </data>
   <data name="Postcard_PostDate_Post_date" xml:space="preserve">
-    <value>Post date</value>
+    <value>Дата прохождения почты</value>
   </data>
 </root>

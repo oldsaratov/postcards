@@ -1,8 +1,8 @@
-﻿using ContosoUniversity.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using PostcardsManager.Models;
 
-namespace ContosoUniversity.DAL
+namespace PostcardsManager.DAL
 {
     public class SchoolContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace ContosoUniversity.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            
+
             modelBuilder.Entity<Series>()
                 .HasRequired(h => h.Publisher)
                 .WithMany(w => w.Series)
@@ -28,7 +28,7 @@ namespace ContosoUniversity.DAL
             modelBuilder.Entity<Postcard>()
                 .HasOptional(h => h.Photographer)
                 .WithMany(w => w.Postcards)
-                .HasForeignKey( k => k.PhotographerId);
+                .HasForeignKey(k => k.PhotographerId);
         }
     }
 }

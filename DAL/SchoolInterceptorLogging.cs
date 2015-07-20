@@ -1,19 +1,13 @@
-﻿using System;
-using System.Data.Common;
-using System.Data.Entity;
+﻿using System.Data.Common;
 using System.Data.Entity.Infrastructure.Interception;
-using System.Data.Entity.SqlServer;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Reflection;
-using System.Linq;
-using ContosoUniversity.Logging;
+using PostcardsManager.Logging;
 
-namespace ContosoUniversity.DAL
+namespace PostcardsManager.DAL
 {
     public class SchoolInterceptorLogging : DbCommandInterceptor
     {
-        private ILogger _logger = new Logger();
+        private readonly ILogger _logger = new Logger();
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
         public override void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
@@ -31,7 +25,8 @@ namespace ContosoUniversity.DAL
             }
             else
             {
-                _logger.TraceApi("SQL Database", "SchoolInterceptor.ScalarExecuted", _stopwatch.Elapsed, "Command: {0}: ", command.CommandText);
+                _logger.TraceApi("SQL Database", "SchoolInterceptor.ScalarExecuted", _stopwatch.Elapsed,
+                    "Command: {0}: ", command.CommandText);
             }
             base.ScalarExecuted(command, interceptionContext);
         }
@@ -51,17 +46,21 @@ namespace ContosoUniversity.DAL
             }
             else
             {
-                _logger.TraceApi("SQL Database", "SchoolInterceptor.NonQueryExecuted", _stopwatch.Elapsed, "Command: {0}: ", command.CommandText);
+                _logger.TraceApi("SQL Database", "SchoolInterceptor.NonQueryExecuted", _stopwatch.Elapsed,
+                    "Command: {0}: ", command.CommandText);
             }
             base.NonQueryExecuted(command, interceptionContext);
         }
 
-        public override void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        public override void ReaderExecuting(DbCommand command,
+            DbCommandInterceptionContext<DbDataReader> interceptionContext)
         {
             base.ReaderExecuting(command, interceptionContext);
             _stopwatch.Restart();
         }
-        public override void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+
+        public override void ReaderExecuted(DbCommand command,
+            DbCommandInterceptionContext<DbDataReader> interceptionContext)
         {
             _stopwatch.Stop();
             if (interceptionContext.Exception != null)
@@ -70,7 +69,8 @@ namespace ContosoUniversity.DAL
             }
             else
             {
-                _logger.TraceApi("SQL Database", "SchoolInterceptor.ReaderExecuted", _stopwatch.Elapsed, "Command: {0}: ", command.CommandText);
+                _logger.TraceApi("SQL Database", "SchoolInterceptor.ReaderExecuted", _stopwatch.Elapsed,
+                    "Command: {0}: ", command.CommandText);
             }
             base.ReaderExecuted(command, interceptionContext);
         }

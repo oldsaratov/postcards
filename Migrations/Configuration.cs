@@ -1,9 +1,9 @@
 using System.Data.Entity.Migrations;
-using ContosoUniversity.DAL;
+using PostcardsManager.DAL;
 
-namespace ContosoUniversity.Migrations
+namespace PostcardsManager.Migrations
 {
-    internal sealed class Configuration  : DbMigrationsConfiguration<SchoolContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SchoolContext>
     {
         public Configuration()
         {
@@ -13,7 +13,6 @@ namespace ContosoUniversity.Migrations
 
         protected override void Seed(SchoolContext context)
         {
-            
         }
     }
 }

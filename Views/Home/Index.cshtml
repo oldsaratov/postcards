@@ -1,57 +1,86 @@
-﻿@model IEnumerable<ContosoUniversity.Models.Postcard>
+﻿@using Resourses
+@model IEnumerable<PostcardsManager.Models.Postcard>
 
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = Resources.HomePage;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="rb-art-container visible active">
-    <section class="rb-art-constants">
-        <div class="rb-art-cardbox rb-art-cardbox--title"><div class="rb-art-cardbox__wrap"><img alt="" height="226" src="https://static2.rocket-cdn.ru/assets/artbattle/cards-first-rtn-938ba1fb91610ecb7a9e63d58f5758ab.gif" width="360"></div></div>
-        <a class="rb-art-cardbox rb-art-cardbox--add" data-spa="" href="/artbattle/works/add/"><span class="flaticon-plus79"></span></a><div class="rb-art-cardbox rb-art-cardbox--dbl rb-art-cardbox--desc1">
-            <div class="rb-art-cardbox__wrap">
-                <div class="rb-art-cardbox__content">
-                    <h3>Голосуй<br>за лучший<br>дизайн и&nbsp;получи крутую карту</h3>
-                    <p>Чтобы проголосовать, сделай предзаказ карты Рокетбанка с&nbsp;понравившимся дизайном. Доставка и&nbsp;обслуживание карты — бесплатные. Те, у&nbsp;кого карта уже есть, тоже могут голосовать. </p>
+    @if (!Model.Any())
+    {
+        <div class="container">
+            <div class="row">
+                <div class="jumbotron">
+                    <h1>@Resources.EmptyDB</h1>
+                    <p>@Resources.EmptyDBHelp</p>
+                    <p>
+                        <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Postcards")" role="button">@Resources.Add</a>
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="rb-art-cardbox rb-art-cardbox--dbl rb-art-cardbox--desc2">
-            <div class="rb-art-cardbox__wrap">
-                <div class="rb-art-cardbox__content">
-                    <h3>Предложи<br> дизайн — выиграй iPhone</h3>
-                    <p>Отправь нам свой дизайн, расскажи про&nbsp;конкурс друзьям и&nbsp;набери максимум предзаказов карты с&nbsp;ним.</p>
-                    <a class="rb-art-btn" data-spa="" href="@Url.Action("Create", "Postcards")">Add</a>
+    }
+    else
+    {
+        <section class="rb-art-constants">
+            <div class="rb-art-cardbox rb-art-cardbox--title">
+                <div class="rb-art-cardbox__wrap">
+                    <img alt="" height="226" src="https://static2.rocket-cdn.ru/assets/artbattle/cards-first-rtn-938ba1fb91610ecb7a9e63d58f5758ab.gif" width="360">
                 </div>
             </div>
-        </div>
-        <div class="rb-art-cardbox rb-art-cardbox--end">
-            <div class="rb-art-cardbox__wrap">
-                <div class="rb-art-cardbox__content">
-                    <h3>Расскажи друзьям</h3>
-                    <div id="hack_share" data-yasharelink="https://www.rocketbank.ru/artbattle" class=" b-share_theme_counter"><span class="b-share b-share_type_small"><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="Facebook" class="b-share__handle b-share__link b-share-btn__facebook b-share-btn__counter" href="https://share.yandex.net/go.xml?service=facebook&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="facebook"><span class="b-share-icon b-share-icon_facebook"></span><span class="b-share-counter">120</span></a></span><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="ВКонтакте" class="b-share__handle b-share__link b-share-btn__vkontakte b-share-btn__counter" href="https://share.yandex.net/go.xml?service=vkontakte&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="vkontakte"><span class="b-share-icon b-share-icon_vkontakte"></span><span class="b-share-counter">19</span></a></span><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="Twitter" class="b-share__handle b-share__link b-share-btn__twitter" href="https://share.yandex.net/go.xml?service=twitter&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="twitter"><span class="b-share-icon b-share-icon_twitter"></span><span class="b-share-counter">0</span></a></span><iframe style="display: none" src="//yastatic.net/share/ya-share-cnt.html?url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;services=facebook,vkontakte,twitter"></iframe></span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="rb-art-cards">
-        @foreach (var postcard in Model)
-        {
-            <a class="rb-art-card" href="@Url.Action("Details", "Postcards", new {id = postcard.PostcardId})">
-                <div class="rb-art-card__wrap">
-                    <div class="rb-art-card__loader"></div>
-                    <div class="rb-art-card__back">
-                        <img height="226" width="360" src="@postcard.ImageLink">
+            <a class="rb-art-cardbox rb-art-cardbox--add" data-spa="" href="@Url.Action("Create", "Postcards")">
+                <span class="flaticon-plus79"></span></a>
+            <div class="rb-art-cardbox rb-art-cardbox--dbl rb-art-cardbox--desc1">
+                <div class="rb-art-cardbox__wrap">
+                    <div class="rb-art-cardbox__content">
+                        <h3>
+                            Голосуй<br>за лучший<br>дизайн и&nbsp;получи крутую карту
+                        </h3>
+                        <p>Чтобы проголосовать, сделай предзаказ карты Рокетбанка с&nbsp;понравившимся дизайном. Доставка и&nbsp;обслуживание карты — бесплатные. Те, у&nbsp;кого карта уже есть, тоже могут голосовать. </p>
                     </div>
-                    <div class="rb-art-card__hover">
-                        <div class="rb-art-card__author">
-                            <div class="rb-art-card__name" data-bind="text: $data.author.name">@postcard.Title</div>
+                </div>
+            </div>
+            <div class="rb-art-cardbox rb-art-cardbox--dbl rb-art-cardbox--desc2">
+                <div class="rb-art-cardbox__wrap">
+                    <div class="rb-art-cardbox__content">
+                        <h3>
+                            Предложи<br> дизайн — выиграй iPhone
+                        </h3>
+                        <p>Отправь нам свой дизайн, расскажи про&nbsp;конкурс друзьям и&nbsp;набери максимум предзаказов карты с&nbsp;ним.</p>
+                        <a class="rb-art-btn" data-spa="" href="@Url.Action("Create", "Postcards")">Add</a>
+                    </div>
+                </div>
+            </div>
+            <div class="rb-art-cardbox rb-art-cardbox--end">
+                <div class="rb-art-cardbox__wrap">
+                    <div class="rb-art-cardbox__content">
+                        <h3>Расскажи друзьям</h3>
+                        <div id="hack_share" data-yasharelink="https://www.rocketbank.ru/artbattle" class=" b-share_theme_counter">
+                            <span class="b-share b-share_type_small"><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="Facebook" class="b-share__handle b-share__link b-share-btn__facebook b-share-btn__counter" href="https://share.yandex.net/go.xml?service=facebook&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="facebook"><span class="b-share-icon b-share-icon_facebook"></span><span class="b-share-counter">120</span></a></span><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="ВКонтакте" class="b-share__handle b-share__link b-share-btn__vkontakte b-share-btn__counter" href="https://share.yandex.net/go.xml?service=vkontakte&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="vkontakte"><span class="b-share-icon b-share-icon_vkontakte"></span><span class="b-share-counter">19</span></a></span><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="Twitter" class="b-share__handle b-share__link b-share-btn__twitter" href="https://share.yandex.net/go.xml?service=twitter&amp;url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;title=%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%8D%D1%81%D1%82%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8%D1%85%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2" data-service="twitter"><span class="b-share-icon b-share-icon_twitter"></span><span class="b-share-counter">0</span></a></span><iframe style="display: none" src="//yastatic.net/share/ya-share-cnt.html?url=https%3A%2F%2Fwww.rocketbank.ru%2Fartbattle&amp;services=facebook,vkontakte,twitter"></iframe></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="rb-art-cards">
+            @foreach (var postcard in Model)
+            {
+                <a class="rb-art-card" href="@Url.Action("Details", "Postcards", new {id = postcard.PostcardId})">
+                    <div class="rb-art-card__wrap">
+                        <div class="rb-art-card__loader"></div>
+                        <div class="rb-art-card__back">
+                            <img height="226" width="360" src="@postcard.ImageLinkFront">
                         </div>
-                        <div class="rb-art-card__show">Открыть</div>
+                        <div class="rb-art-card__hover">
+                            <div class="rb-art-card__author">
+                                <div class="rb-art-card__name" data-bind="text: $data.author.name">@postcard.Title</div>
+                            </div>
+                            <div class="rb-art-card__show">@Resources.Open</div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        }
-    </section>
+                </a>
+            }
+        </section>
+    }
 </section>

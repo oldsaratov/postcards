@@ -1,12 +1,13 @@
-﻿@model ContosoUniversity.Models.Postcard
+﻿@using Resourses
+@model PostcardsManager.Models.Postcard
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resources.Edit;
 }
 
 <div class="container">
     <div class="row">
-        <h2>Edit</h2>
+        <h2>@Resources.Edit</h2>
     </div>
     <div class="row">
         @using (Html.BeginForm())
@@ -14,13 +15,13 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Series</h4>
+                <h4>@Resources.Series</h4>
                 <hr/>
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
                 @Html.HiddenFor(model => model.SeriesId)
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Title, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.Title, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
@@ -28,7 +29,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Year, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.Year, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Year, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.Year, "", new {@class = "text-danger"})
@@ -36,38 +37,44 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="PhotographerId">Photographer</label>
+                    @Html.LabelFor(model => model.PhotographerId, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
-                        @Html.DropDownList("PhotographerId", null, htmlAttributes: new {@class = "form-control"})
+                        @Html.DropDownList("PhotographerId", null, new {@class = "form-control"})
                         @Html.ValidationMessageFor(model => model.PhotographerId, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="SeriesId">Series</label>
+                    @Html.LabelFor(model => model.SeriesId, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
-                        @Html.DropDownList("SeriesId", null, htmlAttributes: new {@class = "form-control"})
+                        @Html.DropDownList("SeriesId", null, new {@class = "form-control"})
                         @Html.ValidationMessageFor(model => model.SeriesId, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageLinkFront, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.ImageLinkFront, new {type = "hidden", role = "uploadcare-uploader"})
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="ImageLink">Image</label>
+                    @Html.LabelFor(model => model.ImageLinkBack, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
-                        @Html.EditorFor(m => m.ImageLink, new {htmlAttributes = new {@type = "hidden", @role = "uploadcare-uploader"}})
+                        @Html.EditorFor(m => m.ImageLinkBack, new {type = "hidden", role = "uploadcare-uploader"})
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default"/>
+                        <input type="submit" value="@Resources.Save" class="btn btn-default"/>
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="row">
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink(Resources.BackToList, "Index")
     </div>
 </div>
 

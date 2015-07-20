@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Resourses;
 
-namespace ContosoUniversity.Models
+namespace PostcardsManager.Models
 {
     public class Publisher
     {
@@ -9,7 +10,7 @@ namespace ContosoUniversity.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Name")]
+        [Display(ResourceType = typeof (Resources), Name = "Publisher_Name_Name")]
         public string Name { get; set; }
 
         public virtual ICollection<Series> Series { get; set; }

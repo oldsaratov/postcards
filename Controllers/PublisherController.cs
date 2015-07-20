@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using ContosoUniversity.DAL;
-using ContosoUniversity.Models;
 using System.Data.Entity.Infrastructure;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using PostcardsManager.DAL;
+using PostcardsManager.Models;
+using Resourses;
 
-namespace ContosoUniversity.Controllers
+namespace PostcardsManager.Controllers
 {
     public class PublisherController : Controller
     {
-        private SchoolContext db = new SchoolContext();
-
+        private readonly SchoolContext db = new SchoolContext();
         // GET: Publisher
         public async Task<ActionResult> Index()
         {
@@ -32,12 +28,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            // Commenting out original code to show how to use a raw SQL query.
-            //Publisher Publisher = await db.Publishers.FindAsync(id);
-
-            // Create and execute raw SQL query.
-            string query = "SELECT * FROM Publisher WHERE PublisherID = @p0";
-            Publisher publisher = await db.Publishers.SqlQuery(query, id).SingleOrDefaultAsync();
+            var publisher = db.Publishers.Find(id);
 
             if (publisher == null)
             {
@@ -76,7 +67,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Publisher publisher = await db.Publishers.FindAsync(id);
+            var publisher = await db.Publishers.FindAsync(id);
             if (publisher == null)
             {
                 return HttpNotFound();
@@ -85,8 +76,6 @@ namespace ContosoUniversity.Controllers
         }
 
         // POST: Publisher/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditPost(int? id)
@@ -97,7 +86,7 @@ namespace ContosoUniversity.Controllers
             }
             var studentToUpdate = db.Publishers.Find(id);
             if (TryUpdateModel(studentToUpdate, "",
-                new string[] {"Name"}))
+                new[] {"Name"}))
             {
                 try
                 {
@@ -108,10 +97,11 @@ namespace ContosoUniversity.Controllers
                 catch (RetryLimitExceededException /* dex */)
                 {
                     ModelState.AddModelError("",
-                        "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                        Resources
+                            .PublisherController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
                 }
             }
-            
+
             return View(studentToUpdate);
         }
 
@@ -122,7 +112,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Publisher publisher = await db.Publishers.FindAsync(id);
+            var publisher = await db.Publishers.FindAsync(id);
             if (publisher == null)
             {
                 if (concurrencyError.GetValueOrDefault())
@@ -135,11 +125,11 @@ namespace ContosoUniversity.Controllers
             if (concurrencyError.GetValueOrDefault())
             {
                 ViewBag.ConcurrencyErrorMessage = "The record you attempted to delete "
-                    + "was modified by another user after you got the original values. "
-                    + "The delete operation was canceled and the current values in the "
-                    + "database have been displayed. If you still want to delete this "
-                    + "record, click the Delete button again. Otherwise "
-                    + "click the Back to List hyperlink.";
+                                                  + "was modified by another user after you got the original values. "
+                                                  + "The delete operation was canceled and the current values in the "
+                                                  + "database have been displayed. If you still want to delete this "
+                                                  + "record, click the Delete button again. Otherwise "
+                                                  + "click the Back to List hyperlink.";
             }
 
             return View(publisher);
@@ -158,16 +148,17 @@ namespace ContosoUniversity.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                return RedirectToAction("Delete", new { concurrencyError = true, id = publisher.PublisherId });
+                return RedirectToAction("Delete", new {concurrencyError = true, id = publisher.PublisherId});
             }
             catch (DataException /* dex */)
             {
                 //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
-                ModelState.AddModelError(string.Empty, "Unable to delete. Try again, and if the problem persists contact your system administrator.");
+                ModelState.AddModelError(string.Empty,
+                    Resources
+                        .PublisherController_Delete_Unable_to_delete__Try_again__and_if_the_problem_persists_contact_your_system_administrator_);
                 return View(publisher);
             }
         }
-
 
         protected override void Dispose(bool disposing)
         {

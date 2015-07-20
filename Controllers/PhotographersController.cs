@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using ContosoUniversity.DAL;
-using ContosoUniversity.Models;
 using PagedList;
-using System.Data.Entity.Infrastructure;
+using PostcardsManager.DAL;
+using PostcardsManager.Models;
+using Resourses;
 
-namespace ContosoUniversity.Controllers
+namespace PostcardsManager.Controllers
 {
     public class PhotographersController : Controller
     {
-        private SchoolContext db = new SchoolContext();
-
+        private readonly SchoolContext db = new SchoolContext();
         // GET: Photographer
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
             if (searchString != null)
@@ -36,27 +31,26 @@ namespace ContosoUniversity.Controllers
             ViewBag.CurrentFilter = searchString;
 
             var students = from s in db.Photographers
-                           select s;
-            if (!String.IsNullOrEmpty(searchString))
+                select s;
+            if (!string.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
-                                       || s.FirstName.Contains(searchString));
+                                               || s.FirstName.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
                     students = students.OrderByDescending(s => s.LastName);
                     break;
-                default:  // Name ascending 
+                default: // Name ascending 
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
 
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
+            var pageSize = 3;
+            var pageNumber = (page ?? 1);
             return View(students.ToPagedList(pageNumber, pageSize));
         }
-
 
         // GET: Photographer/Details/5
         public ActionResult Details(int? id)
@@ -65,7 +59,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photographer photographer = db.Photographers.Find(id);
+            var photographer = db.Photographers.Find(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -84,7 +78,7 @@ namespace ContosoUniversity.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LastName, FirstName")]Photographer photographer)
+        public ActionResult Create([Bind(Include = "LastName, FirstName")] Photographer photographer)
         {
             try
             {
@@ -98,11 +92,12 @@ namespace ContosoUniversity.Controllers
             catch (RetryLimitExceededException /* dex */)
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                ModelState.AddModelError("",
+                    Resources
+                        .PhotographersController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists_see_your_system_administrator_);
             }
             return View(photographer);
         }
-
 
         // GET: Photographer/Edit/5
         public ActionResult Edit(int? id)
@@ -111,7 +106,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photographer photographer = db.Photographers.Find(id);
+            var photographer = db.Photographers.Find(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -132,7 +127,7 @@ namespace ContosoUniversity.Controllers
             }
             var studentToUpdate = db.Photographers.Find(id);
             if (TryUpdateModel(studentToUpdate, "",
-               new string[] { "LastName", "FirstName"}))
+                new[] {"LastName", "FirstName"}))
             {
                 try
                 {
@@ -142,7 +137,9 @@ namespace ContosoUniversity.Controllers
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                    ModelState.AddModelError("",
+                        Resources
+                            .PhotographersController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
                 }
             }
             return View(studentToUpdate);
@@ -157,9 +154,10 @@ namespace ContosoUniversity.Controllers
             }
             if (saveChangesError.GetValueOrDefault())
             {
-                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+                ViewBag.ErrorMessage =
+                    "Delete failed. Try again, and if the problem persists see your system administrator.";
             }
-            Photographer photographer = db.Photographers.Find(id);
+            var photographer = db.Photographers.Find(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -174,17 +172,17 @@ namespace ContosoUniversity.Controllers
         {
             try
             {
-                Photographer photographer = db.Photographers.Find(id);
+                var photographer = db.Photographers.Find(id);
                 db.Photographers.Remove(photographer);
                 db.SaveChanges();
             }
-            catch (RetryLimitExceededException/* dex */)
+            catch (RetryLimitExceededException /* dex */)
             {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+                return RedirectToAction("Delete", new {id, saveChangesError = true});
             }
             return RedirectToAction("Index");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,13 +1,8 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.SqlServer;
 
-namespace ContosoUniversity.DAL
+namespace PostcardsManager.DAL
 {
     public class SchoolConfiguration : DbConfiguration
     {
-        public SchoolConfiguration()
-        {
-            
-        }
     }
 }

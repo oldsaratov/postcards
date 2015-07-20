@@ -1,12 +1,17 @@
-﻿@model ContosoUniversity.Models.Postcard
+﻿@using Resourses
+@model PostcardsManager.Models.Postcard
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Resources.Create;
 }
+
+<script>
+    UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+</script>
 
 <div class="container">
     <div class="row">
-        <h2>Create</h2>
+        <h2>@Resources.Create</h2>
     </div>
     <div class="row">
         @using (Html.BeginForm())
@@ -14,20 +19,13 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Postcard</h4>
+                <h4>@Resources.Postcard</h4>
                 <hr/>
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Title, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
-                    </div>
-                </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Year, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.Year, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Year, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.Year, "", new {@class = "text-danger"})
@@ -35,38 +33,103 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="PhotographerId">Photographer</label>
+                    @Html.LabelFor(model => model.PhotographerId, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
-                        @Html.DropDownList("PhotographerId", null, htmlAttributes: new {@class = "form-control"})
+                        @Html.DropDownList("PhotographerId", null, new {@class = "form-control"})
                         @Html.ValidationMessageFor(model => model.PhotographerId, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="SeriesId">Series</label>
+                    @Html.LabelFor(model => model.SeriesId, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
-                        @Html.DropDownList("SeriesId", null, htmlAttributes: new {@class = "form-control"})
+                        @Html.DropDownList("SeriesId", null, new {@class = "form-control"})
                         @Html.ValidationMessageFor(model => model.SeriesId, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="ImageLink">Image</label>
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.ImageLink, new {type = "hidden", role = "uploadcare-uploader"})
+                <fieldset>
+                    <legend>Front image</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageLinkFront, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ImageLinkFront, new {type = "hidden", role = "uploadcare-uploader"})
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FrontTitleFont, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FrontTitleFont, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.FrontTitleFont, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FrontTitleFontColor, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FrontTitleFontColor, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.FrontTitleFontColor, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Back image</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageLinkBack, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ImageLinkBack, new {type = "hidden", role = "uploadcare-uploader"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BackTitlePlace, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BackTitlePlace, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.BackTitlePlace, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BackTitleFont, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BackTitleFont, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.BackTitleFont, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BackTitleFontColor, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BackTitleFontColor, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.BackTitleFontColor, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BackType, new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BackType, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.BackType, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                </fieldset>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default"/>
+                        <input type="submit" value="@Resources.Create" class="btn btn-default btn-lg"/>
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="row">
-         @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink(Resources.BackToList, "Index")
     </div>
 </div>
 

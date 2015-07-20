@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Data.Entity.Infrastructure.Interception;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using ContosoUniversity.DAL;
-using System.Data.Entity.Infrastructure.Interception;
+using PostcardsManager.DAL;
 
-namespace ContosoUniversity
+namespace PostcardsManager
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {

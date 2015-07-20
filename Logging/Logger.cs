@@ -2,11 +2,10 @@
 using System.Diagnostics;
 using System.Text;
 
-namespace ContosoUniversity.Logging
+namespace PostcardsManager.Logging
 {
     public class Logger : ILogger
     {
-
         public void Information(string message)
         {
             Trace.TraceInformation(message);
@@ -61,9 +60,11 @@ namespace ContosoUniversity.Logging
         {
             TraceApi(componentName, method, timespan, string.Format(fmt, vars));
         }
+
         public void TraceApi(string componentName, string method, TimeSpan timespan, string properties)
         {
-            string message = String.Concat("Component:", componentName, ";Method:", method, ";Timespan:", timespan.ToString(), ";Properties:", properties);
+            var message = string.Concat("Component:", componentName, ";Method:", method, ";Timespan:",
+                timespan.ToString(), ";Properties:", properties);
             Trace.TraceInformation(message);
         }
 
@@ -74,7 +75,7 @@ namespace ContosoUniversity.Logging
             var sb = new StringBuilder();
             sb.Append(string.Format(fmt, vars));
             sb.Append(" Exception: ");
-            sb.Append(exception.ToString());
+            sb.Append(exception);
             return sb.ToString();
         }
     }

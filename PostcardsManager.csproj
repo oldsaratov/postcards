@@ -151,29 +151,22 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Migrations\201507190609080_AddTitleYearImageId.cs" />
-    <Compile Include="Migrations\201507190609080_AddTitleYearImageId.Designer.cs">
-      <DependentUpon>201507190609080_AddTitleYearImageId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507190730080_CreateImageLink.cs" />
-    <Compile Include="Migrations\201507190730080_CreateImageLink.Designer.cs">
-      <DependentUpon>201507190730080_CreateImageLink.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507190814299_ModelChanges1.cs" />
-    <Compile Include="Migrations\201507190814299_ModelChanges1.Designer.cs">
-      <DependentUpon>201507190814299_ModelChanges1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Series.cs" />
     <Compile Include="Models\Postcard.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Photographer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\small_logo.png" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\index.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
@@ -182,7 +175,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\postcards.pubxml" />
+    <None Include="Properties\PublishProfiles\postcards1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -240,18 +237,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507190609080_AddTitleYearImageId.resx">
-      <DependentUpon>201507190609080_AddTitleYearImageId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507190730080_CreateImageLink.resx">
-      <DependentUpon>201507190730080_CreateImageLink.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507190814299_ModelChanges1.resx">
-      <DependentUpon>201507190814299_ModelChanges1.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="Resourses\Resourses.csproj">
+      <Project>{9fe93e59-0cd9-4e43-ab58-9a1c0c234e0d}</Project>
+      <Name>Resourses</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,15 +1,15 @@
-﻿@model ContosoUniversity.Models.Photographer
+﻿@model PostcardsManager.Models.Photographer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Resourses.Resources.Details;
 }
 
 <div class="container">
     <div class="row">
-        <h2>Details</h2>
+        <h2>>@Resourses.Resources.Details</h2>
     </div>
     <div class="row">
-        <h4>Photographer</h4>
+        <h4>>@Resourses.Resources.Photographer</h4>
         <hr />
     </div>
     <div class="row">
@@ -29,13 +29,12 @@
             <dd>
                 @Html.DisplayFor(model => model.FirstName)
             </dd>
-
         </dl>
     </div>
     <div class="row">
         <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.PhotographerId }) |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = Model.PhotographerId }) |
+            @Html.ActionLink(Resourses.Resources.BackToList, "Index")
         </p>
     </div>
 </div>

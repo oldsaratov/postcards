@@ -1,28 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using ContosoUniversity.DAL;
-using ContosoUniversity.Models;
+using PostcardsManager.DAL;
+using PostcardsManager.Models;
+using Resourses;
 
-namespace ContosoUniversity.Controllers
+namespace PostcardsManager.Controllers
 {
     public class PostcardsController : Controller
     {
-        private SchoolContext db = new SchoolContext();
-
+        private readonly SchoolContext db = new SchoolContext();
         // GET: Series
         public ActionResult Index(int? selectedSeries, int? selectedPhotographer)
         {
             var series = db.Series;
             ViewBag.SelectedSeries = new SelectList(series, "SeriesId", "Title", selectedSeries);
-            int seriesId = selectedSeries.GetValueOrDefault();
+            var seriesId = selectedSeries.GetValueOrDefault();
 
             var photo = db.Photographers;
             ViewBag.SelectedPhotographers = new SelectList(photo, "PhotographerId", "FullName", selectedPhotographer);
-            int photoId = selectedPhotographer.GetValueOrDefault();
+            var photoId = selectedPhotographer.GetValueOrDefault();
 
             var postcards = db.Postcards
                 .Where(c => !selectedSeries.HasValue || c.SeriesId == seriesId)
@@ -41,14 +40,13 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Postcard postcard = db.Postcards.Find(id);
+            var postcard = db.Postcards.Find(id);
             if (postcard == null)
             {
                 return HttpNotFound();
             }
             return View(postcard);
         }
-
 
         public ActionResult Create()
         {
@@ -59,7 +57,7 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Year,SeriesId,PhotographerId,ImageLink")]Postcard postcard)
+        public ActionResult Create([Bind(Include = "Title,Year,SeriesId,PhotographerId,ImageLink")] Postcard postcard)
         {
             try
             {
@@ -72,7 +70,9 @@ namespace ContosoUniversity.Controllers
             }
             catch (RetryLimitExceededException /* dex */)
             {
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                ModelState.AddModelError("",
+                    Resources
+                        .PostcardsController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
             }
 
             PopulateSeriesDropDownList(postcard.SeriesId);
@@ -86,7 +86,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Postcard postcard = db.Postcards.Find(id);
+            var postcard = db.Postcards.Find(id);
             if (postcard == null)
             {
                 return HttpNotFound();
@@ -105,7 +105,7 @@ namespace ContosoUniversity.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var postcardToUpdate = db.Postcards.Find(id);
-            if (TryUpdateModel(postcardToUpdate, "", new string[] { "Title", "Year", "SeriesId", "PhotographerId", "ImageLink" }))
+            if (TryUpdateModel(postcardToUpdate, "", new[] {"Title", "Year", "SeriesId", "PhotographerId", "ImageLink"}))
             {
                 try
                 {
@@ -115,7 +115,9 @@ namespace ContosoUniversity.Controllers
                 }
                 catch (RetryLimitExceededException)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                    ModelState.AddModelError("",
+                        Resources
+                            .PostcardsController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
                 }
             }
             PopulateSeriesDropDownList(postcardToUpdate.SeriesId);
@@ -127,15 +129,16 @@ namespace ContosoUniversity.Controllers
         private void PopulateSeriesDropDownList(object selectedSeries = null)
         {
             var seriesQuery = from d in db.Series
-                                   select d;
+                select d;
             ViewBag.SeriesID = new SelectList(seriesQuery, "SeriesID", "Title", selectedSeries);
         }
 
         private void PopulatePhotographersDropDownList(object selectedPhotographer = null)
         {
             var photographerQuery = from d in db.Photographers
-                              select d;
-            ViewBag.PhotographerId = new SelectList(photographerQuery, "PhotographerId", "FullName", selectedPhotographer);
+                select d;
+            ViewBag.PhotographerId = new SelectList(photographerQuery, "PhotographerId", "FullName",
+                selectedPhotographer);
         }
 
         // GET: Series/Delete/5
@@ -145,7 +148,7 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Postcard postcard = db.Postcards.Find(id);
+            var postcard = db.Postcards.Find(id);
             if (postcard == null)
             {
                 return HttpNotFound();
@@ -158,7 +161,7 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Postcard series = db.Postcards.Find(id);
+            var series = db.Postcards.Find(id);
             db.Postcards.Remove(series);
             db.SaveChanges();
             return RedirectToAction("Index");

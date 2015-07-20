@@ -1,18 +1,18 @@
-﻿@model ContosoUniversity.Models.Publisher
+﻿@model PostcardsManager.Models.Publisher
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = Resourses.Resources.Delete;
 }
 
 <div class="container">
     <div class="row">
-        <h2>Delete</h2>
+        <h2>@Resourses.Resources.Delete</h2>
     </div>
     <div class="row">
-        <h3>Are you sure you want to delete this?</h3>
+        <h3>@Resourses.Resources.AreYouSureDelete</h3>
     </div>
     <div class="row">
-        <h4>Publisher</h4>
+        <h4>@Resourses.Resources.Publisher</h4>
         <hr />
     </div>
     <div class="row">
@@ -33,8 +33,8 @@
              @Html.HiddenFor(model => model.PublisherId)
 
              <div class="form-actions no-color">
-                 <input type="submit" value="Delete" class="btn btn-default"/> |
-                 @Html.ActionLink("Back to List", "Index")
+                 <input type="submit" value="@Resourses.Resources.Delete" class="btn btn-default" /> |
+                 @Html.ActionLink(Resourses.Resources.BackToList, "Index")
              </div>
          }
     </div>
