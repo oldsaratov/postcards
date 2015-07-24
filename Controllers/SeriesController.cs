@@ -11,7 +11,7 @@ namespace PostcardsManager.Controllers
 {
     public class SeriesController : Controller
     {
-        private readonly SchoolContext db = new SchoolContext();
+        private readonly PostcardContext db = new PostcardContext();
         // GET: Series
         public ActionResult Index(int? selectedPublisher)
         {
@@ -21,7 +21,7 @@ namespace PostcardsManager.Controllers
 
             var series = db.Series
                 .Where(c => !selectedPublisher.HasValue || c.PublisherId == publisherId)
-                .OrderBy(d => d.SeriesId)
+                .OrderBy(d => d.Id)
                 .Include(d => d.Publisher);
 
             return View(series.ToList());
@@ -50,7 +50,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SeriesID,Title,Year,PublisherId")] Series series)
+        public ActionResult Create([Bind(Include = "SeriesID,FrontTitle,Year,PublisherId")] Series series)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace PostcardsManager.Controllers
             }
             var courseToUpdate = db.Series.Find(id);
             if (TryUpdateModel(courseToUpdate, "",
-                new[] {"Title", "Year", "PublisherId"}))
+                new[] {"FrontTitle", "Year", "PublisherId"}))
             {
                 try
                 {

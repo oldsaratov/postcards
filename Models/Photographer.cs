@@ -7,21 +7,22 @@ namespace PostcardsManager.Models
 {
     public class Photographer
     {
-        public int PhotographerId { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(1000)]
         [Display(ResourceType = typeof (Resources), Name = "Photographer_LastName_Last_Name")]
         public string LastName { get; set; }
 
-        [StringLength(50, ErrorMessageResourceType = typeof (Resources),
+        [StringLength(1000, ErrorMessageResourceType = typeof (Resources),
             ErrorMessageResourceName = "Photographer_MiddleName_Middle_name_cannot_be_longer_than_50_characters_")]
         [Column("MiddleName")]
         [Display(ResourceType = typeof (Resources), Name = "Photographer_MiddleName_Middle_Name")]
         public string MiddleName { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessageResourceType = typeof (Resources),
+        [StringLength(1000, ErrorMessageResourceType = typeof (Resources),
             ErrorMessageResourceName = "Photographer_FirstName_First_name_cannot_be_longer_than_50_characters_")]
         [Column("FirstName")]
         [Display(ResourceType = typeof (Resources), Name = "Photographer_FirstName_First_Name")]

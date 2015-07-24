@@ -30,7 +30,7 @@
          @using (Html.BeginForm())
          {
              @Html.AntiForgeryToken()
-             @Html.HiddenFor(model => model.PublisherId)
+             @Html.HiddenFor(model => model.Id)
 
              <div class="form-actions no-color">
                  <input type="submit" value="@Resourses.Resources.Delete" class="btn btn-default" /> |

@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ContosoUniversity</RootNamespace>
-    <AssemblyName>ContosoUniversity</AssemblyName>
+    <RootNamespace>PostcardsManager</RootNamespace>
+    <AssemblyName>PostcardsManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -142,8 +142,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotographersController.cs" />
     <Compile Include="DAL\SchoolConfiguration.cs" />
-    <Compile Include="DAL\SchoolContext.cs" />
-    <Compile Include="DAL\SchoolInitializer.cs" />
+    <Compile Include="DAL\PostcardContext.cs" />
+    <Compile Include="DAL\DatabaseInitializer.cs" />
     <Compile Include="DAL\SchoolInterceptorLogging.cs" />
     <Compile Include="DAL\SchoolInterceptorTransientErrors.cs" />
     <Compile Include="Global.asax.cs">
@@ -152,6 +152,8 @@
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\Series.cs" />
     <Compile Include="Models\Postcard.cs" />
     <Compile Include="Models\Publisher.cs" />
@@ -162,6 +164,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PostcardEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -230,7 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

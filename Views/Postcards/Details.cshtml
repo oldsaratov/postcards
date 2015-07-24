@@ -13,50 +13,70 @@
         <hr/>
     </div>
     <div class="row">
+        
         <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
+            <dt>@Html.DisplayNameFor(model => model.Year)</dt>
+            <dd>@Html.DisplayFor(model => model.Year)</dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Title)
-            </dd>
+            <dt>@Html.DisplayNameFor(model => model.PhotographerId)</dt>
+            <dd>@Html.DisplayFor(model => model.Photographer.FullName)</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SeriesId)
-            </dt>
+            <dt>@Html.DisplayNameFor(model => model.SeriesId)</dt>
+            <dd>@Html.DisplayFor(model => model.Series.Title)</dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Series.Title)
-            </dd>
+            <dt>@Html.DisplayNameFor(model => model.NumberInSeries)</dt>
+            <dd>@Html.DisplayFor(model => model.NumberInSeries)</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.PhotographerId)
-            </dt>
+            <dt>@Html.DisplayNameFor(model => model.PostDate)</dt>
+            <dd>@Html.DisplayFor(model => model.PostDate)</dd>
+        </dl>
+    </div>
+    <div class="row">
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.FrontTitle)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitle)</dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Photographer.FullName)
-            </dd>
+            <dt>@Html.DisplayNameFor(model => model.FrontTitleFont)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitleFont)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.FrontTitleFontColor)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitleFontColor)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitle)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitle)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitleFont)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitleFont)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitleFontColor)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitleFontColor)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitlePlace)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitlePlace)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackType)</dt>
+            <dd>@Html.DisplayFor(model => model.BackType)</dd>
         </dl>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#front" aria-controls="front" role="tab" data-toggle="tab">@Html.DisplayTextFor(model => model.ImageLinkFront)</a></li>
-                <li role="presentation"><a href="#back" aria-controls="back" role="tab" data-toggle="tab">@Html.DisplayTextFor(model => model.ImageLinkBack)</a></li>
+                <li role="presentation" class="active"><a href="#front" aria-controls="front" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageFrontId)</a></li>
+                <li role="presentation"><a href="#back" aria-controls="back" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageBackId)</a></li>
             </ul>
 
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="front">
-                     @if (!string.IsNullOrEmpty(Model.ImageLinkFront))
+                     @if ((Model.ImageFrontId.HasValue))
                      {
-                         <img class="img-responsive" src="@Model.ImageLinkFront" title="@Model.Title" alt="@Model.Title"/>
+                         <img class="img-responsive" src="@Model.ImageFront.Url" title="@Model.FrontTitle" alt="@Model.FrontTitle"/>
                      }
                 </div>
                 <div role="tabpanel" class="tab-pane" id="back">
-                     @if (!string.IsNullOrEmpty(Model.ImageLinkBack))
+                     @if ((Model.ImageBackId.HasValue))
                      {
-                         <img class="img-responsive" src="@Model.ImageLinkBack" title="@Model.Title" alt="@Model.Title"/>
+                         <img class="img-responsive" src="@Model.ImageBack.Url" title="@Model.FrontTitle" alt="@Model.FrontTitle"/>
                      }
                 </div>
             </div>
@@ -65,7 +85,7 @@
     </div>
     <div class="row">
         <p>
-            @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = Model.PostcardId }) |
+            @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = Model.Id }) |
             @Html.ActionLink(Resourses.Resources.BackToList, "Index")
         </p>
     </div>

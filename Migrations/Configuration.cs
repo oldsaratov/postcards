@@ -3,7 +3,7 @@ using PostcardsManager.DAL;
 
 namespace PostcardsManager.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<SchoolContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PostcardContext>
     {
         public Configuration()
         {
@@ -11,7 +11,7 @@ namespace PostcardsManager.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(SchoolContext context)
+        protected override void Seed(PostcardContext context)
         {
         }
     }

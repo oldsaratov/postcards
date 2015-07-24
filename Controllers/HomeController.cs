@@ -1,15 +1,16 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using PostcardsManager.DAL;
 
 namespace PostcardsManager.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly SchoolContext db = new SchoolContext();
+        private readonly PostcardContext db = new PostcardContext();
 
         public ActionResult Index()
         {
-            var postcards = db.Postcards;
+            var postcards = db.Postcards.ToList();
 
             return View(postcards);
         }

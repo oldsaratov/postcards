@@ -12,7 +12,7 @@ namespace PostcardsManager.Controllers
 {
     public class PublisherController : Controller
     {
-        private readonly SchoolContext db = new SchoolContext();
+        private readonly PostcardContext db = new PostcardContext();
         // GET: Publisher
         public async Task<ActionResult> Index()
         {
@@ -148,7 +148,7 @@ namespace PostcardsManager.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                return RedirectToAction("Delete", new {concurrencyError = true, id = publisher.PublisherId});
+                return RedirectToAction("Delete", new {concurrencyError = true, id = publisher.Id});
             }
             catch (DataException /* dex */)
             {

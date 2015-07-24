@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="ContosoUniversity.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PostcardsManager.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="PublicKey" Type="System.String" Scope="Application">
@@ -9,6 +7,9 @@
     </Setting>
     <Setting Name="PrivateKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">demoprivatekey</Value>
+    </Setting>
+    <Setting Name="StorageLimit" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
     </Setting>
   </Settings>
 </SettingsFile>

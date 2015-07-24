@@ -42,9 +42,9 @@
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
                     <td>
-                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.PhotographerId }) |
-                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.PhotographerId }) |
-                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.PhotographerId })
+                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.Id }) |
+                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.Id }) |
+                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }

@@ -26,9 +26,9 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.PublisherId }) |
-                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.PublisherId }) |
-                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.PublisherId })
+                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.Id }) |
+                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.Id }) |
+                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }

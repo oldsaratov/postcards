@@ -11,7 +11,7 @@ namespace PostcardsManager.Controllers
 {
     public class PhotographersController : Controller
     {
-        private readonly SchoolContext db = new SchoolContext();
+        private readonly PostcardContext db = new PostcardContext();
         // GET: Photographer
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {

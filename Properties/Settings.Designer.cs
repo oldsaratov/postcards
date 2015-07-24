@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ContosoUniversity.Properties {
+namespace PostcardsManager.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -38,6 +38,15 @@ namespace ContosoUniversity.Properties {
         public string PrivateKey {
             get {
                 return ((string)(this["PrivateKey"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int StorageLimit {
+            get {
+                return ((int)(this["StorageLimit"]));
             }
         }
     }

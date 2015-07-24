@@ -6,10 +6,11 @@ namespace PostcardsManager.Models
 {
     public class Publisher
     {
-        public int PublisherId { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(1000)]
         [Display(ResourceType = typeof (Resources), Name = "Publisher_Name_Name")]
         public string Name { get; set; }
 
