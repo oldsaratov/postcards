@@ -141,11 +141,8 @@
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotographersController.cs" />
-    <Compile Include="DAL\SchoolConfiguration.cs" />
     <Compile Include="DAL\PostcardContext.cs" />
     <Compile Include="DAL\DatabaseInitializer.cs" />
-    <Compile Include="DAL\SchoolInterceptorLogging.cs" />
-    <Compile Include="DAL\SchoolInterceptorTransientErrors.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +175,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\postcards.pubxml" />
     <None Include="Properties\PublishProfiles\postcards1.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
