@@ -12,6 +12,7 @@ namespace PostcardsManager.Controllers
         private PostcardContext db = new PostcardContext();
 
         // GET: Storages
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Storages.ToList());

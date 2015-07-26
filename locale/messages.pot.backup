@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-07-26 21:24+03:00\n"
+"POT-Creation-Date: 2015-07-26 23:06+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -175,11 +175,8 @@ msgid "Filter"
 msgstr ""
 
 #: Views\Photographers\Index.cshtml:18
-msgid "Find By Name"
-msgstr ""
-
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:18
-msgid "Findc By Name"
+msgid "Find By Name"
 msgstr ""
 
 #: Models\Photographer.cs:25
@@ -287,7 +284,7 @@ msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:39
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:41
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:39
 msgid "Old Saratov postcards"
 msgstr ""
 
@@ -308,7 +305,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:17
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:59
 msgid "Photographers"
 msgstr ""
 
@@ -337,7 +334,7 @@ msgstr ""
 #: Views\Postcards\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:50
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:50
 msgid "Postcards"
 msgstr ""
 
@@ -400,7 +397,7 @@ msgid "Publisher Name cannot be longer than 200 characters"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:53
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:55
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:53
 msgid "Publishers"
 msgstr ""
 
@@ -419,7 +416,7 @@ msgstr ""
 #: Views\Postcards\Index.cshtml:16
 #: Views\Shared\_Layout.cshtml:56
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:16
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:56
 msgid "Series"
 msgstr ""
 
