@@ -15,7 +15,7 @@
         @using (Html.BeginForm("Index", "Photographers", FormMethod.Get))
         {
             <p>
-                [[[Findc By Name]]] @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                [[[Find By Name]]] @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
                 <input type="submit" value="[[[Search]]]" />
             </p>
         }

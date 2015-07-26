@@ -167,7 +167,7 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\PostcardsMigrationConfiguration.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\Series.cs" />

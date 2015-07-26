@@ -3,9 +3,9 @@ using PostcardsManager.DAL;
 
 namespace PostcardsManager.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<PostcardContext>
+    public sealed class PostcardsMigrationConfiguration : DbMigrationsConfiguration<PostcardContext>
     {
-        public Configuration()
+        public PostcardsMigrationConfiguration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
