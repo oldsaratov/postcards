@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.Ajax.Utilities;
-using Resourses;
 
 namespace PostcardsManager.Models
 {
@@ -10,60 +8,61 @@ namespace PostcardsManager.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        [Range(1850, 2015)]
+
+        [Range(1840, 2015)]
+        [Display(Name = "[[[Year]]]")]
         public int? Year { get; set; }
 
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_ImageLinkFront_Image")]
+        [Display(Name = "[[[Front Image]]]")]
         public int? ImageFrontId { get; set; }
 
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_ImageLinkBack_Image")]
+        [Display(Name = "[[[Back Image]]]")]
         public int? ImageBackId { get; set; }
         
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_SeriesId_Series")]
+        [Display(Name = "[[[Series]]]")]
         public int? SeriesId { get; set; }
 
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_PhotographerId_Photographer")]
+        [Display(Name = "[[[Photographer]]]")]
         public int? PhotographerId { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_Title_Title")]
+        [StringLength(200, ErrorMessage = "[[[Front Title cannot be longer than 200 characters]]]")]
+        [Display(Name = "[[[Front Title]]]")]
         public string FrontTitle { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_FrontTitleFont_Front_title_font")]
+        [StringLength(50, ErrorMessage = "[[[Front title font cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Front title font]]]")]
         public string FrontTitleFont { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_FrontTitleFontColor_Front_title_font_color")]
+        [StringLength(50, ErrorMessage = "[[[Front title font color cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Front title font color]]]")]
         public string FrontTitleFontColor { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_Title_Title")]
+        [StringLength(200, ErrorMessage = "[[[Back Title cannot be longer than 200 characters]]]")]
+        [Display(Name = "[[[Back Title]]]")]
         public string BackTitle { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_BackTitleFont_Back_title_font")]
+        [StringLength(50, ErrorMessage = "[[[Back title font cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Back title font]]]")]
         public string BackTitleFont { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_BackTitleFontColor_Back_title_font_color")]
+        [StringLength(50, ErrorMessage = "[[[Back title font color cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Back title font color]]]")]
         public string BackTitleFontColor { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_BackType_Back_type")]
+        [StringLength(50, ErrorMessage = "[[[Back type cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Back type]]]")]
         public string BackType { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_BackTitlePlace_Back_title_place")]
+        [StringLength(50, ErrorMessage = "[[[Back title place cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Back title place]]]")]
         public string BackTitlePlace { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_NumberInSeries_Number_in_series")]
+        [StringLength(3, ErrorMessage = "[[[Number in series cannot be longer than 3 characters]]]"), MaxLength(3)]
+        [Display(Name = "[[[Number in series]]]")]
         public string NumberInSeries { get; set; }
 
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Postcard_PostDate_Post_date")]
+        [StringLength(50, ErrorMessage = "[[[Post date cannot be longer than 30 characters]]]")]
+        [Display(Name = "[[[Post date]]]")]
         public string PostDate { get; set; }
 
         [NotMapped]

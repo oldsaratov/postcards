@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
-using Resourses;
 
 namespace PostcardsManager.Controllers
 {
@@ -51,6 +50,8 @@ namespace PostcardsManager.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive);
+
             PopulateSeriesDropDownList();
             PopulatePhotographersDropDownList();
             return View();
@@ -61,7 +62,7 @@ namespace PostcardsManager.Controllers
         public ActionResult Create(
             [Bind(
                 Include =
-                    "Year, PhotographerId, SeriesId, ImageFrontUrl, FrontTitle, FrontTitleFont, FrontTitleFontColor, ImageBackUrl, BackTitle, BackTitleFont, BackTitleFontColor,B ackTitlePlace, BackType, NumberInSeries, PostDate"
+                    "Year, PhotographerId, SeriesId, ImageFrontUrl, FrontTitle, FrontTitleFont, FrontTitleFontColor, ImageBackUrl, BackTitle, BackTitleFont, BackTitleFontColor, BackTitlePlace, BackType, NumberInSeries, PostDate"
                 )] PostcardEditViewModel postcardVm)
         {
             try
@@ -128,9 +129,7 @@ namespace PostcardsManager.Controllers
             }
             catch (RetryLimitExceededException /* dex */)
             {
-                ModelState.AddModelError("",
-                    Resources
-                        .PostcardsController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
             }
 
             PopulateSeriesDropDownList(postcardVm.SeriesId);
@@ -144,13 +143,17 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             var postcard = db.Postcards.Find(id);
             if (postcard == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive);
             PopulateSeriesDropDownList(postcard.SeriesId);
             PopulatePhotographersDropDownList(postcard.PhotographerId);
+
             return View(postcard);
         }
 
@@ -173,9 +176,7 @@ namespace PostcardsManager.Controllers
                 }
                 catch (RetryLimitExceededException)
                 {
-                    ModelState.AddModelError("",
-                        Resources
-                            .PostcardsController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                    ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
                 }
             }
             PopulateSeriesDropDownList(postcardToUpdate.SeriesId);

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
@@ -64,7 +60,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StorageName,PublicKey,PrivateKey,StorageLimit")] Storage storage)
+        public ActionResult Edit([Bind(Include = "Id,StorageName,PublicKey,PrivateKey,StorageLimit,Enabled")] Storage storage)
         {
             if (ModelState.IsValid)
             {

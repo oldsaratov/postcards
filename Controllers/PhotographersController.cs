@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using PagedList;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using Resourses;

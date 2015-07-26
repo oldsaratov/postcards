@@ -1,9 +1,7 @@
-﻿@using Resourses
-@model IEnumerable<PostcardsManager.Models.Postcard>
-
+﻿@model IEnumerable<PostcardsManager.Models.Postcard>
 
 @{
-    ViewBag.Title = Resources.HomePage;
+    ViewBag.Title = "[[[Main Page]]]";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,10 +11,10 @@
         <div class="container">
             <div class="row">
                 <div class="jumbotron">
-                    <h1>@Resources.EmptyDB</h1>
-                    <p>@Resources.EmptyDBHelp</p>
+                    <h1>[[[No postcards in database!]]]</h1>
+                    <p>[[[First of all, please add publishers, series, postcards and other to database.]]]</p>
                     <p>
-                        <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Postcards")" role="button">@Resources.Add</a>
+                        <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Postcards")" role="button">[[[Add]]]</a>
                     </p>
                 </div>
             </div>
@@ -83,7 +81,7 @@
                             <div class="rb-art-card__author">
                                 <div class="rb-art-card__name" data-bind="text: $data.author.name">@postcard.FrontTitle</div>
                             </div>
-                            <div class="rb-art-card__show">@Resources.Open</div>
+                            <div class="rb-art-card__show">[[[Open]]]</div>
                         </div>
                     </div>
                 </a>

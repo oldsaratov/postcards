@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Resourses;
 
 namespace PostcardsManager.Models
 {
@@ -10,25 +9,23 @@ namespace PostcardsManager.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Photographer_LastName_Last_Name")]
+        [Required(ErrorMessage = "[[[Last name should be defined]]]")]
+        [StringLength(50, ErrorMessage = "[[[Last name cannot be longer than 50 characters]]]")]
+        [Display(Name = "[[[Last Name]]]")]
         public string LastName { get; set; }
 
-        [StringLength(1000, ErrorMessageResourceType = typeof (Resources),
-            ErrorMessageResourceName = "Photographer_MiddleName_Middle_name_cannot_be_longer_than_50_characters_")]
+        [StringLength(50, ErrorMessage = "[[[Middle name cannot be longer than 50 characters]]]")]
         [Column("MiddleName")]
-        [Display(ResourceType = typeof (Resources), Name = "Photographer_MiddleName_Middle_Name")]
+        [Display(Name = "[[[Middle Name]]]]")]
         public string MiddleName { get; set; }
 
-        [Required]
-        [StringLength(1000, ErrorMessageResourceType = typeof (Resources),
-            ErrorMessageResourceName = "Photographer_FirstName_First_name_cannot_be_longer_than_50_characters_")]
+        [Required(ErrorMessage = "[[[First name should be defined]]]")]
+        [StringLength(50, ErrorMessage = "[[[First name cannot be longer than 50 characters]]]")]
         [Column("FirstName")]
-        [Display(ResourceType = typeof (Resources), Name = "Photographer_FirstName_First_Name")]
+        [Display(Name = "[[[First Name]]]")]
         public string FirstName { get; set; }
 
-        [Display(ResourceType = typeof (Resources), Name = "Photographer_FullName_Full_Name")]
+        [Display(Name = "[[[Full Name]]]")]
         public string FullName
         {
             get { return string.Join(" ", LastName, MiddleName, FirstName); }

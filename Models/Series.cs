@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Resourses;
 
 namespace PostcardsManager.Models
 {
@@ -9,11 +8,12 @@ namespace PostcardsManager.Models
         [Key]
         public int Id { get; set; }
 
-        [StringLength(1000)]
+        [Required(ErrorMessage = "[[[Title should be defined]]]")]
+        [StringLength(150, ErrorMessage = "[[[Publisher Name cannot be longer than 150 characters]]]")]
         [Display(Name = "[[[Title]]]")]
         public string Title { get; set; }
 
-        [Range(1850, 2015)]
+        [Range(1840, 2015)]
         [Display(Name = "[[[Year]]]")]
         public int? Year { get; set; }
 

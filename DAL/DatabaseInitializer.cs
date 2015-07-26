@@ -13,7 +13,8 @@ namespace PostcardsManager.DAL
                 PublicKey = Settings.Default.PublicKey,
                 PrivateKey = Settings.Default.PrivateKey,
                 StorageLimit = Settings.Default.StorageLimit,
-                StorageName = "Demo"
+                StorageName = "Demo",
+                Enabled = true
             };
 
             context.Storages.Add(storage);

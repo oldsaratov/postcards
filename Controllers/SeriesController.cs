@@ -16,7 +16,7 @@ namespace PostcardsManager.Controllers
         public ActionResult Index(int? selectedPublisher)
         {
             var publishers = db.Publishers;
-            ViewBag.SelectedPublisher = new SelectList(publishers, "PublisherId", "Name", selectedPublisher);
+            ViewBag.SelectedPublisher = new SelectList(publishers, "Id", "Name", selectedPublisher);
             var publisherId = selectedPublisher.GetValueOrDefault();
 
             var series = db.Series
@@ -117,7 +117,7 @@ namespace PostcardsManager.Controllers
         {
             var publishersQuery = from d in db.Publishers
                 select d;
-            ViewBag.PublisherID = new SelectList(publishersQuery, "PublisherId", "Name", selectedPublisher);
+            ViewBag.PublisherID = new SelectList(publishersQuery, "Id", "Name", selectedPublisher);
         }
 
         // GET: Series/Delete/5
