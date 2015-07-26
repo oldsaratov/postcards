@@ -1,65 +1,103 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-07-26 15:33+03:00\n"
+"POT-Creation-Date: 2015-07-26 15:54+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: i18n.POTGenerator\n"
 
 #: Views\Postcards\Edit.cshtml:130
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:130
 msgid "Back To List"
 msgstr ""
 
 #: Views\Postcards\Edit.cshtml:123
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:123
 msgid "Create"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:10
 msgid "Create new"
 msgstr ""
 
+#: Views\Photographers\Index.cshtml:11
+msgid "Create New"
+msgstr ""
+
+#: Views\Photographers\Index.cshtml:47
 #: Views\Postcards\Index.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:52
 msgid "Delete"
 msgstr ""
 
+#: Views\Photographers\Index.cshtml:46
 #: Views\Postcards\Index.cshtml:51
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:51
 msgid "Details"
 msgstr ""
 
+#: Views\Photographers\Index.cshtml:45
 #: Views\Postcards\Edit.cshtml:4
 #: Views\Postcards\Edit.cshtml:13
 #: Views\Postcards\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:50
 msgid "Edit"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:18
 msgid "Filter"
 msgstr ""
 
+#: Views\Photographers\Index.cshtml:18
+msgid "Findc By Name"
+msgstr ""
+
+#: Views\Photographers\Index.cshtml:30
+msgid "First Name"
+msgstr ""
+
+#: Views\Photographers\Index.cshtml:27
+msgid "Last Name"
+msgstr ""
+
 #: Views\Shared\_Layout.cshtml:41
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:41
 msgid "Old Saratov postcards"
 msgstr ""
 
+#: Views\Photographers\Index.cshtml:4
+#: Views\Photographers\Index.cshtml:9
 #: Views\Postcards\Index.cshtml:17
 #: Views\Shared\_Layout.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:61
 msgid "Photographers"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
 msgid "Poatcards"
 msgstr ""
 
 #: Views\Postcards\Edit.cshtml:21
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:21
 msgid "Postcard"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:52
 msgid "Postcards"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:6
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:6
 msgid "Postcards manager"
 msgstr ""
 
@@ -68,11 +106,18 @@ msgid "Publisher"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:55
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:55
 msgid "Publishers"
+msgstr ""
+
+#: Views\Photographers\Index.cshtml:19
+msgid "Search"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:16
 #: Views\Shared\_Layout.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:16
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:58
 msgid "Series"
 msgstr ""
 

@@ -16,40 +16,37 @@ namespace PostcardsManager.Controllers
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.FNameSortParm = string.IsNullOrEmpty(sortOrder) ? "fname_desc" : "";
+            ViewBag.LNameSortParm = string.IsNullOrEmpty(sortOrder) ? "lname_desc" : "";
 
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
+            if (searchString == null)
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
 
-            var students = from s in db.Photographers
+            var photographers = from s in db.Photographers
                 select s;
             if (!string.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.LastName.Contains(searchString)
+                photographers = photographers.Where(s => s.LastName.Contains(searchString)
                                                || s.FirstName.Contains(searchString));
             }
             switch (sortOrder)
             {
-                case "name_desc":
-                    students = students.OrderByDescending(s => s.LastName);
+                case "lname_desc":
+                    photographers = photographers.OrderByDescending(s => s.LastName);
+                    break;
+                case "fname_desc":
+                    photographers = photographers.OrderByDescending(s => s.FirstName);
                     break;
                 default: // Name ascending 
-                    students = students.OrderBy(s => s.LastName);
+                    photographers = photographers.OrderBy(s => s.LastName);
                     break;
             }
 
-            var pageSize = 3;
-            var pageNumber = (page ?? 1);
-            return View(students.ToPagedList(pageNumber, pageSize));
+            return View(photographers.ToList());
         }
 
         // GET: Photographer/Details/5

@@ -1,22 +1,22 @@
-﻿@model PagedList.IPagedList<PostcardsManager.Models.Photographer>
+﻿@model List<PostcardsManager.Models.Photographer>
 
 @{
-    ViewBag.Title = Resourses.Resources.Photographers;
+    ViewBag.Title = "[[[Photographers]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>@Resourses.Resources.Photographers</h2>
+        <h2>[[[Photographers]]]</h2>
         <p>
-            @Html.ActionLink(Resourses.Resources.CreateNew, "Create")
+            @Html.ActionLink("[[[Create New]]]", "Create")
         </p>
     </div>
     <div class="row">
         @using (Html.BeginForm("Index", "Photographers", FormMethod.Get))
         {
             <p>
-                @Resourses.Resources.FindByName @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-                <input type="submit" value="@Resourses.Resources.Search" />
+                [[[Findc By Name]]] @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="[[[Search]]]" />
             </p>
         }
     </div>
@@ -24,10 +24,10 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.ActionLink(Resourses.Resources.LastName, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    @Html.ActionLink("[[[Last Name]]]", "Index", new { sortOrder = ViewBag.LNameSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
                 <th>
-                    @Resourses.Resources.FirstName
+                    @Html.ActionLink("[[[First Name]]]", "Index", new {sortOrder = ViewBag.FNameSortParm, currentFilter = ViewBag.CurrentFilter})
                 </th>
                 <th></th>
             </tr>
@@ -42,9 +42,9 @@
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
                     <td>
-                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.Id }) |
-                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.Id }) |
-                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.Id })
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Details]]]", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }
