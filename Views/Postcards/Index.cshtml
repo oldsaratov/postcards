@@ -1,24 +1,21 @@
 ﻿@model IEnumerable<PostcardsManager.Models.Postcard>
 
 @{
-    ViewBag.Title = Resourses.Resources.Series;
+    ViewBag.Title = "[[[Poatcards]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>@Resourses.Resources.Postcards</h2>
-
-        <p>
-            @Html.ActionLink(Resourses.Resources.CreateNew, "Create")
-        </p>
+        <h2>[[[Postcards]]]</h2>
+        <p>@Html.ActionLink("[[[Create new]]]", "Create")</p>
     </div>
     <div class="row">
         @using (Html.BeginForm())
         {
             <p>
-                @Resourses.Resources.SelectSeries @Html.DropDownList("SelectedSeries", "All")
-                @Resourses.Resources.SelectPhotographer @Html.DropDownList("SelectedPhotographers", "All")
-                <input class="btn btn-lg" type="submit" value="@Resourses.Resources.Filter" />
+                [[[Series]]] @Html.DropDownList("SelectedSeries", "All")
+                [[[Photographers]]] @Html.DropDownList("SelectedPhotographers", "All")
+                <input class="btn btn-lg" type="submit" value="[[[Filter]]]" />
             </p>
         }
     </div>
@@ -50,9 +47,9 @@
                         @Html.DisplayFor(modelItem => item.Photographer.FullName)
                     </td>
                     <td>
-                        @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = item.Id }) |
-                        @Html.ActionLink(Resourses.Resources.Details, "Details", new { id = item.Id }) |
-                        @Html.ActionLink(Resourses.Resources.Delete, "Delete", new { id = item.Id })
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Details]]]", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }

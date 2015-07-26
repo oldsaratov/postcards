@@ -1,13 +1,16 @@
-﻿@using Resourses
-@model PostcardsManager.Models.Postcard
+﻿@model PostcardsManager.Models.Postcard
 
 @{
-    ViewBag.Title = Resources.Edit;
+    ViewBag.Title = "[[[Edit]]]";
 }
+
+<script>
+    UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+</script>
 
 <div class="container">
     <div class="row">
-        <h2>@Resources.Edit</h2>
+        <h2>[[[Edit]]]</h2>
     </div>
     <div class="row">
         @using (Html.BeginForm())
@@ -15,10 +18,9 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>@Resources.Postcard</h4>
+                <h4>[[[Postcard]]]</h4>
                 <hr/>
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Year, new {@class = "control-label col-md-2"})
@@ -118,14 +120,14 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="@Resources.Create" class="btn btn-default btn-lg"/>
+                        <input type="submit" value="[[[Create]]]" class="btn btn-default btn-lg"/>
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="row">
-        @Html.ActionLink(Resources.BackToList, "Index")
+        @Html.ActionLink("[[[Back To List]]]", "Index")
     </div>
 </div>
 

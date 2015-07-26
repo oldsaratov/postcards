@@ -10,14 +10,14 @@ namespace PostcardsManager.Models
         public int Id { get; set; }
 
         [StringLength(1000)]
-        [Display(ResourceType = typeof (Resources), Name = "Series_Title_Title")]
+        [Display(Name = "[[[Title]]]")]
         public string Title { get; set; }
 
         [Range(1850, 2015)]
-        [Display(ResourceType = typeof (Resources), Name = "Series_Year_Year")]
+        [Display(Name = "[[[Year]]]")]
         public int? Year { get; set; }
 
-        [Display(ResourceType = typeof (Resources), Name = "Series_PublisherId_Publisher")]
+        [Display(Name = "[[[Publisher]]]")]
         public int? PublisherId { get; set; }
 
         public virtual Publisher Publisher { get; set; }

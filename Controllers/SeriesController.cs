@@ -50,7 +50,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SeriesID,FrontTitle,Year,PublisherId")] Series series)
+        public ActionResult Create([Bind(Include = "SeriesId,Title,Year,PublisherId")] Series series)
         {
             try
             {
@@ -63,10 +63,7 @@ namespace PostcardsManager.Controllers
             }
             catch (RetryLimitExceededException /* dex */)
             {
-                //Log the error (uncomment dex variable name and add a line here to write a log.)
-                ModelState.AddModelError("",
-                    Resources
-                        .SeriesController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
             }
             PopulatePublishersDropDownList(series.PublisherId);
             return View(series);
@@ -97,7 +94,7 @@ namespace PostcardsManager.Controllers
             }
             var courseToUpdate = db.Series.Find(id);
             if (TryUpdateModel(courseToUpdate, "",
-                new[] {"FrontTitle", "Year", "PublisherId"}))
+                new[] {"Title", "Year", "PublisherId"}))
             {
                 try
                 {
@@ -120,7 +117,7 @@ namespace PostcardsManager.Controllers
         {
             var publishersQuery = from d in db.Publishers
                 select d;
-            ViewBag.PublisherID = new SelectList(publishersQuery, "PublisherID", "Name", selectedPublisher);
+            ViewBag.PublisherID = new SelectList(publishersQuery, "PublisherId", "Name", selectedPublisher);
         }
 
         // GET: Series/Delete/5

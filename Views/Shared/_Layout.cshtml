@@ -1,10 +1,9 @@
-﻿@using Resourses
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - @Resources.PostcardsManager</title>
+    <title>@ViewBag.Title - [[[Postcards manager]]]</title>
     @Styles.Render("~/Content/indexcss")
     @Scripts.Render("~/bundles/modernizr")
     <script type="text/javascript">
@@ -29,6 +28,8 @@
         window.appInsights = appInsights;
         appInsights.trackPageView();
     </script>
+    <script type="text/javascript">window.liveSettings = { api_key: "786354c9cf5143a39f85d07e7975e3e8" };</script>
+    <script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
 </head>
 <body>
 <div class="rb-page-content" data-role="page-content">
@@ -37,7 +38,7 @@
             <div class="rb-art-header__item -logo">
                 <a class="rb-logo" href="/">
                     <div class="rb-logo__img"></div>
-                    <div class="rb-logo__name">@Resources.BrandName</div>
+                    <div class="rb-logo__name">[[[Old Saratov postcards]]]</div>
                 </a>
             </div>
             <div class="rb-art-header__menu">
@@ -48,16 +49,16 @@
             <div class="rb-art-header__sidebar">
                 <div class="rb-art-header__item -menu">
                     <div class="rb-art-menu__item">
-                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Postcards")">@Resources.Postcards</a>
+                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Postcards")">[[[Postcards]]]</a>
                     </div>
                     <div class="rb-art-menu__item">
-                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Publisher")">@Resources.Publishers</a>
+                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Publisher")">[[[Publishers]]]</a>
                     </div>
                     <div class="rb-art-menu__item">
-                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Series")">@Resources.Series</a>
+                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Series")">[[[Series]]]</a>
                     </div>
                     <div class="rb-art-menu__item">
-                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Photographers")">@Resources.Photographers</a>
+                        <a class="rb-art-menu__link" href="@Url.Action("Index", "Photographers")">[[[Photographers]]]</a>
                     </div>
                 </div>
             </div>

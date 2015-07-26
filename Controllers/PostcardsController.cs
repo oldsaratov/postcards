@@ -17,11 +17,11 @@ namespace PostcardsManager.Controllers
         public ActionResult Index(int? selectedSeries, int? selectedPhotographer)
         {
             var series = db.Series;
-            ViewBag.SelectedSeries = new SelectList(series, "SeriesId", "FrontTitle", selectedSeries);
+            ViewBag.SelectedSeries = new SelectList(series, "Id", "Title", selectedSeries);
             var seriesId = selectedSeries.GetValueOrDefault();
 
             var photo = db.Photographers;
-            ViewBag.SelectedPhotographers = new SelectList(photo, "PhotographerId", "FullName", selectedPhotographer);
+            ViewBag.SelectedPhotographers = new SelectList(photo, "Id", "FullName", selectedPhotographer);
             var photoId = selectedPhotographer.GetValueOrDefault();
 
             var postcards = db.Postcards
@@ -188,14 +188,14 @@ namespace PostcardsManager.Controllers
         {
             var seriesQuery = from d in db.Series
                 select d;
-            ViewBag.SeriesID = new SelectList(seriesQuery, "SeriesID", "FrontTitle", selectedSeries);
+            ViewBag.SeriesId = new SelectList(seriesQuery, "Id", "Title", selectedSeries);
         }
 
         private void PopulatePhotographersDropDownList(object selectedPhotographer = null)
         {
             var photographerQuery = from d in db.Photographers
                 select d;
-            ViewBag.PhotographerId = new SelectList(photographerQuery, "PhotographerId", "FullName",
+            ViewBag.PhotographerId = new SelectList(photographerQuery, "Id", "FullName",
                 selectedPhotographer);
         }
 

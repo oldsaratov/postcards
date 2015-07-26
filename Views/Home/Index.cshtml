@@ -70,7 +70,14 @@
                     <div class="rb-art-card__wrap">
                         <div class="rb-art-card__loader"></div>
                         <div class="rb-art-card__back">
-                            <img height="226" width="360" src="@postcard.ImageFront.Url">
+                            @if (postcard.ImageFront != null)
+                            {
+                                <img height="226" width="360" src="@postcard.ImageFront.Url" alt="@postcard.FrontTitle">
+                            }
+                            else
+                            {
+                                <img height="226" width="360" src="" alt="@postcard.FrontTitle">
+                            }
                         </div>
                         <div class="rb-art-card__hover">
                             <div class="rb-art-card__author">

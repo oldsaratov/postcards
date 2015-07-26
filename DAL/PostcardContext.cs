@@ -15,7 +15,7 @@ namespace PostcardsManager.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Series>()
-                .HasRequired(h => h.Publisher)
+                .HasOptional(h => h.Publisher)
                 .WithMany(w => w.Series)
                 .HasForeignKey(k => k.PublisherId);
 
