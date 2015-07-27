@@ -50,7 +50,7 @@ namespace PostcardsManager.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive);
+            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
 
             PopulateSeriesDropDownList();
             PopulatePhotographersDropDownList();
@@ -150,7 +150,7 @@ namespace PostcardsManager.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive);
+            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
             PopulateSeriesDropDownList(postcard.SeriesId);
             PopulatePhotographersDropDownList(postcard.PhotographerId);
 
