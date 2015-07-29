@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
+using UploadcareCSharp.Url;
 
 namespace PostcardsManager.Controllers
 {
@@ -45,6 +47,13 @@ namespace PostcardsManager.Controllers
             {
                 return HttpNotFound();
             }
+
+            postcard.ImageFront.Url =
+                Urls.Cdn(new CdnPathBuilder(postcard.ImageFrontUniqId).ResizeHeight(400)).OriginalString;
+
+            postcard.ImageBack.Url =
+                Urls.Cdn(new CdnPathBuilder(postcard.ImageBackUniqId).ResizeHeight(400)).OriginalString;
+
             return View(postcard);
         }
 
@@ -77,7 +86,8 @@ namespace PostcardsManager.Controllers
                         imageFront = new Image
                         {
                             StorageId = storage.Id,
-                            Url = postcardVm.ImageFrontUrl
+                            Url = postcardVm.ImageFrontUrl,
+                            UniqImageId = GetUniqIdFromUrl(postcardVm.ImageFrontUrl)
                         };
                         
                         db.Images.Add(imageFront);
@@ -89,7 +99,8 @@ namespace PostcardsManager.Controllers
                         imageBack = new Image
                         {
                             StorageId = storage.Id,
-                            Url = postcardVm.ImageBackUrl
+                            Url = postcardVm.ImageBackUrl,
+                            UniqImageId = GetUniqIdFromUrl(postcardVm.ImageBackUrl)
                         };
 
                         db.Images.Add(imageBack);
@@ -135,6 +146,13 @@ namespace PostcardsManager.Controllers
             PopulateSeriesDropDownList(postcardVm.SeriesId);
             PopulatePhotographersDropDownList(postcardVm.PhotographerId);
             return View(postcardVm);
+        }
+
+        private static Guid GetUniqIdFromUrl(string url)
+        {
+            var lastPart = url.Split('/').Last(l => l.Length > 0);
+            
+            return new Guid(lastPart);
         }
 
         public ActionResult Edit(int? id)

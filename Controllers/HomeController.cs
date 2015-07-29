@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using PostcardsManager.DAL;
+using PostcardsManager.ViewModels;
+using UploadcareCSharp.Url;
 
 namespace PostcardsManager.Controllers
 {
@@ -10,7 +13,12 @@ namespace PostcardsManager.Controllers
 
         public ActionResult Index()
         {
-            var postcards = db.Postcards.ToList();
+            var postcards = db.Postcards.ToList().Select(p => new PostcardMainPageViewModel
+            {
+                Id = p.Id,
+                ImageFrontUrl = Urls.Cdn(new CdnPathBuilder(p.ImageFrontUniqId).Resize(360, 226)).OriginalString,
+                FrontTitle = p.FrontTitle
+            });
 
             return View(postcards);
         }

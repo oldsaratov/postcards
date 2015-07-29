@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-07-27 21:31+03:00\n"
+"POT-Creation-Date: 2015-07-29 21:09+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -468,8 +468,8 @@ msgstr ""
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:132
-#: Controllers\PostcardsController.cs:179
+#: Controllers\PostcardsController.cs:143
+#: Controllers\PostcardsController.cs:197
 #: Controllers\SeriesController.cs:66
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr ""

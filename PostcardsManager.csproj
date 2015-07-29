@@ -147,8 +147,9 @@
       <Private>True</Private>
       <HintPath>packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="UploadcareCSharp">
-      <HintPath>packages\UploadcareCSharp.0.3.0\lib\UploadcareCSharp.dll</HintPath>
+    <Reference Include="UploadcareCSharp, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\uploadcare-csharp\UploadcareCSharp\bin\Release\UploadcareCSharp.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -189,6 +190,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="ViewModels\PostcardMainPageViewModel.cs" />
     <Compile Include="ViewModels\PostcardEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

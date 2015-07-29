@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PostcardsManager.Models.Postcard>
+﻿@model IEnumerable<PostcardsManager.ViewModels.PostcardMainPageViewModel>
 
 @{
     ViewBag.Title = "[[[Main Page]]]";
@@ -68,9 +68,9 @@
                     <div class="rb-art-card__wrap">
                         <div class="rb-art-card__loader"></div>
                         <div class="rb-art-card__back">
-                            @if (postcard.ImageFront != null)
+                            @if (postcard.ImageFrontUrl != null)
                             {
-                                <img height="226" width="360" src="@postcard.ImageFront.Url" alt="@postcard.FrontTitle">
+                                <img height="226" width="360" src="@postcard.ImageFrontUrl" alt="@postcard.FrontTitle">
                             }
                             else
                             {
