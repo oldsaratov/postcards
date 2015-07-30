@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
+using UploadcareCSharp.API;
 using UploadcareCSharp.Url;
 
 namespace PostcardsManager.Controllers
@@ -79,23 +80,27 @@ namespace PostcardsManager.Controllers
                 if (ModelState.IsValid)
                 {
                     var storage = db.Storages.ToList().First(s => s.IsActive);
+                    var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                     Image imageFront = null;
                     if (postcardVm.ImageFrontUrl != null)
                     {
+                        var imageId = GetUniqIdFromUrl(postcardVm.ImageFrontUrl);
                         imageFront = new Image
                         {
                             StorageId = storage.Id,
                             Url = postcardVm.ImageFrontUrl,
-                            UniqImageId = GetUniqIdFromUrl(postcardVm.ImageFrontUrl)
+                            UniqImageId = imageId
                         };
-                        
+
                         db.Images.Add(imageFront);
+                        client.SaveFile(imageId);
                     }
 
                     Image imageBack = null;
                     if (postcardVm.ImageBackUrl != null)
                     {
+                        var imageId = GetUniqIdFromUrl(postcardVm.ImageBackUrl);
                         imageBack = new Image
                         {
                             StorageId = storage.Id,
@@ -104,6 +109,7 @@ namespace PostcardsManager.Controllers
                         };
 
                         db.Images.Add(imageBack);
+                        client.SaveFile(imageId);
                     }
 
                     var postcard = new Postcard
@@ -140,7 +146,8 @@ namespace PostcardsManager.Controllers
             }
             catch (RetryLimitExceededException /* dex */)
             {
-                ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
+                ModelState.AddModelError("",
+                    "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
             }
 
             PopulateSeriesDropDownList(postcardVm.SeriesId);
@@ -151,7 +158,7 @@ namespace PostcardsManager.Controllers
         private static Guid GetUniqIdFromUrl(string url)
         {
             var lastPart = url.Split('/').Last(l => l.Length > 0);
-            
+
             return new Guid(lastPart);
         }
 
@@ -161,7 +168,7 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             var postcard = db.Postcards.Find(id);
             if (postcard == null)
             {
@@ -184,7 +191,8 @@ namespace PostcardsManager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var postcardToUpdate = db.Postcards.Find(id);
-            if (TryUpdateModel(postcardToUpdate, "", new[] {"FrontTitle", "Year", "SeriesId", "PhotographerId", "ImageLink"}))
+            if (TryUpdateModel(postcardToUpdate, "",
+                new[] {"FrontTitle", "Year", "SeriesId", "PhotographerId", "ImageLink"}))
             {
                 try
                 {
@@ -194,7 +202,8 @@ namespace PostcardsManager.Controllers
                 }
                 catch (RetryLimitExceededException)
                 {
-                    ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
+                    ModelState.AddModelError("",
+                        "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
                 }
             }
             PopulateSeriesDropDownList(postcardToUpdate.SeriesId);
@@ -238,9 +247,35 @@ namespace PostcardsManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var series = db.Postcards.Find(id);
-            db.Postcards.Remove(series);
-            db.SaveChanges();
+            var postcard = db.Postcards.Find(id);
+            try
+            {
+                db.Postcards.Remove(postcard);
+                if (postcard.ImageFront != null)
+                {
+                    db.Images.Remove(postcard.ImageFront);
+                }
+                if (postcard.ImageBack != null)
+                {
+                    db.Images.Remove(postcard.ImageBack);
+                }
+
+                db.SaveChanges();
+
+                var storage = db.Storages.ToList().First(s => s.IsActive);
+                var client = new Client(storage.PublicKey, storage.PrivateKey);
+
+                if (postcard.ImageFront != null)
+                    client.DeleteFile(postcard.ImageFront.UniqImageId);
+
+                if (postcard.ImageBack != null)
+                    client.DeleteFile(postcard.ImageBack.UniqImageId);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("",
+                    "[[[Unable to delete. Try again, and if the problem persists, see your system administrator.]]]");
+            }
             return RedirectToAction("Index");
         }
 
