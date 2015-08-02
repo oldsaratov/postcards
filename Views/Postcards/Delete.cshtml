@@ -1,19 +1,18 @@
-﻿@using Resourses
-@model PostcardsManager.Models.Postcard
+﻿@model PostcardsManager.Models.Postcard
 
 @{
-    ViewBag.Title = Resources.Delete;
+    ViewBag.Title = "[[[Delete]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>@Resources.Delete</h2>
+        <h2>[[[Delete]]]</h2>
     </div>
     <div class="row">
-        <h3>@Resources.AreYouSureDelete</h3>
+        <h3>[[[Are you sure you want to delete this?]]]</h3>
     </div>
     <div class="row">
-        <h4>@Resources.Postcard</h4>
+        <h4>[[[Postcard]]]</h4>
         <hr/>
     </div>
     <div class="row">
@@ -57,8 +56,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="@Resources.Delete" class="btn btn-default"/> |
-                @Html.ActionLink(Resources.BackToList, "Index")
+                <input type="submit" value="[[[Delete]]]" class="btn btn-default"/> |
+                @Html.ActionLink("[[[Back To List]]]", "Index")
             </div>
         }
     </div>

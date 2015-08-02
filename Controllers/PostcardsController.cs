@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
@@ -49,11 +50,17 @@ namespace PostcardsManager.Controllers
                 return HttpNotFound();
             }
 
-            postcard.ImageFront.Url =
-                Urls.Cdn(new CdnPathBuilder(postcard.ImageFrontUniqId).ResizeHeight(400)).OriginalString;
+            if (postcard.ImageFront != null)
+            {
+                postcard.ImageFront.Url =
+                    Urls.Cdn(new CdnPathBuilder(postcard.ImageFrontUniqId).ResizeHeight(400)).OriginalString;
+            }
 
-            postcard.ImageBack.Url =
-                Urls.Cdn(new CdnPathBuilder(postcard.ImageBackUniqId).ResizeHeight(400)).OriginalString;
+            if (postcard.ImageBack != null)
+            {
+                postcard.ImageBack.Url =
+                    Urls.Cdn(new CdnPathBuilder(postcard.ImageBackUniqId).ResizeHeight(400)).OriginalString;
+            }
 
             return View(postcard);
         }
@@ -72,7 +79,7 @@ namespace PostcardsManager.Controllers
         public ActionResult Create(
             [Bind(
                 Include =
-                    "Year, PhotographerId, SeriesId, ImageFrontUrl, FrontTitle, FrontTitleFont, FrontTitleFontColor, ImageBackUrl, BackTitle, BackTitleFont, BackTitleFontColor, BackTitlePlace, BackType, NumberInSeries, PostDate"
+                    "Year, PhotographerId, SeriesId, ImageFrontUrl, FrontTitle, FrontTitleFont, FrontTitleFontColor, ImageBackUrl, BackTitle, BackTitleFont, BackTitleFontColor, BackTitlePlace, BackType, NumberInSeries, PostDate, PublishPlace"
                 )] PostcardEditViewModel postcardVm)
         {
             try
@@ -126,7 +133,8 @@ namespace PostcardsManager.Controllers
                         BackTitlePlace = postcardVm.BackTitlePlace,
                         BackType = postcardVm.BackType,
                         NumberInSeries = postcardVm.NumberInSeries,
-                        PostDate = postcardVm.PostDate
+                        PostDate = postcardVm.PostDate,
+                        PublishPlace = postcardVm.PublishPlace
                     };
 
                     if (imageFront != null)
@@ -175,41 +183,154 @@ namespace PostcardsManager.Controllers
                 return HttpNotFound();
             }
 
+            var postcardVm = new PostcardEditViewModel
+            {
+                Id = postcard.Id,
+                Year = postcard.Year,
+                PhotographerId = postcard.PhotographerId,
+                SeriesId = postcard.SeriesId,
+                FrontTitle = postcard.FrontTitle,
+                FrontTitleFont = postcard.FrontTitleFont,
+                FrontTitleFontColor = postcard.FrontTitleFontColor,
+                BackTitle = postcard.BackTitle,
+                BackTitleFont = postcard.BackTitleFont,
+                BackTitleFontColor = postcard.BackTitleFontColor,
+                BackTitlePlace = postcard.BackTitlePlace,
+                BackType = postcard.BackType,
+                NumberInSeries = postcard.NumberInSeries,
+                PostDate = postcard.PostDate,
+            };
+
+            if (postcard.ImageFront != null)
+                postcardVm.ImageFrontUrl = postcard.ImageFront.UniqImageId.ToString();
+
+            if (postcard.ImageBack != null)
+                postcardVm.ImageBackUrl = postcard.ImageBack.UniqImageId.ToString();
+
             ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
             PopulateSeriesDropDownList(postcard.SeriesId);
             PopulatePhotographersDropDownList(postcard.PhotographerId);
 
-            return View(postcard);
+            return View(postcardVm);
         }
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult EditPost(
+            [Bind(
+                Include =
+                    "Id, Year, PhotographerId, SeriesId, ImageFrontUrl, FrontTitle, FrontTitleFont, FrontTitleFontColor, ImageBackUrl, BackTitle, BackTitleFont, BackTitleFontColor, BackTitlePlace, BackType, NumberInSeries, PostDate, PublishPlace"
+                )] PostcardEditViewModel postcardVm)
         {
-            if (id == null)
+            if (postcardVm.Id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var postcardToUpdate = db.Postcards.Find(id);
-            if (TryUpdateModel(postcardToUpdate, "",
-                new[] {"FrontTitle", "Year", "SeriesId", "PhotographerId", "ImageLink"}))
-            {
-                try
-                {
-                    db.SaveChanges();
+            var postcardToUpdate = db.Postcards.Find(postcardVm.Id);
 
-                    return RedirectToAction("Index");
-                }
-                catch (RetryLimitExceededException)
+            try
+            {
+                var storage = db.Storages.ToList().First(s => s.IsActive);
+                var client = new Client(storage.PublicKey, storage.PrivateKey);
+
+                var oldFrontImage = postcardToUpdate.ImageFrontUniqId;
+                var oldBackImage = postcardToUpdate.ImageBackUniqId;
+
+                Image imageFront = null;
+                if (postcardVm.ImageFrontUrl != null)
                 {
-                    ModelState.AddModelError("",
-                        "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
+                    var imageId = GetUniqIdFromUrl(postcardVm.ImageFrontUrl);
+                    imageFront = new Image
+                    {
+                        StorageId = storage.Id,
+                        Url = postcardVm.ImageFrontUrl,
+                        UniqImageId = imageId
+                    };
+
+                    db.Images.Add(imageFront);
+                    client.SaveFile(imageId);
                 }
+
+                Image imageBack = null;
+                if (postcardVm.ImageBackUrl != null)
+                {
+                    var imageId = GetUniqIdFromUrl(postcardVm.ImageBackUrl);
+                    imageBack = new Image
+                    {
+                        StorageId = storage.Id,
+                        Url = postcardVm.ImageBackUrl,
+                        UniqImageId = imageId
+                    };
+
+                    db.Images.Add(imageBack);
+                    client.SaveFile(imageId);
+                }
+
+                postcardToUpdate.Year = postcardVm.Year;
+                postcardToUpdate.PhotographerId = postcardVm.PhotographerId;
+                postcardToUpdate.SeriesId = postcardVm.SeriesId;
+                postcardToUpdate.FrontTitle = postcardVm.FrontTitle;
+                postcardToUpdate.FrontTitleFont = postcardVm.FrontTitleFont;
+                postcardToUpdate.FrontTitleFontColor = postcardVm.FrontTitleFontColor;
+                postcardToUpdate.BackTitle = postcardVm.BackTitle;
+                postcardToUpdate.BackTitleFont = postcardVm.BackTitleFont;
+                postcardToUpdate.BackTitleFontColor = postcardVm.BackTitleFontColor;
+                postcardToUpdate.BackTitlePlace = postcardVm.BackTitlePlace;
+                postcardToUpdate.BackType = postcardVm.BackType;
+                postcardToUpdate.NumberInSeries = postcardVm.NumberInSeries;
+                postcardToUpdate.PostDate = postcardVm.PostDate;
+                postcardToUpdate.PublishPlace = postcardVm.PublishPlace;
+
+                if (imageFront != null)
+                {
+                    postcardToUpdate.ImageFront = imageFront;
+                }
+                if (imageBack != null)
+                {
+                    postcardToUpdate.ImageBack = imageBack;
+                }
+
+                db.SaveChanges();
+
+                if (imageFront != null)
+                {
+                    if (oldFrontImage != Guid.Empty && oldFrontImage != postcardToUpdate.ImageFront.UniqImageId)
+                        client.DeleteFile(oldFrontImage);
+                }
+                else
+                {
+                    if (oldFrontImage != Guid.Empty)
+                        client.DeleteFile(oldFrontImage);
+                }
+
+                if (imageBack != null)
+                {
+                    if (oldBackImage != Guid.Empty && oldBackImage != postcardToUpdate.ImageBack.UniqImageId)
+                        client.DeleteFile(oldBackImage);
+                }
+                else
+                {
+                    if (oldBackImage != Guid.Empty)
+                        client.DeleteFile(oldBackImage);
+                }
+
+                return RedirectToAction("Index");
             }
+            catch (SEHException ex)
+            {
+                ModelState.AddModelError("",
+                    "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("",
+                    "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
+            }
+
             PopulateSeriesDropDownList(postcardToUpdate.SeriesId);
             PopulatePhotographersDropDownList(postcardToUpdate.PhotographerId);
 
-            return View(postcardToUpdate);
+            return View(postcardVm);
         }
 
         private void PopulateSeriesDropDownList(object selectedSeries = null)
@@ -250,26 +371,29 @@ namespace PostcardsManager.Controllers
             var postcard = db.Postcards.Find(id);
             try
             {
-                db.Postcards.Remove(postcard);
+                var imageFrontId = Guid.Empty;
                 if (postcard.ImageFront != null)
                 {
-                    db.Images.Remove(postcard.ImageFront);
+                    imageFrontId = postcard.ImageFront.UniqImageId;
                 }
+                
+                var imageBackId = Guid.Empty;
                 if (postcard.ImageBack != null)
                 {
-                    db.Images.Remove(postcard.ImageBack);
+                    imageBackId = postcard.ImageBack.UniqImageId;
                 }
 
+                db.Postcards.Remove(postcard);
                 db.SaveChanges();
 
                 var storage = db.Storages.ToList().First(s => s.IsActive);
                 var client = new Client(storage.PublicKey, storage.PrivateKey);
 
-                if (postcard.ImageFront != null)
-                    client.DeleteFile(postcard.ImageFront.UniqImageId);
+                if (imageFrontId != Guid.Empty)
+                    client.DeleteFile(imageFrontId);
 
-                if (postcard.ImageBack != null)
-                    client.DeleteFile(postcard.ImageBack.UniqImageId);
+                if (imageBackId != Guid.Empty)
+                    client.DeleteFile(imageBackId);
             }
             catch (Exception)
             {

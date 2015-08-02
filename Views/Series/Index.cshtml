@@ -1,109 +1,65 @@
-﻿@using Resourses
-@model IEnumerable<PostcardsManager.Models.Series>
-
+﻿@model IEnumerable<PostcardsManager.Models.Series>
 
 @{
-    ViewBag.Title = Resources.Series;
+    ViewBag.Title = "[[[Series]]]";
 }
 
-
 <div class="container">
-
     <div class="row">
-
-        <h2>@Resources.Series</h2>
-
-
+        <h2>[[[Series]]]</h2>
         <p>
-
-            @Html.ActionLink(Resources.CreateNew, "Create")
+            @Html.ActionLink("[[[Create New]]]", "Create")
         </p>
-
     </div>
 
     <div class="row">
-
         @using (Html.BeginForm())
         {
             <p>
-
-                @Resources.SelectPublisher @Html.DropDownList("SelectedPublisher", "All")
-                <input class="btn btn-lg" type="submit" value="@Resources.Filter"/>
-
+                [[[Select Publisher]]] @Html.DropDownList("SelectedPublisher", "All")
+                <input class="btn btn-lg" type="submit" value="[[[Filter]]]"/>
             </p>
         }
     </div>
 
     <div class="row">
-
         <table class="table">
-
             <tr>
-
                 <th>
-
                     @Html.DisplayNameFor(model => model.Title)
                 </th>
-
                 <th>
-
                     @Html.DisplayNameFor(model => model.Year)
                 </th>
-
                 <th>
-
                     @Html.DisplayNameFor(model => model.PublisherId)
                 </th>
-
-                <th>
-
-                    @Resources.Count
-                </th>
-
+                <th>[[[Count]]]</th>
                 <th></th>
-
             </tr>
-
 
             @foreach (var item in Model)
             {
                 <tr>
-
                     <td>
-
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
-
                     <td>
-
                         @Html.DisplayFor(modelItem => item.Year)
                     </td>
-
                     <td>
-
                         @Html.DisplayFor(modelItem => item.Publisher.Name)
                     </td>
-
                     <td>
-
                         @Html.DisplayFor(model => item.Postcards.Count)
                     </td>
-
                     <td>
-
-                        @Html.ActionLink(Resources.Edit, "Edit", new {id = item.Id}) |
-
-                        @Html.ActionLink(Resources.Details, "Details", new {id = item.Id}) |
-
-                        @Html.ActionLink(Resources.Delete, "Delete", new {id = item.Id})
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new {id = item.Id}) |
+                        @Html.ActionLink("[[[Details]]]", "Details", new {id = item.Id}) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new {id = item.Id})
                     </td>
-
                 </tr>
             }
-
-
         </table>
-
     </div>
-
 </div>

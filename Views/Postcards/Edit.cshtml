@@ -1,4 +1,4 @@
-﻿@model PostcardsManager.Models.Postcard
+﻿@model PostcardsManager.ViewModels.PostcardEditViewModel
 
 @{
     ViewBag.Title = "[[[Edit]]]";
@@ -20,107 +20,130 @@
             <div class="form-horizontal">
                 <h4>[[[Postcard]]]</h4>
                 <hr/>
-                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Year, new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.Year, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Year, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.Year, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
                 <div class="form-group">
-                    @Html.LabelFor(model => model.PhotographerId, new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.NumberInSeries, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("PhotographerId", null, new {@class = "form-control"})
-                        @Html.ValidationMessageFor(model => model.PhotographerId, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.NumberInSeries, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumberInSeries, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
                 <div class="form-group">
-                    @Html.LabelFor(model => model.SeriesId, new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.PostDate, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("SeriesId", null, new {@class = "form-control"})
-                        @Html.ValidationMessageFor(model => model.SeriesId, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.PostDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PostDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublishPlace, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PublishPlace, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PublishPlace, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhotographerId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("PhotographerId", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PhotographerId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SeriesId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("SeriesId", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SeriesId, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <fieldset>
                     <legend>Front image</legend>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ImageFront.Url, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.ImageFrontUrl, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ImageFront.Url, new {type = "hidden", role = "uploadcare-uploader"})
+                            @Html.TextBoxFor(m => m.ImageFrontUrl, new { type = "hidden", role = "uploadcare-uploader" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FrontTitle, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.FrontTitle, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.FrontTitle, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.FrontTitle, "", new {@class = "text-danger"})
+                            @Html.EditorFor(model => model.FrontTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FrontTitle, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FrontTitleFont, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.FrontTitleFont, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.FrontTitleFont, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.FrontTitleFont, "", new {@class = "text-danger"})
+                            @Html.TextBoxFor(m => m.FrontTitleFont, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FrontTitleFont, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FrontTitleFontColor, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.FrontTitleFontColor, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.FrontTitleFontColor, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.FrontTitleFontColor, "", new {@class = "text-danger"})
+                            @Html.TextBoxFor(m => m.FrontTitleFontColor, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FrontTitleFontColor, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Back image</legend>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ImageBack.Url, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.ImageBackUrl, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ImageBack.Url, new {type = "hidden", role = "uploadcare-uploader"})
+                            @Html.TextBoxFor(m => m.ImageBackUrl, new { type = "hidden", role = "uploadcare-uploader" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BackTitlePlace, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.BackTitle, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.BackTitlePlace, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.BackTitlePlace, "", new {@class = "text-danger"})
+                            @Html.EditorFor(model => model.BackTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BackTitle, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BackTitleFont, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.BackTitleFont, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.BackTitleFont, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.BackTitleFont, "", new {@class = "text-danger"})
+                            @Html.TextBoxFor(m => m.BackTitleFont, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BackTitleFont, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BackTitleFontColor, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.BackTitleFontColor, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.BackTitleFontColor, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.BackTitleFontColor, "", new {@class = "text-danger"})
+                            @Html.TextBoxFor(m => m.BackTitleFontColor, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BackTitleFontColor, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BackType, new {@class = "control-label col-md-2"})
+                        @Html.LabelFor(model => model.BackTitlePlace, new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.BackType, new {htmlAttributes = new {@class = "form-control"}})
-                            @Html.ValidationMessageFor(model => model.BackType, "", new {@class = "text-danger"})
+                            @Html.TextBoxFor(m => m.BackTitlePlace, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BackTitlePlace, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BackType, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BackType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BackType, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </fieldset>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="[[[Create]]]" class="btn btn-default btn-lg"/>
+                        <input type="submit" value="[[[Save]]]" class="btn btn-default btn-lg"/>
                     </div>
                 </div>
             </div>

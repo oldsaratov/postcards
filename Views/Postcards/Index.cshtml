@@ -29,7 +29,7 @@
                     @Html.DisplayNameFor(model => model.Year)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Photographer.FullName)
+                    @Html.DisplayNameFor(model => model.Series.Title)
                 </th>
                 <th></th>
             </tr>
@@ -44,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.Year)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Photographer.FullName)
+                        @Html.DisplayFor(modelItem => item.Series.Title)
                     </td>
                     <td>
                         @Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id }) |

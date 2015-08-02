@@ -5,7 +5,6 @@ using System.Net;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
-using Resourses;
 
 namespace PostcardsManager.Controllers
 {
@@ -104,9 +103,7 @@ namespace PostcardsManager.Controllers
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    ModelState.AddModelError("",
-                        Resources
-                            .SeriesController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                    ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists see your system administrator.]]]");
                 }
             }
             PopulatePublishersDropDownList(courseToUpdate.PublisherId);

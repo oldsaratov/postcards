@@ -1,21 +1,21 @@
 ﻿@model PostcardsManager.Models.Photographer
 
 @{
-    ViewBag.Title = Resourses.Resources.Delete;
+    ViewBag.Title = "[[[Delete]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>@Resourses.Resources.Delete</h2>
+        <h2>[[[Delete]]]</h2>
     </div>
     <div class="row">
         <p class="error">@ViewBag.ErrorMessage</p>
     </div>
     <div class="row">
-        <h3>@Resourses.Resources.AreYouSureDelete</h3>
+        <h3>[[[Are you sure you want to delete this?]]]</h3>
     </div>
     <div class="row">
-        <h4>@Resourses.Resources.Photographer</h4>
+        <h4>[[[Photographer]]]</h4>
         <hr />
     </div>
     <div class="row">
@@ -43,8 +43,8 @@
              @Html.AntiForgeryToken()
 
              <div class="form-actions no-color">
-                 <input type="submit" value="@Resourses.Resources.Delete" class="btn btn-default" /> |
-                 @Html.ActionLink(Resourses.Resources.BackToList, "Index")
+                 <input type="submit" value="[[[Delete]]]]" class="btn btn-default" /> |
+                 @Html.ActionLink("[[[Back To List]]]", "Index")
              </div>
          }
     </div>

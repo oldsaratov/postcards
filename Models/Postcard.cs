@@ -9,9 +9,9 @@ namespace PostcardsManager.Models
         [Key]
         public int Id { get; set; }
 
-        [Range(1840, 2015)]
         [Display(Name = "[[[Year]]]")]
-        public int? Year { get; set; }
+        [StringLength(50, ErrorMessage = "[[[Year cannot be longer than 50 characters]]]")]
+        public string Year { get; set; }
 
         [Display(Name = "[[[Front Image]]]")]
         public int? ImageFrontId { get; set; }
@@ -64,6 +64,10 @@ namespace PostcardsManager.Models
         [StringLength(50, ErrorMessage = "[[[Post date cannot be longer than 30 characters]]]")]
         [Display(Name = "[[[Post date]]]")]
         public string PostDate { get; set; }
+
+        [StringLength(150, ErrorMessage = "[[Publish place cannot be longer than 30 characters]]]")]
+        [Display(Name = "[[[Publish place]]]")]
+        public string PublishPlace { get; set; }
 
         [NotMapped]
         public Guid ImageFrontUniqId

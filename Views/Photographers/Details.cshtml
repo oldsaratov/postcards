@@ -1,15 +1,15 @@
 ﻿@model PostcardsManager.Models.Photographer
 
 @{
-    ViewBag.Title = Resourses.Resources.Details;
+    ViewBag.Title = "[[[Details]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>>@Resourses.Resources.Details</h2>
+        <h2>>[[[Details]]]</h2>
     </div>
     <div class="row">
-        <h4>>@Resourses.Resources.Photographer</h4>
+        <h4>>[[[Photographer]]]</h4>
         <hr />
     </div>
     <div class="row">
@@ -33,8 +33,8 @@
     </div>
     <div class="row">
         <p>
-            @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = Model.Id }) |
-            @Html.ActionLink(Resourses.Resources.BackToList, "Index")
+            @Html.ActionLink("[[[Edit]]]", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("[[[Back To List]]]", "Index")
         </p>
     </div>
 </div>

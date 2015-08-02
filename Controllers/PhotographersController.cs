@@ -4,7 +4,6 @@ using System.Net;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
-using Resourses;
 
 namespace PostcardsManager.Controllers
 {
@@ -30,7 +29,7 @@ namespace PostcardsManager.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 photographers = photographers.Where(s => s.LastName.Contains(searchString)
-                                               || s.FirstName.Contains(searchString));
+                                                         || s.FirstName.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -89,8 +88,7 @@ namespace PostcardsManager.Controllers
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.
                 ModelState.AddModelError("",
-                    Resources
-                        .PhotographersController_Create_Unable_to_save_changes__Try_again__and_if_the_problem_persists_see_your_system_administrator_);
+                    "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
             }
             return View(photographer);
         }
@@ -134,8 +132,7 @@ namespace PostcardsManager.Controllers
                 catch (RetryLimitExceededException /* dex */)
                 {
                     ModelState.AddModelError("",
-                        Resources
-                            .PhotographersController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                        "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
             return View(studentToUpdate);
@@ -151,7 +148,7 @@ namespace PostcardsManager.Controllers
             if (saveChangesError.GetValueOrDefault())
             {
                 ViewBag.ErrorMessage =
-                    "Delete failed. Try again, and if the problem persists see your system administrator.";
+                    "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]";
             }
             var photographer = db.Photographers.Find(id);
             if (photographer == null)

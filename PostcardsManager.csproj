@@ -211,6 +211,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="locale\messages.pot" />
+    <None Include="Properties\PublishProfiles\postcards-qa %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\postcards-qa.pubxml" />
     <None Include="Properties\PublishProfiles\postcards.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -287,12 +289,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Resourses\Resourses.csproj">
-      <Project>{9fe93e59-0cd9-4e43-ab58-9a1c0c234e0d}</Project>
-      <Name>Resourses</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,16 +1,15 @@
-﻿@using UploadcareCSharp.Url
-@model PostcardsManager.Models.Postcard
+﻿@model PostcardsManager.Models.Postcard
 
 @{
-    ViewBag.Title = Resourses.Resources.Details;
+    ViewBag.Title = "[[[Details]]]";
 }
 
 <div class="container">
     <div class="row">
-        <h2>@Resourses.Resources.Details</h2>
+        <h2>[[[Details]]]</h2>
     </div>
     <div class="row">
-        <h4>@Resourses.Resources.Postcard</h4>
+        <h4>[[[Postcard]]]</h4>
         <hr/>
     </div>
     <div class="row">     
@@ -29,6 +28,9 @@
 
             <dt>@Html.DisplayNameFor(model => model.PostDate)</dt>
             <dd>@Html.DisplayFor(model => model.PostDate)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.PublishPlace)</dt>
+            <dd>@Html.DisplayFor(model => model.PublishPlace)</dd>
         </dl>
     </div>
     <div class="row">
@@ -85,8 +87,8 @@
     </div>
     <div class="row">
         <p>
-            @Html.ActionLink(Resourses.Resources.Edit, "Edit", new { id = Model.Id }) |
-            @Html.ActionLink(Resourses.Resources.BackToList, "Index")
+            @Html.ActionLink("[[[Edit]]]", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("[[[Back To List]]]", "Index")
         </p>
     </div>
 </div>

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
-using Resourses;
 
 namespace PostcardsManager.Controllers
 {
@@ -96,9 +95,7 @@ namespace PostcardsManager.Controllers
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    ModelState.AddModelError("",
-                        Resources
-                            .PublisherController_EditPost_Unable_to_save_changes__Try_again__and_if_the_problem_persists__see_your_system_administrator_);
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
 
@@ -122,16 +119,6 @@ namespace PostcardsManager.Controllers
                 return HttpNotFound();
             }
 
-            if (concurrencyError.GetValueOrDefault())
-            {
-                ViewBag.ConcurrencyErrorMessage = "The record you attempted to delete "
-                                                  + "was modified by another user after you got the original values. "
-                                                  + "The delete operation was canceled and the current values in the "
-                                                  + "database have been displayed. If you still want to delete this "
-                                                  + "record, click the Delete button again. Otherwise "
-                                                  + "click the Back to List hyperlink.";
-            }
-
             return View(publisher);
         }
 
@@ -153,9 +140,7 @@ namespace PostcardsManager.Controllers
             catch (DataException /* dex */)
             {
                 //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
-                ModelState.AddModelError(string.Empty,
-                    Resources
-                        .PublisherController_Delete_Unable_to_delete__Try_again__and_if_the_problem_persists_contact_your_system_administrator_);
+                ModelState.AddModelError(string.Empty, "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]");
                 return View(publisher);
             }
         }

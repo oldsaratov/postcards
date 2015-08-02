@@ -13,6 +13,10 @@ namespace PostcardsManager.Models
         [Display(Name = "[[[Publisher Name]]]")]
         public string Name { get; set; }
 
+        [StringLength(1000, ErrorMessage = "[[[Description cannot be longer than 200 characters]]]")]
+        [Display(Name = "[[[Description]]]")]
+        public string Description { get; set; }
+
         public virtual ICollection<Series> Series { get; set; }
     }
 }

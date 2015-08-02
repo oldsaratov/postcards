@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-07-29 21:09+03:00\n"
+"POT-Creation-Date: 2015-08-02 16:55+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,54 +17,67 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#: Views\Photographers\Delete.cshtml:15
+#: Views\Postcards\Delete.cshtml:12
+#: Views\Publisher\Delete.cshtml:12
+#: Views\Series\Delete.cshtml:12
 #: Views\Storages\Delete.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:12
 #: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:10
 msgid "Are you sure you want to delete this?"
 msgstr ""
 
 #: Models\Postcard.cs:19
-#: ViewModels\PostcardEditViewModel.cs:15
+#: ViewModels\PostcardEditViewModel.cs:16
 msgid "Back Image"
 msgstr ""
 
 #: Models\Postcard.cs:41
-#: ViewModels\PostcardEditViewModel.cs:37
+#: ViewModels\PostcardEditViewModel.cs:38
 msgid "Back Title"
 msgstr ""
 
 #: Models\Postcard.cs:40
-#: ViewModels\PostcardEditViewModel.cs:36
+#: ViewModels\PostcardEditViewModel.cs:37
 msgid "Back Title cannot be longer than 200 characters"
 msgstr ""
 
 #: Models\Postcard.cs:45
-#: ViewModels\PostcardEditViewModel.cs:41
+#: ViewModels\PostcardEditViewModel.cs:42
 msgid "Back title font"
 msgstr ""
 
 #: Models\Postcard.cs:44
-#: ViewModels\PostcardEditViewModel.cs:40
+#: ViewModels\PostcardEditViewModel.cs:41
 msgid "Back title font cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:49
-#: ViewModels\PostcardEditViewModel.cs:45
+#: ViewModels\PostcardEditViewModel.cs:46
 msgid "Back title font color"
 msgstr ""
 
 #: Models\Postcard.cs:48
-#: ViewModels\PostcardEditViewModel.cs:44
+#: ViewModels\PostcardEditViewModel.cs:45
 msgid "Back title font color cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:57
-#: ViewModels\PostcardEditViewModel.cs:53
+#: ViewModels\PostcardEditViewModel.cs:54
 msgid "Back title place"
 msgstr ""
 
 #: Models\Postcard.cs:56
-#: ViewModels\PostcardEditViewModel.cs:52
+#: ViewModels\PostcardEditViewModel.cs:53
 msgid "Back title place cannot be longer than 50 characters"
+msgstr ""
+
+#: Views\Series\Edit.cshtml:66
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:66
+msgid "Back to list"
 msgstr ""
 
 #: Views\Storages\Create.cshtml:59
@@ -76,34 +89,81 @@ msgstr ""
 msgid "Back to List"
 msgstr ""
 
-#: Views\Postcards\Create.cshtml:145
-#: Views\Postcards\Edit.cshtml:130
-#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:145
-#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:130
+#: Views\Photographers\Create.cshtml:45
+#: Views\Photographers\Delete.cshtml:47
+#: Views\Photographers\Details.cshtml:37
+#: Views\Photographers\Edit.cshtml:47
+#: Views\Postcards\Create.cshtml:152
+#: Views\Postcards\Delete.cshtml:60
+#: Views\Postcards\Details.cshtml:91
+#: Views\Postcards\Edit.cshtml:153
+#: Views\Publisher\Create.cshtml:46
+#: Views\Publisher\Delete.cshtml:37
+#: Views\Publisher\Details.cshtml:35
+#: Views\Publisher\Edit.cshtml:47
+#: Views\Series\Create.cshtml:62
+#: Views\Series\Delete.cshtml:53
+#: Views\Series\Details.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:45
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:91
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:35
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:62
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:61
 msgid "Back To List"
 msgstr ""
 
 #: Models\Postcard.cs:53
-#: ViewModels\PostcardEditViewModel.cs:49
+#: ViewModels\PostcardEditViewModel.cs:50
 msgid "Back type"
 msgstr ""
 
 #: Models\Postcard.cs:52
-#: ViewModels\PostcardEditViewModel.cs:48
+#: ViewModels\PostcardEditViewModel.cs:49
 msgid "Back type cannot be longer than 50 characters"
 msgstr ""
 
+#: Views\Series\Index.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:37
+msgid "Count"
+msgstr ""
+
+#: Views\Photographers\Create.cshtml:4
+#: Views\Photographers\Create.cshtml:9
+#: Views\Photographers\Create.cshtml:38
 #: Views\Postcards\Create.cshtml:4
 #: Views\Postcards\Create.cshtml:13
-#: Views\Postcards\Create.cshtml:138
-#: Views\Postcards\Edit.cshtml:123
+#: Views\Postcards\Create.cshtml:145
+#: Views\Publisher\Create.cshtml:4
+#: Views\Publisher\Create.cshtml:9
+#: Views\Publisher\Create.cshtml:38
+#: Views\Series\Create.cshtml:4
+#: Views\Series\Create.cshtml:9
+#: Views\Series\Create.cshtml:55
 #: Views\Storages\Create.cshtml:4
 #: Views\Storages\Create.cshtml:8
 #: Views\Storages\Create.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:38
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:13
-#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:138
-#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:123
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:145
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:38
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:55
 #: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:8
 #: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:52
@@ -116,8 +176,12 @@ msgid "Create new"
 msgstr ""
 
 #: Views\Photographers\Index.cshtml:11
+#: Views\Publisher\Index.cshtml:11
+#: Views\Series\Index.cshtml:11
 #: Views\Storages\Index.cshtml:11
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:11
 #: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:11
 msgid "Create New"
 msgstr ""
@@ -127,23 +191,86 @@ msgstr ""
 msgid "current"
 msgstr ""
 
+#: Views\Photographers\Delete.cshtml:4
+#: Views\Photographers\Delete.cshtml:9
+#: Views\Photographers\Delete.cshtml:46
 #: Views\Photographers\Index.cshtml:47
+#: Views\Postcards\Delete.cshtml:4
+#: Views\Postcards\Delete.cshtml:9
+#: Views\Postcards\Delete.cshtml:59
 #: Views\Postcards\Index.cshtml:52
+#: Views\Publisher\Delete.cshtml:4
+#: Views\Publisher\Delete.cshtml:9
+#: Views\Publisher\Delete.cshtml:36
+#: Views\Publisher\Index.cshtml:31
+#: Views\Series\Delete.cshtml:4
+#: Views\Series\Delete.cshtml:9
+#: Views\Series\Delete.cshtml:52
+#: Views\Series\Index.cshtml:59
 #: Views\Storages\Delete.cshtml:4
 #: Views\Storages\Delete.cshtml:8
 #: Views\Storages\Index.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:59
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:31
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:59
 #: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:8
 #: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:61
 msgid "Delete"
 msgstr ""
 
+#: Controllers\PhotographersController.cs:151
+#: Controllers\PublisherController.cs:143
+msgid "Delete failed. Try again, and if the problem persists see your system administrator."
+msgstr ""
+
+#: Models\Publisher.cs:17
+#: Models\Series.cs:21
+msgid "Description"
+msgstr ""
+
+#: Models\Publisher.cs:16
+#: Models\Series.cs:20
+msgid "Description cannot be longer than 200 characters"
+msgstr ""
+
+#: Views\Photographers\Details.cshtml:4
+#: Views\Photographers\Details.cshtml:9
 #: Views\Photographers\Index.cshtml:46
+#: Views\Postcards\Details.cshtml:4
+#: Views\Postcards\Details.cshtml:9
 #: Views\Postcards\Index.cshtml:51
+#: Views\Publisher\Details.cshtml:4
+#: Views\Publisher\Details.cshtml:9
+#: Views\Publisher\Index.cshtml:30
+#: Views\Series\Details.cshtml:4
+#: Views\Series\Details.cshtml:9
+#: Views\Series\Index.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:46
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:51
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:30
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:58
 msgid "Details"
 msgstr ""
 
@@ -152,17 +279,41 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
+#: Views\Photographers\Details.cshtml:36
+#: Views\Photographers\Edit.cshtml:4
+#: Views\Photographers\Edit.cshtml:9
 #: Views\Photographers\Index.cshtml:45
+#: Views\Postcards\Details.cshtml:90
 #: Views\Postcards\Edit.cshtml:4
 #: Views\Postcards\Edit.cshtml:13
 #: Views\Postcards\Index.cshtml:50
+#: Views\Publisher\Details.cshtml:34
+#: Views\Publisher\Edit.cshtml:4
+#: Views\Publisher\Edit.cshtml:9
+#: Views\Publisher\Index.cshtml:29
+#: Views\Series\Details.cshtml:60
+#: Views\Series\Edit.cshtml:4
+#: Views\Series\Edit.cshtml:10
+#: Views\Series\Index.cshtml:57
 #: Views\Storages\Edit.cshtml:4
 #: Views\Storages\Edit.cshtml:8
 #: Views\Storages\Index.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:45
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:90
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:34
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:29
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:57
 #: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:8
 #: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:58
@@ -170,7 +321,9 @@ msgid "Edit"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:18
+#: Views\Series\Index.cshtml:20
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:20
 msgid "Filter"
 msgstr ""
 
@@ -199,37 +352,37 @@ msgid "First of all, please add publishers, series, postcards and other to datab
 msgstr ""
 
 #: Models\Postcard.cs:16
-#: ViewModels\PostcardEditViewModel.cs:12
+#: ViewModels\PostcardEditViewModel.cs:13
 msgid "Front Image"
 msgstr ""
 
 #: Models\Postcard.cs:29
-#: ViewModels\PostcardEditViewModel.cs:25
+#: ViewModels\PostcardEditViewModel.cs:26
 msgid "Front Title"
 msgstr ""
 
 #: Models\Postcard.cs:28
-#: ViewModels\PostcardEditViewModel.cs:24
+#: ViewModels\PostcardEditViewModel.cs:25
 msgid "Front Title cannot be longer than 200 characters"
 msgstr ""
 
 #: Models\Postcard.cs:33
-#: ViewModels\PostcardEditViewModel.cs:29
+#: ViewModels\PostcardEditViewModel.cs:30
 msgid "Front title font"
 msgstr ""
 
 #: Models\Postcard.cs:32
-#: ViewModels\PostcardEditViewModel.cs:28
+#: ViewModels\PostcardEditViewModel.cs:29
 msgid "Front title font cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:37
-#: ViewModels\PostcardEditViewModel.cs:33
+#: ViewModels\PostcardEditViewModel.cs:34
 msgid "Front title font color"
 msgstr ""
 
 #: Models\Postcard.cs:36
-#: ViewModels\PostcardEditViewModel.cs:32
+#: ViewModels\PostcardEditViewModel.cs:33
 msgid "Front title font color cannot be longer than 50 characters"
 msgstr ""
 
@@ -274,12 +427,12 @@ msgid "No postcards in database!"
 msgstr ""
 
 #: Models\Postcard.cs:61
-#: ViewModels\PostcardEditViewModel.cs:57
+#: ViewModels\PostcardEditViewModel.cs:58
 msgid "Number in series"
 msgstr ""
 
 #: Models\Postcard.cs:60
-#: ViewModels\PostcardEditViewModel.cs:56
+#: ViewModels\PostcardEditViewModel.cs:57
 msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
 
@@ -294,7 +447,15 @@ msgid "Open"
 msgstr ""
 
 #: Models\Postcard.cs:25
-#: ViewModels\PostcardEditViewModel.cs:21
+#: ViewModels\PostcardEditViewModel.cs:22
+#: Views\Photographers\Create.cshtml:17
+#: Views\Photographers\Delete.cshtml:18
+#: Views\Photographers\Details.cshtml:12
+#: Views\Photographers\Edit.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:17
 msgid "Photographer"
 msgstr ""
 
@@ -315,18 +476,22 @@ msgid "Poatcards"
 msgstr ""
 
 #: Models\Postcard.cs:65
-#: ViewModels\PostcardEditViewModel.cs:61
+#: ViewModels\PostcardEditViewModel.cs:62
 msgid "Post date"
 msgstr ""
 
 #: Models\Postcard.cs:64
-#: ViewModels\PostcardEditViewModel.cs:60
+#: ViewModels\PostcardEditViewModel.cs:61
 msgid "Post date cannot be longer than 30 characters"
 msgstr ""
 
 #: Views\Postcards\Create.cshtml:21
+#: Views\Postcards\Delete.cshtml:15
+#: Views\Postcards\Details.cshtml:12
 #: Views\Postcards\Edit.cshtml:21
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:21
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:12
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:21
 msgid "Postcard"
 msgstr ""
@@ -380,7 +545,20 @@ msgstr ""
 msgid "PublicKey should be defined"
 msgstr ""
 
-#: Models\Series.cs:20
+#: Models\Postcard.cs:69
+#: ViewModels\PostcardEditViewModel.cs:66
+msgid "Publish place"
+msgstr ""
+
+#: Models\Series.cs:24
+#: Views\Publisher\Create.cshtml:17
+#: Views\Publisher\Delete.cshtml:15
+#: Views\Publisher\Details.cshtml:12
+#: Views\Publisher\Edit.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:17
 msgid "Publisher"
 msgstr ""
 
@@ -396,12 +574,24 @@ msgstr ""
 msgid "Publisher Name cannot be longer than 200 characters"
 msgstr ""
 
+#: Views\Publisher\Index.cshtml:4
+#: Views\Publisher\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:53
 msgid "Publishers"
 msgstr ""
 
+#: Views\Photographers\Edit.cshtml:40
+#: Views\Postcards\Edit.cshtml:146
+#: Views\Publisher\Edit.cshtml:40
+#: Views\Series\Edit.cshtml:58
 #: Views\Storages\Edit.cshtml:64
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:40
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:146
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:40
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:58
 #: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:64
 msgid "Save"
 msgstr ""
@@ -411,11 +601,28 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: Views\Series\Index.cshtml:19
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:19
+msgid "Select Publisher"
+msgstr ""
+
 #: Models\Postcard.cs:22
-#: ViewModels\PostcardEditViewModel.cs:18
+#: ViewModels\PostcardEditViewModel.cs:19
 #: Views\Postcards\Index.cshtml:16
+#: Views\Series\Create.cshtml:17
+#: Views\Series\Delete.cshtml:15
+#: Views\Series\Details.cshtml:12
+#: Views\Series\Edit.cshtml:19
+#: Views\Series\Index.cshtml:4
+#: Views\Series\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:56
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:16
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:19
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:56
 msgid "Series"
 msgstr ""
@@ -468,15 +675,34 @@ msgstr ""
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:143
-#: Controllers\PostcardsController.cs:197
-#: Controllers\SeriesController.cs:66
+#: Controllers\PostcardsController.cs:401
+msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
+msgstr ""
+
+#: Controllers\SeriesController.cs:106
+msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
+msgstr ""
+
+#: Controllers\PhotographersController.cs:91
+#: Controllers\PostcardsController.cs:158
+#: Controllers\PostcardsController.cs:322
+#: Controllers\PostcardsController.cs:327
+#: Controllers\SeriesController.cs:65
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
-#: Models\Postcard.cs:13
-#: Models\Series.cs:17
+#: Models\Postcard.cs:12
+#: Models\Series.cs:16
 #: ViewModels\PostcardEditViewModel.cs:9
 msgid "Year"
+msgstr ""
+
+#: Models\Series.cs:17
+msgid "Year cannot be longer than 150 characters"
+msgstr ""
+
+#: Models\Postcard.cs:13
+#: ViewModels\PostcardEditViewModel.cs:10
+msgid "Year cannot be longer than 50 characters"
 msgstr ""
 
