@@ -19,7 +19,7 @@
 .rb-logo_black:active .rb-logo__name { color: gray; }
 
 .rb-logo__img {
-    background: url('imageslogo.png');
+    background: url('images/logo.png');
     background-size: 50px 50px;
     display: inline-block;
     height: 50px;
