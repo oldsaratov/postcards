@@ -13,7 +13,7 @@ namespace PostcardsManager.Controllers
 
         public ActionResult Index()
         {
-            var postcards = db.Postcards.ToList().Select(p => new PostcardMainPageViewModel
+            var postcards = db.Postcards.OrderByDescending(p => p.Id).Take(50).ToList().Select(p => new PostcardMainPageViewModel
             {
                 Id = p.Id,
                 ImageFrontUrl = Urls.Cdn(new CdnPathBuilder(p.ImageFrontUniqId).Resize(360, 226)).OriginalString,

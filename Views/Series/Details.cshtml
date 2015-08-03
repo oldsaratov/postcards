@@ -1,4 +1,4 @@
-﻿@model PostcardsManager.Models.Series
+﻿@model PostcardsManager.ViewModels.SeriesViewModel
 
 @{
     ViewBag.Title = "[[[Details]]]";
@@ -31,10 +31,10 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.PublisherId)
+                @Html.DisplayNameFor(model => model.PublisherName)
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Publisher.Name)
+                @Html.DisplayFor(model => model.PublisherName)
             </dd>
 
             <dt>
@@ -51,13 +51,13 @@
         {
             <div class="col-sm-3">
                 <div class="thumbnail">
-                    <img src="@image.ImageFront.Url" class="img-responsive"/>
+                    <a href="@Url.Action("Details", "Postcards", new {id = image.Id})"><img src="@image.ImageFrontUrl" title="@image.FrontTitle" alt="@image.FrontTitle" class="img-responsive"/></a>
                 </div>
             </div>
         }
     </div>
     <div class="row">
-            @Html.ActionLink("[[[Edit]]]", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("[[[Back To List]]]", "Index")
+        @Html.ActionLink("[[[Edit]]]", "Edit", new {id = Model.Id}) |
+        @Html.ActionLink("[[[Back To List]]]", "Index")
     </div>
 </div>

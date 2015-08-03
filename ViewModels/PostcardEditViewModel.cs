@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace PostcardsManager.ViewModels
 {
@@ -65,5 +67,7 @@ namespace PostcardsManager.ViewModels
         [StringLength(150, ErrorMessage = "[[Publish place cannot be longer than 30 characters]]]")]
         [Display(Name = "[[[Publish place]]]")]
         public string PublishPlace { get; set; }
+
+        public SelectList Photographers { get; set; } 
     }
 }

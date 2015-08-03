@@ -1,5 +1,7 @@
 using System.Data.Entity.Migrations;
 using PostcardsManager.DAL;
+using PostcardsManager.Models;
+using PostcardsManager.Properties;
 
 namespace PostcardsManager.Migrations
 {
@@ -8,11 +10,21 @@ namespace PostcardsManager.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(PostcardContext context)
         {
+            var storage = new Storage
+            {
+                PublicKey = Settings.Default.PublicKey,
+                PrivateKey = Settings.Default.PrivateKey,
+                StorageLimit = Settings.Default.StorageLimit,
+                StorageName = "Demo",
+                Enabled = true
+            };
+
+            context.Storages.Add(storage);
+            context.SaveChanges();
         }
     }
 }

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-02 21:50+03:00\n"
+"POT-Creation-Date: 2015-08-03 21:54+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,47 +33,47 @@ msgid "Are you sure you want to delete this?"
 msgstr ""
 
 #: Models\Postcard.cs:19
-#: ViewModels\PostcardEditViewModel.cs:16
+#: ViewModels\PostcardEditViewModel.cs:18
 msgid "Back Image"
 msgstr ""
 
 #: Models\Postcard.cs:41
-#: ViewModels\PostcardEditViewModel.cs:38
+#: ViewModels\PostcardEditViewModel.cs:40
 msgid "Back Title"
 msgstr ""
 
 #: Models\Postcard.cs:40
-#: ViewModels\PostcardEditViewModel.cs:37
+#: ViewModels\PostcardEditViewModel.cs:39
 msgid "Back Title cannot be longer than 200 characters"
 msgstr ""
 
 #: Models\Postcard.cs:45
-#: ViewModels\PostcardEditViewModel.cs:42
+#: ViewModels\PostcardEditViewModel.cs:44
 msgid "Back title font"
 msgstr ""
 
 #: Models\Postcard.cs:44
-#: ViewModels\PostcardEditViewModel.cs:41
+#: ViewModels\PostcardEditViewModel.cs:43
 msgid "Back title font cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:49
-#: ViewModels\PostcardEditViewModel.cs:46
+#: ViewModels\PostcardEditViewModel.cs:48
 msgid "Back title font color"
 msgstr ""
 
 #: Models\Postcard.cs:48
-#: ViewModels\PostcardEditViewModel.cs:45
+#: ViewModels\PostcardEditViewModel.cs:47
 msgid "Back title font color cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:57
-#: ViewModels\PostcardEditViewModel.cs:54
+#: ViewModels\PostcardEditViewModel.cs:56
 msgid "Back title place"
 msgstr ""
 
 #: Models\Postcard.cs:56
-#: ViewModels\PostcardEditViewModel.cs:53
+#: ViewModels\PostcardEditViewModel.cs:55
 msgid "Back title place cannot be longer than 50 characters"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 #: Views\Photographers\Delete.cshtml:47
 #: Views\Photographers\Details.cshtml:37
 #: Views\Photographers\Edit.cshtml:47
-#: Views\Postcards\Create.cshtml:152
+#: Views\Postcards\Create.cshtml:153
 #: Views\Postcards\Delete.cshtml:60
 #: Views\Postcards\Details.cshtml:91
 #: Views\Postcards\Edit.cshtml:153
@@ -125,12 +125,12 @@ msgid "Back To List"
 msgstr ""
 
 #: Models\Postcard.cs:53
-#: ViewModels\PostcardEditViewModel.cs:50
+#: ViewModels\PostcardEditViewModel.cs:52
 msgid "Back type"
 msgstr ""
 
 #: Models\Postcard.cs:52
-#: ViewModels\PostcardEditViewModel.cs:49
+#: ViewModels\PostcardEditViewModel.cs:51
 msgid "Back type cannot be longer than 50 characters"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 #: Views\Photographers\Create.cshtml:38
 #: Views\Postcards\Create.cshtml:4
 #: Views\Postcards\Create.cshtml:13
-#: Views\Postcards\Create.cshtml:145
+#: Views\Postcards\Create.cshtml:146
 #: Views\Publisher\Create.cshtml:4
 #: Views\Publisher\Create.cshtml:9
 #: Views\Publisher\Create.cshtml:38
@@ -354,37 +354,37 @@ msgid "First of all, please add publishers, series, postcards and other to datab
 msgstr ""
 
 #: Models\Postcard.cs:16
-#: ViewModels\PostcardEditViewModel.cs:13
+#: ViewModels\PostcardEditViewModel.cs:15
 msgid "Front Image"
 msgstr ""
 
 #: Models\Postcard.cs:29
-#: ViewModels\PostcardEditViewModel.cs:26
+#: ViewModels\PostcardEditViewModel.cs:28
 msgid "Front Title"
 msgstr ""
 
 #: Models\Postcard.cs:28
-#: ViewModels\PostcardEditViewModel.cs:25
+#: ViewModels\PostcardEditViewModel.cs:27
 msgid "Front Title cannot be longer than 200 characters"
 msgstr ""
 
 #: Models\Postcard.cs:33
-#: ViewModels\PostcardEditViewModel.cs:30
+#: ViewModels\PostcardEditViewModel.cs:32
 msgid "Front title font"
 msgstr ""
 
 #: Models\Postcard.cs:32
-#: ViewModels\PostcardEditViewModel.cs:29
+#: ViewModels\PostcardEditViewModel.cs:31
 msgid "Front title font cannot be longer than 50 characters"
 msgstr ""
 
 #: Models\Postcard.cs:37
-#: ViewModels\PostcardEditViewModel.cs:34
+#: ViewModels\PostcardEditViewModel.cs:36
 msgid "Front title font color"
 msgstr ""
 
 #: Models\Postcard.cs:36
-#: ViewModels\PostcardEditViewModel.cs:33
+#: ViewModels\PostcardEditViewModel.cs:35
 msgid "Front title font color cannot be longer than 50 characters"
 msgstr ""
 
@@ -429,12 +429,12 @@ msgid "No postcards in database!"
 msgstr ""
 
 #: Models\Postcard.cs:61
-#: ViewModels\PostcardEditViewModel.cs:58
+#: ViewModels\PostcardEditViewModel.cs:60
 msgid "Number in series"
 msgstr ""
 
 #: Models\Postcard.cs:60
-#: ViewModels\PostcardEditViewModel.cs:57
+#: ViewModels\PostcardEditViewModel.cs:59
 msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgid "Open"
 msgstr ""
 
 #: Models\Postcard.cs:25
-#: ViewModels\PostcardEditViewModel.cs:22
+#: ViewModels\PostcardEditViewModel.cs:24
 #: Views\Photographers\Create.cshtml:17
 #: Views\Photographers\Delete.cshtml:18
 #: Views\Photographers\Details.cshtml:12
@@ -478,12 +478,12 @@ msgid "Poatcards"
 msgstr ""
 
 #: Models\Postcard.cs:65
-#: ViewModels\PostcardEditViewModel.cs:62
+#: ViewModels\PostcardEditViewModel.cs:64
 msgid "Post date"
 msgstr ""
 
 #: Models\Postcard.cs:64
-#: ViewModels\PostcardEditViewModel.cs:61
+#: ViewModels\PostcardEditViewModel.cs:63
 msgid "Post date cannot be longer than 30 characters"
 msgstr ""
 
@@ -548,7 +548,7 @@ msgid "PublicKey should be defined"
 msgstr ""
 
 #: Models\Postcard.cs:69
-#: ViewModels\PostcardEditViewModel.cs:66
+#: ViewModels\PostcardEditViewModel.cs:68
 msgid "Publish place"
 msgstr ""
 
@@ -603,13 +603,17 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: Views\Postcards\Edit.cshtml:57
+msgid "Select"
+msgstr ""
+
 #: Views\Series\Index.cshtml:19
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:19
 msgid "Select Publisher"
 msgstr ""
 
 #: Models\Postcard.cs:22
-#: ViewModels\PostcardEditViewModel.cs:19
+#: ViewModels\PostcardEditViewModel.cs:21
 #: Views\Postcards\Index.cshtml:16
 #: Views\Series\Create.cshtml:17
 #: Views\Series\Delete.cshtml:15
@@ -677,25 +681,25 @@ msgstr ""
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:401
+#: Controllers\PostcardsController.cs:402
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
-#: Controllers\SeriesController.cs:106
+#: Controllers\SeriesController.cs:130
 msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
 msgstr ""
 
 #: Controllers\PhotographersController.cs:91
 #: Controllers\PostcardsController.cs:158
-#: Controllers\PostcardsController.cs:322
-#: Controllers\PostcardsController.cs:327
-#: Controllers\SeriesController.cs:65
+#: Controllers\PostcardsController.cs:323
+#: Controllers\PostcardsController.cs:328
+#: Controllers\SeriesController.cs:89
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
 #: Models\Postcard.cs:12
 #: Models\Series.cs:16
-#: ViewModels\PostcardEditViewModel.cs:9
+#: ViewModels\PostcardEditViewModel.cs:11
 msgid "Year"
 msgstr ""
 
@@ -704,7 +708,7 @@ msgid "Year cannot be longer than 150 characters"
 msgstr ""
 
 #: Models\Postcard.cs:13
-#: ViewModels\PostcardEditViewModel.cs:10
+#: ViewModels\PostcardEditViewModel.cs:12
 msgid "Year cannot be longer than 50 characters"
 msgstr ""
 
