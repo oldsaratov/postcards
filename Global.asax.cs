@@ -15,6 +15,8 @@ namespace PostcardsManager
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            i18n.LocalizedApplication.Current.DefaultLanguage = "ru";
+
             i18n.UrlLocalizer.IncomingUrlFilters += delegate(Uri url)
             {
                 if (url.LocalPath.Contains("/Content/"))

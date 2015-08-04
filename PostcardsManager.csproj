@@ -216,6 +216,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="locale\messages.pot" />
+    <Content Include="locale\ru\messages.po" />
     <None Include="Properties\PublishProfiles\postcards-qa %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\postcards-qa.pubxml" />
     <None Include="Properties\PublishProfiles\postcards.pubxml" />
