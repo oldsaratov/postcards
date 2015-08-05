@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-04 22:54+03:00\n"
+"POT-Creation-Date: 2015-08-05 21:28+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -95,7 +95,7 @@ msgstr ""
 #: Views\Photographers\Delete.cshtml:47
 #: Views\Photographers\Details.cshtml:37
 #: Views\Photographers\Edit.cshtml:47
-#: Views\Postcards\Create.cshtml:153
+#: Views\Postcards\Create.cshtml:152
 #: Views\Postcards\Delete.cshtml:60
 #: Views\Postcards\Details.cshtml:91
 #: Views\Postcards\Edit.cshtml:153
@@ -144,7 +144,7 @@ msgstr ""
 #: Views\Photographers\Create.cshtml:38
 #: Views\Postcards\Create.cshtml:4
 #: Views\Postcards\Create.cshtml:13
-#: Views\Postcards\Create.cshtml:146
+#: Views\Postcards\Create.cshtml:145
 #: Views\Publisher\Create.cshtml:4
 #: Views\Publisher\Create.cshtml:9
 #: Views\Publisher\Create.cshtml:38
@@ -472,7 +472,6 @@ msgstr ""
 msgid "Photographers"
 msgstr ""
 
-#: Views\Postcards\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
 msgid "Poatcards"
 msgstr ""
@@ -498,6 +497,7 @@ msgstr ""
 msgid "Postcard"
 msgstr ""
 
+#: Views\Postcards\Index.cshtml:4
 #: Views\Postcards\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:50
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
@@ -603,10 +603,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: Views\Postcards\Edit.cshtml:57
-msgid "Select"
-msgstr ""
-
 #: Views\Series\Index.cshtml:19
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:19
 msgid "Select Publisher"
@@ -681,7 +677,7 @@ msgstr ""
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:402
+#: Controllers\PostcardsController.cs:404
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 

@@ -54,15 +54,15 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.PhotographerId, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.PhotographerId, Model.Photographers, "--[[[Select]]]--", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.PhotographerId, "", new { @class = "text-danger" })
+                        @Html.DropDownList("PhotographerId", null, "--Please select--", new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.PhotographerId, "", new {@class = "text-danger"})
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.SeriesId, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("SeriesId", null, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.SeriesId, "", new { @class = "text-danger" })
+                        @Html.DropDownList("SeriesId", null, "--Please select--", new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.SeriesId, "", new {@class = "text-danger"})
                     </div>
                 </div>
 

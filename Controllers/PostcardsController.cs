@@ -338,6 +338,8 @@ namespace PostcardsManager.Controllers
         {
             var seriesQuery = from d in db.Series
                 select d;
+
+
             ViewBag.SeriesId = new SelectList(seriesQuery, "Id", "Title", selectedSeries);
         }
 
