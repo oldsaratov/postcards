@@ -9,7 +9,7 @@ namespace PostcardsManager.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "[[[Title should be defined]]]")]
-        [StringLength(150, ErrorMessage = "[[[Publisher Name cannot be longer than 150 characters]]]")]
+        [StringLength(150, ErrorMessage = "[[[Title cannot be longer than 150 characters]]]")]
         [Display(Name = "[[[Title]]]")]
         public string Title { get; set; }
 

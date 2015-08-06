@@ -73,7 +73,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SeriesId,Title,Year,PublisherId")] Series series)
+        public ActionResult Create([Bind(Include = "SeriesId,Title,Year,PublisherId,Description")] Series series)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace PostcardsManager.Controllers
             }
             var courseToUpdate = db.Series.Find(id);
             if (TryUpdateModel(courseToUpdate, "",
-                new[] {"Title", "Year", "PublisherId"}))
+                new[] { "Title", "Year", "PublisherId", "Description" }))
             {
                 try
                 {

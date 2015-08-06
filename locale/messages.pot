@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-05 21:28+03:00\n"
+"POT-Creation-Date: 2015-08-06 22:23+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -241,11 +241,13 @@ msgstr ""
 
 #: Models\Publisher.cs:17
 #: Models\Series.cs:21
+#: ViewModels\SeriesViewModel.cs:22
 msgid "Description"
 msgstr ""
 
 #: Models\Publisher.cs:16
 #: Models\Series.cs:20
+#: ViewModels\SeriesViewModel.cs:21
 msgid "Description cannot be longer than 200 characters"
 msgstr ""
 
@@ -472,10 +474,6 @@ msgstr ""
 msgid "Photographers"
 msgstr ""
 
-#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
-msgid "Poatcards"
-msgstr ""
-
 #: Models\Postcard.cs:65
 #: ViewModels\PostcardEditViewModel.cs:64
 msgid "Post date"
@@ -500,6 +498,7 @@ msgstr ""
 #: Views\Postcards\Index.cshtml:4
 #: Views\Postcards\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:50
 msgid "Postcards"
@@ -564,12 +563,12 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: Models\Publisher.cs:13
-msgid "Publisher Name"
+#: ViewModels\SeriesViewModel.cs:18
+msgid "Publisher name"
 msgstr ""
 
-#: Models\Series.cs:12
-msgid "Publisher Name cannot be longer than 150 characters"
+#: Models\Publisher.cs:13
+msgid "Publisher Name"
 msgstr ""
 
 #: Models\Publisher.cs:12
@@ -670,7 +669,13 @@ msgid "Storage Name should be defined"
 msgstr ""
 
 #: Models\Series.cs:13
+#: ViewModels\SeriesViewModel.cs:11
 msgid "Title"
+msgstr ""
+
+#: Models\Series.cs:12
+#: ViewModels\SeriesViewModel.cs:10
+msgid "Title cannot be longer than 150 characters"
 msgstr ""
 
 #: Models\Series.cs:11
@@ -696,10 +701,12 @@ msgstr ""
 #: Models\Postcard.cs:12
 #: Models\Series.cs:16
 #: ViewModels\PostcardEditViewModel.cs:11
+#: ViewModels\SeriesViewModel.cs:14
 msgid "Year"
 msgstr ""
 
 #: Models\Series.cs:17
+#: ViewModels\SeriesViewModel.cs:15
 msgid "Year cannot be longer than 150 characters"
 msgstr ""
 

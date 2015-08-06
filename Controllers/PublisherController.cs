@@ -47,7 +47,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "PublisherID,Name")] Publisher publisher)
+        public async Task<ActionResult> Create([Bind(Include = "Name, Description, SeriesId")] Publisher publisher)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PostcardsManager.Controllers
             }
             var studentToUpdate = db.Publishers.Find(id);
             if (TryUpdateModel(studentToUpdate, "",
-                new[] {"Name"}))
+                new[] { "Name", "Description", "SeriesId" }))
             {
                 try
                 {

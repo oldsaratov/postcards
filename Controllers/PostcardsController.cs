@@ -199,7 +199,7 @@ namespace PostcardsManager.Controllers
                 BackType = postcard.BackType,
                 NumberInSeries = postcard.NumberInSeries,
                 PostDate = postcard.PostDate,
-                Photographers = new SelectList(db.Photographers.ToList(), "Id", "FullName")
+                PublishPlace = postcard.PublishPlace
             };
 
             if (postcard.ImageFront != null)
