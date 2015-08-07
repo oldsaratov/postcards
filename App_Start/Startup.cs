@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Web;
+using System.Web.Helpers;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -16,23 +18,30 @@ namespace PostcardsManager
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
             });
+
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            var provider = new Auth0.Owin.Auth0AuthenticationProvider
+            {
+                OnReturnEndpoint = (context) =>
+                {
+                    // xsrf validation
+                    if (context.Request.Query["state"] != null && context.Request.Query["state"].Contains("xsrf="))
+                    {
+                        var state = HttpUtility.ParseQueryString(context.Request.Query["state"]);
+                        AntiForgery.Validate(context.Request.Cookies["__RequestVerificationToken"], state["xsrf"]);
+                    }
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+                    return System.Threading.Tasks.Task.FromResult(0);
+                }
+            };
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication();
+            app.UseAuth0Authentication(
+                clientId: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+                clientSecret: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+                domain: System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"],
+                provider: provider);
         }
     }
 }

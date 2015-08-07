@@ -14,6 +14,13 @@ namespace PostcardsManager.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Series>().ToTable("Series");
+            modelBuilder.Entity<Image>().ToTable("Images");
+            modelBuilder.Entity<Publisher>().ToTable("Publishers");
+            modelBuilder.Entity<Photographer>().ToTable("Photographers");
+            modelBuilder.Entity<Storage>().ToTable("Storages");
+            modelBuilder.Entity<Postcard>().ToTable("Postcards");
+
             modelBuilder.Entity<Series>()
                 .HasOptional(h => h.Publisher)
                 .WithMany(w => w.Series)
