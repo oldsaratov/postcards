@@ -1,24 +1,20 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@if (!Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Auth0Account", new {returnUrl = ""}, FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
-    {
-        @Html.AntiForgeryToken()
-        <div class="rb-art-menu__item">
-            <a class="rb-art-menu__link" href="#">@User.Identity.GetUserName()</a>
-        </div>
-        <div class="rb-art-menu__item">
-            <a class="rb-art-menu__link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        </div>
-    }
+    <div class="rb-art-menu__item login-menu">
+        @Html.ActionLink("[[[Register]]]", "Login", "Account", routeValues: null, htmlAttributes: new {id = "registerLink", @class = "rb-art-menu__link"})
+    </div>
+    <div class="rb-art-menu__item">
+        @Html.ActionLink("[[[Login]]]", "Login", "Account", routeValues: null, htmlAttributes: new {@class = "rb-art-menu__link"})
+    </div>
 }
 else
 {
-    <div class="rb-art-menu__item">
-        @Html.ActionLink("Register", "Login", "Account", routeValues: null, htmlAttributes: new {id = "registerLink", @class = "rb-art-menu__link"})
-    </div>
-    <div class="rb-art-menu__item">
-        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new {@class = "rb-art-menu__link"})
+    <div class="rb-art-menu__item login-menu">
+        <a href="javascript:document.getElementById('logoutForm').submit()">[[[Log off]]]</a>
     </div>
 }
 
+@using (Html.BeginForm("LogOff", "Auth0Account", new {returnUrl = ""}, FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+{
+    @Html.AntiForgeryToken()
+}

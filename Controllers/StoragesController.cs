@@ -12,12 +12,14 @@ namespace PostcardsManager.Controllers
         private PostcardContext db = new PostcardContext();
 
         // GET: Storages
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Storages.ToList());
         }
 
         // GET: Storages/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -28,6 +30,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,StorageName,PublicKey,PrivateKey,StorageLimit")] Storage storage)
         {
             if (ModelState.IsValid)
@@ -41,6 +44,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Storages/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -60,6 +64,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,StorageName,PublicKey,PrivateKey,StorageLimit,Enabled")] Storage storage)
         {
             if (ModelState.IsValid)
@@ -72,6 +77,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Storages/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -89,6 +95,7 @@ namespace PostcardsManager.Controllers
         // POST: Storages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Storage storage = db.Storages.Find(id);

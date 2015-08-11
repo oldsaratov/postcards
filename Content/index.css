@@ -1461,7 +1461,7 @@ a:hover {
 
 .rb-art {
     padding-bottom: 50px;
-    padding-top: 160px;
+    padding-top: 120px;
     position: relative;
 }
 
@@ -1611,7 +1611,7 @@ input[type='text'].error {
     background: #333333;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
     box-sizing: border-box;
-    height: 160px;
+    height: 120px;
     padding: 0 20px;
     position: fixed;
     top: 0;
@@ -3272,4 +3272,8 @@ input:focus, textarea:focus { outline: none; }
 
 .row {
     margin-top: 10px;
+}
+
+.login-menu {
+    margin-left: 50px;
 }

@@ -65,6 +65,7 @@ namespace PostcardsManager.Controllers
             return View(postcard);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
@@ -76,6 +77,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(
             [Bind(
                 Include =
@@ -170,6 +172,7 @@ namespace PostcardsManager.Controllers
             return new Guid(lastPart);
         }
 
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -217,6 +220,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult EditPost(
             [Bind(
                 Include =
@@ -352,6 +356,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Series/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -369,6 +374,7 @@ namespace PostcardsManager.Controllers
         // POST: Series/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var postcard = db.Postcards.Find(id);

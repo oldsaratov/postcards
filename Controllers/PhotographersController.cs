@@ -63,6 +63,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Photographer/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -73,6 +74,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "LastName, FirstName")] Photographer photographer)
         {
             try
@@ -94,6 +96,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Photographer/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -113,6 +116,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult EditPost(int? id)
         {
             if (id == null)
@@ -139,6 +143,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Photographer/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
@@ -161,6 +166,7 @@ namespace PostcardsManager.Controllers
         // POST: Photographer/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             try

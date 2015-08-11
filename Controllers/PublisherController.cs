@@ -37,6 +37,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Publisher/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace PostcardsManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "Name, Description, SeriesId")] Publisher publisher)
         {
             if (ModelState.IsValid)
@@ -60,6 +62,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Publisher/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,6 +80,7 @@ namespace PostcardsManager.Controllers
         // POST: Publisher/Edit/5
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> EditPost(int? id)
         {
             if (id == null)
@@ -103,6 +107,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Publisher/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id, bool? concurrencyError)
         {
             if (id == null)
@@ -125,6 +130,7 @@ namespace PostcardsManager.Controllers
         // POST: Publisher/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Delete(Publisher publisher)
         {
             try

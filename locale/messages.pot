@@ -1,18 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-07 09:38+03:00\n"
+"POT-Creation-Date: 2015-08-11 16:54+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: i18n.POTGenerator\n"
 
 #: Views\Storages\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:50
 msgid "Active"
 msgstr ""
 
 #: Views\Home\Index.cshtml:17
 #: Views\Home\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:50
 msgid "Add"
 msgstr ""
 
@@ -21,6 +24,11 @@ msgstr ""
 #: Views\Publisher\Delete.cshtml:12
 #: Views\Series\Delete.cshtml:12
 #: Views\Storages\Delete.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:10
 msgid "Are you sure you want to delete this?"
 msgstr ""
 
@@ -70,12 +78,16 @@ msgid "Back title place cannot be longer than 50 characters"
 msgstr ""
 
 #: Views\Series\Edit.cshtml:66
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:66
 msgid "Back to list"
 msgstr ""
 
 #: Views\Storages\Create.cshtml:59
 #: Views\Storages\Delete.cshtml:53
 #: Views\Storages\Edit.cshtml:71
+#: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:59
+#: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:71
 msgid "Back to List"
 msgstr ""
 
@@ -94,6 +106,21 @@ msgstr ""
 #: Views\Series\Create.cshtml:62
 #: Views\Series\Delete.cshtml:53
 #: Views\Series\Details.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:45
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:91
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:35
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:47
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:62
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:61
 msgid "Back To List"
 msgstr ""
 
@@ -108,6 +135,7 @@ msgid "Back type cannot be longer than 50 characters"
 msgstr ""
 
 #: Views\Series\Index.cshtml:37
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:37
 msgid "Count"
 msgstr ""
 
@@ -126,10 +154,26 @@ msgstr ""
 #: Views\Storages\Create.cshtml:4
 #: Views\Storages\Create.cshtml:8
 #: Views\Storages\Create.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:38
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:13
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:145
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:38
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:55
+#: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:8
+#: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:52
 msgid "Create"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:10
 msgid "Create new"
 msgstr ""
 
@@ -137,37 +181,61 @@ msgstr ""
 #: Views\Publisher\Index.cshtml:11
 #: Views\Series\Index.cshtml:11
 #: Views\Storages\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:11
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:11
 msgid "Create New"
 msgstr ""
 
 #: Views\Storages\Index.cshtml:45
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:45
 msgid "current"
 msgstr ""
 
 #: Views\Photographers\Delete.cshtml:4
 #: Views\Photographers\Delete.cshtml:9
 #: Views\Photographers\Delete.cshtml:46
-#: Views\Photographers\Index.cshtml:47
+#: Views\Photographers\Index.cshtml:52
 #: Views\Postcards\Delete.cshtml:4
 #: Views\Postcards\Delete.cshtml:9
 #: Views\Postcards\Delete.cshtml:59
-#: Views\Postcards\Index.cshtml:52
+#: Views\Postcards\Index.cshtml:57
 #: Views\Publisher\Delete.cshtml:4
 #: Views\Publisher\Delete.cshtml:9
 #: Views\Publisher\Delete.cshtml:36
-#: Views\Publisher\Index.cshtml:31
+#: Views\Publisher\Index.cshtml:36
 #: Views\Series\Delete.cshtml:4
 #: Views\Series\Delete.cshtml:9
 #: Views\Series\Delete.cshtml:52
-#: Views\Series\Index.cshtml:59
+#: Views\Series\Index.cshtml:64
 #: Views\Storages\Delete.cshtml:4
 #: Views\Storages\Delete.cshtml:8
 #: Views\Storages\Index.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:46
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:59
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:57
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:64
+#: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:8
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:61
 msgid "Delete"
 msgstr ""
 
-#: Controllers\PhotographersController.cs:151
-#: Controllers\PublisherController.cs:143
+#: Controllers\PhotographersController.cs:156
+#: Controllers\PublisherController.cs:149
 msgid "Delete failed. Try again, and if the problem persists see your system administrator."
 msgstr ""
 
@@ -185,56 +253,92 @@ msgstr ""
 
 #: Views\Photographers\Details.cshtml:4
 #: Views\Photographers\Details.cshtml:9
-#: Views\Photographers\Index.cshtml:46
+#: Views\Photographers\Index.cshtml:45
 #: Views\Postcards\Details.cshtml:4
 #: Views\Postcards\Details.cshtml:9
-#: Views\Postcards\Index.cshtml:51
+#: Views\Postcards\Index.cshtml:50
 #: Views\Publisher\Details.cshtml:4
 #: Views\Publisher\Details.cshtml:9
-#: Views\Publisher\Index.cshtml:30
+#: Views\Publisher\Index.cshtml:29
 #: Views\Series\Details.cshtml:4
 #: Views\Series\Details.cshtml:9
-#: Views\Series\Index.cshtml:58
+#: Views\Series\Index.cshtml:57
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:45
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:29
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:57
 msgid "Details"
 msgstr ""
 
 #: Views\Storages\Index.cshtml:54
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:54
 msgid "Disabled"
 msgstr ""
 
 #: Views\Photographers\Details.cshtml:36
 #: Views\Photographers\Edit.cshtml:4
 #: Views\Photographers\Edit.cshtml:9
-#: Views\Photographers\Index.cshtml:45
+#: Views\Photographers\Index.cshtml:48
 #: Views\Postcards\Details.cshtml:90
 #: Views\Postcards\Edit.cshtml:4
 #: Views\Postcards\Edit.cshtml:13
-#: Views\Postcards\Index.cshtml:50
+#: Views\Postcards\Index.cshtml:53
 #: Views\Publisher\Details.cshtml:34
 #: Views\Publisher\Edit.cshtml:4
 #: Views\Publisher\Edit.cshtml:9
-#: Views\Publisher\Index.cshtml:29
+#: Views\Publisher\Index.cshtml:32
 #: Views\Series\Details.cshtml:60
 #: Views\Series\Edit.cshtml:4
 #: Views\Series\Edit.cshtml:10
-#: Views\Series\Index.cshtml:57
+#: Views\Series\Index.cshtml:60
 #: Views\Storages\Edit.cshtml:4
 #: Views\Storages\Edit.cshtml:8
 #: Views\Storages\Index.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:48
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:90
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:34
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:32
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:10
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:8
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:58
 msgid "Edit"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:18
 #: Views\Series\Index.cshtml:20
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:20
 msgid "Filter"
 msgstr ""
 
 #: Views\Photographers\Index.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:18
 msgid "Find By Name"
 msgstr ""
 
 #: Models\Photographer.cs:25
 #: Views\Photographers\Index.cshtml:30
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:30
 msgid "First Name"
 msgstr ""
 
@@ -247,6 +351,7 @@ msgid "First name should be defined"
 msgstr ""
 
 #: Views\Home\Index.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:15
 msgid "First of all, please add publishers, series, postcards and other to database."
 msgstr ""
 
@@ -291,6 +396,7 @@ msgstr ""
 
 #: Models\Photographer.cs:14
 #: Views\Photographers\Index.cshtml:27
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:27
 msgid "Last Name"
 msgstr ""
 
@@ -302,7 +408,20 @@ msgstr ""
 msgid "Last name should be defined"
 msgstr ""
 
+#: Views\Shared\_LoginPartial.cshtml:13
+#: obj\Release\Package\PackageTmp\Views\Shared\_LoginPartial.cshtml:13
+msgid "Log off"
+msgstr ""
+
+#: Views\Account\Login.cshtml:3
+#: Views\Shared\_LoginPartial.cshtml:7
+#: obj\Release\Package\PackageTmp\Views\Account\Login.cshtml:3
+#: obj\Release\Package\PackageTmp\Views\Shared\_LoginPartial.cshtml:7
+msgid "Login"
+msgstr ""
+
 #: Views\Home\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:4
 msgid "Main Page"
 msgstr ""
 
@@ -319,6 +438,7 @@ msgid "Name should be defined"
 msgstr ""
 
 #: Views\Home\Index.cshtml:14
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:14
 msgid "No postcards in database!"
 msgstr ""
 
@@ -333,10 +453,12 @@ msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:39
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:39
 msgid "oldsaratov.ru"
 msgstr ""
 
 #: Views\Home\Index.cshtml:84
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:84
 msgid "Open"
 msgstr ""
 
@@ -346,6 +468,10 @@ msgstr ""
 #: Views\Photographers\Delete.cshtml:18
 #: Views\Photographers\Details.cshtml:12
 #: Views\Photographers\Edit.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:17
 msgid "Photographer"
 msgstr ""
 
@@ -353,6 +479,10 @@ msgstr ""
 #: Views\Photographers\Index.cshtml:9
 #: Views\Postcards\Index.cshtml:17
 #: Views\Shared\_Layout.cshtml:59
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:59
 msgid "Photographers"
 msgstr ""
 
@@ -370,20 +500,29 @@ msgstr ""
 #: Views\Postcards\Delete.cshtml:15
 #: Views\Postcards\Details.cshtml:12
 #: Views\Postcards\Edit.cshtml:21
+#: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:21
+#: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:21
 msgid "Postcard"
 msgstr ""
 
 #: Views\Postcards\Index.cshtml:4
 #: Views\Postcards\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:50
 msgid "Postcards"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:6
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:6
 msgid "Postcards manager"
 msgstr ""
 
 #: Views\Shared\_AdminLayout.cshtml:6
+#: obj\Release\Package\PackageTmp\Views\Shared\_AdminLayout.cshtml:6
 msgid "Postcards Manager"
 msgstr ""
 
@@ -429,6 +568,10 @@ msgstr ""
 #: Views\Publisher\Delete.cshtml:15
 #: Views\Publisher\Details.cshtml:12
 #: Views\Publisher\Edit.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:17
 msgid "Publisher"
 msgstr ""
 
@@ -447,7 +590,15 @@ msgstr ""
 #: Views\Publisher\Index.cshtml:4
 #: Views\Publisher\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:53
 msgid "Publishers"
+msgstr ""
+
+#: Views\Shared\_LoginPartial.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Shared\_LoginPartial.cshtml:4
+msgid "Register"
 msgstr ""
 
 #: Views\Photographers\Edit.cshtml:40
@@ -455,14 +606,21 @@ msgstr ""
 #: Views\Publisher\Edit.cshtml:40
 #: Views\Series\Edit.cshtml:58
 #: Views\Storages\Edit.cshtml:64
+#: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:40
+#: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:146
+#: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:40
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:58
+#: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:64
 msgid "Save"
 msgstr ""
 
 #: Views\Photographers\Index.cshtml:19
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:19
 msgid "Search"
 msgstr ""
 
 #: Views\Series\Index.cshtml:19
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:19
 msgid "Select Publisher"
 msgstr ""
 
@@ -476,6 +634,14 @@ msgstr ""
 #: Views\Series\Index.cshtml:4
 #: Views\Series\Index.cshtml:9
 #: Views\Shared\_Layout.cshtml:56
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:16
+#: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:19
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:56
 msgid "Series"
 msgstr ""
 
@@ -486,11 +652,16 @@ msgstr ""
 #: Views\Storages\Create.cshtml:15
 #: Views\Storages\Delete.cshtml:12
 #: Views\Storages\Edit.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Storages\Create.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:12
+#: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:15
 msgid "Storage"
 msgstr ""
 
 #: Views\Storages\Index.cshtml:4
 #: Views\Storages\Index.cshtml:8
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:8
 msgid "Storage accounts"
 msgstr ""
 
@@ -528,19 +699,19 @@ msgstr ""
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:404
+#: Controllers\PostcardsController.cs:410
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
-#: Controllers\SeriesController.cs:130
+#: Controllers\SeriesController.cs:135
 msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
 msgstr ""
 
-#: Controllers\PhotographersController.cs:91
-#: Controllers\PostcardsController.cs:158
-#: Controllers\PostcardsController.cs:323
-#: Controllers\PostcardsController.cs:328
-#: Controllers\SeriesController.cs:89
+#: Controllers\PhotographersController.cs:93
+#: Controllers\PostcardsController.cs:160
+#: Controllers\PostcardsController.cs:327
+#: Controllers\PostcardsController.cs:332
+#: Controllers\SeriesController.cs:92
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 

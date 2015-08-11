@@ -30,6 +30,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Series/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -65,6 +66,7 @@ namespace PostcardsManager.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             PopulatePublishersDropDownList();
@@ -73,6 +75,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "SeriesId,Title,Year,PublisherId,Description")] Series series)
         {
             try
@@ -92,6 +95,7 @@ namespace PostcardsManager.Controllers
             return View(series);
         }
 
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -109,6 +113,7 @@ namespace PostcardsManager.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult EditPost(int? id)
         {
             if (id == null)
@@ -142,6 +147,7 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Series/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -159,6 +165,7 @@ namespace PostcardsManager.Controllers
         // POST: Series/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             var series = db.Series.Find(id);
