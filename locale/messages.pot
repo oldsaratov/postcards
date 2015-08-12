@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-11 16:54+03:00\n"
+"POT-Creation-Date: 2015-08-12 21:44+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,7 +97,7 @@ msgstr ""
 #: Views\Photographers\Edit.cshtml:47
 #: Views\Postcards\Create.cshtml:152
 #: Views\Postcards\Delete.cshtml:60
-#: Views\Postcards\Details.cshtml:91
+#: Views\Postcards\Details.cshtml:102
 #: Views\Postcards\Edit.cshtml:153
 #: Views\Publisher\Create.cshtml:46
 #: Views\Publisher\Delete.cshtml:37
@@ -112,7 +112,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:91
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:95
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
 #: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
@@ -287,7 +287,7 @@ msgstr ""
 #: Views\Photographers\Edit.cshtml:4
 #: Views\Photographers\Edit.cshtml:9
 #: Views\Photographers\Index.cshtml:48
-#: Views\Postcards\Details.cshtml:90
+#: Views\Postcards\Details.cshtml:101
 #: Views\Postcards\Edit.cshtml:4
 #: Views\Postcards\Edit.cshtml:13
 #: Views\Postcards\Index.cshtml:53
@@ -306,7 +306,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:48
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:90
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:94
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:53
