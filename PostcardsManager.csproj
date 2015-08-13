@@ -203,9 +203,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Postcard.cs" />
     <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\Series.cs" />
-    <Compile Include="Models\Postcard.cs" />
+    <Compile Include="ViewModels\PostcardViewModel.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Photographer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

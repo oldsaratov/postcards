@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-12 21:44+03:00\n"
-"PO-Revision-Date: 2015-08-12 21:44+03:00\n"
+"POT-Creation-Date: 2015-08-13 21:34+03:00\n"
+"PO-Revision-Date: 2015-08-13 21:34+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,11 +35,13 @@ msgstr "Вы уверены что хотите это удалить?"
 
 #: Models\Postcard.cs:19
 #: ViewModels\PostcardEditViewModel.cs:18
+#: ViewModels\PostcardViewModel.cs:19
 msgid "Back Image"
 msgstr "Оборот"
 
 #: Models\Postcard.cs:41
 #: ViewModels\PostcardEditViewModel.cs:40
+#: ViewModels\PostcardViewModel.cs:47
 msgid "Back Title"
 msgstr "Надпись на обороте"
 
@@ -50,6 +52,7 @@ msgstr "Надпись на обороте не может быть длинне
 
 #: Models\Postcard.cs:45
 #: ViewModels\PostcardEditViewModel.cs:44
+#: ViewModels\PostcardViewModel.cs:50
 msgid "Back title font"
 msgstr "Шрифт надписи на обороте"
 
@@ -60,6 +63,7 @@ msgstr "Шрифт надпсии на обороте не может быть �
 
 #: Models\Postcard.cs:49
 #: ViewModels\PostcardEditViewModel.cs:48
+#: ViewModels\PostcardViewModel.cs:53
 msgid "Back title font color"
 msgstr "Цвет шрифта надписи на обороте"
 
@@ -70,6 +74,7 @@ msgstr "Цвет шрифта надписи на обороте не может
 
 #: Models\Postcard.cs:57
 #: ViewModels\PostcardEditViewModel.cs:56
+#: ViewModels\PostcardViewModel.cs:59
 msgid "Back title place"
 msgstr "Положение надписи на обороте"
 
@@ -113,7 +118,7 @@ msgstr "Назад к списку"
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:95
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:102
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
 #: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
@@ -127,6 +132,7 @@ msgstr "Назад к списку"
 
 #: Models\Postcard.cs:53
 #: ViewModels\PostcardEditViewModel.cs:52
+#: ViewModels\PostcardViewModel.cs:56
 msgid "Back type"
 msgstr "Тип оборота"
 
@@ -241,13 +247,13 @@ msgid "Delete failed. Try again, and if the problem persists see your system adm
 msgstr "Удаление невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
 #: Models\Publisher.cs:17
-#: Models\Series.cs:21
+#: Models\Series.cs:22
 #: ViewModels\SeriesViewModel.cs:22
 msgid "Description"
 msgstr "Описание"
 
 #: Models\Publisher.cs:16
-#: Models\Series.cs:20
+#: Models\Series.cs:21
 #: ViewModels\SeriesViewModel.cs:21
 msgid "Description cannot be longer than 200 characters"
 msgstr "Описание не может быть длиннее 200 символов"
@@ -307,7 +313,7 @@ msgstr "Не активно"
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:48
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:94
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:101
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:53
@@ -337,17 +343,17 @@ msgstr "Фильтр"
 msgid "Find By Name"
 msgstr "Искать по имени"
 
-#: Models\Photographer.cs:25
+#: Models\Photographer.cs:26
 #: Views\Photographers\Index.cshtml:30
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:30
 msgid "First Name"
 msgstr "Имя"
 
-#: Models\Photographer.cs:23
+#: Models\Photographer.cs:24
 msgid "First name cannot be longer than 50 characters"
 msgstr "Имя не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:22
+#: Models\Photographer.cs:23
 msgid "First name should be defined"
 msgstr " Имя должно быть заполнено"
 
@@ -358,11 +364,13 @@ msgstr "Пожалуйста, для начала добавьте издате�
 
 #: Models\Postcard.cs:16
 #: ViewModels\PostcardEditViewModel.cs:15
+#: ViewModels\PostcardViewModel.cs:16
 msgid "Front Image"
 msgstr "Лицевая сторона"
 
 #: Models\Postcard.cs:29
 #: ViewModels\PostcardEditViewModel.cs:28
+#: ViewModels\PostcardViewModel.cs:38
 msgid "Front Title"
 msgstr "Надпись"
 
@@ -373,6 +381,7 @@ msgstr "Надпись  не может быть длиннее 200 символ
 
 #: Models\Postcard.cs:33
 #: ViewModels\PostcardEditViewModel.cs:32
+#: ViewModels\PostcardViewModel.cs:41
 msgid "Front title font"
 msgstr "Шрифт надписи"
 
@@ -383,6 +392,7 @@ msgstr "Шрифт надписи не может быть длиннее 50 с�
 
 #: Models\Postcard.cs:37
 #: ViewModels\PostcardEditViewModel.cs:36
+#: ViewModels\PostcardViewModel.cs:44
 msgid "Front title font color"
 msgstr "Цвет шрифта надписи"
 
@@ -391,21 +401,21 @@ msgstr "Цвет шрифта надписи"
 msgid "Front title font color cannot be longer than 50 characters"
 msgstr "Цвет шрифта надписи не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:28
+#: Models\Photographer.cs:29
 msgid "Full Name"
 msgstr "Полное имя"
 
-#: Models\Photographer.cs:14
+#: Models\Photographer.cs:15
 #: Views\Photographers\Index.cshtml:27
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:27
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: Models\Photographer.cs:13
+#: Models\Photographer.cs:14
 msgid "Last name cannot be longer than 50 characters"
 msgstr "Фамилия не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:12
+#: Models\Photographer.cs:13
 msgid "Last name should be defined"
 msgstr "Фамилия должна быть заполнена"
 
@@ -426,11 +436,11 @@ msgstr ""
 msgid "Main Page"
 msgstr "Главная страница"
 
-#: Models\Photographer.cs:19
+#: Models\Photographer.cs:20
 msgid "Middle Name"
 msgstr "Отчество"
 
-#: Models\Photographer.cs:17
+#: Models\Photographer.cs:18
 msgid "Middle name cannot be longer than 50 characters"
 msgstr "Отчество не может быть длиннее 50 символов"
 
@@ -445,6 +455,7 @@ msgstr "В базе еще нет открыток!"
 
 #: Models\Postcard.cs:61
 #: ViewModels\PostcardEditViewModel.cs:60
+#: ViewModels\PostcardViewModel.cs:62
 msgid "Number in series"
 msgstr "Номер в серии"
 
@@ -465,6 +476,8 @@ msgstr "Открыть"
 
 #: Models\Postcard.cs:25
 #: ViewModels\PostcardEditViewModel.cs:24
+#: ViewModels\PostcardViewModel.cs:33
+#: ViewModels\PostcardViewModel.cs:35
 #: Views\Photographers\Create.cshtml:17
 #: Views\Photographers\Delete.cshtml:18
 #: Views\Photographers\Details.cshtml:12
@@ -489,6 +502,7 @@ msgstr "Фотографы"
 
 #: Models\Postcard.cs:65
 #: ViewModels\PostcardEditViewModel.cs:64
+#: ViewModels\PostcardViewModel.cs:65
 msgid "Post date"
 msgstr "Дата прохождения почты"
 
@@ -561,10 +575,11 @@ msgstr " Публичный ключ должен быть заполнен"
 
 #: Models\Postcard.cs:69
 #: ViewModels\PostcardEditViewModel.cs:68
+#: ViewModels\PostcardViewModel.cs:68
 msgid "Publish place"
 msgstr "Место издания"
 
-#: Models\Series.cs:24
+#: Models\Series.cs:25
 #: Views\Publisher\Create.cshtml:17
 #: Views\Publisher\Delete.cshtml:15
 #: Views\Publisher\Details.cshtml:12
@@ -627,6 +642,8 @@ msgstr "Выберите издателя"
 
 #: Models\Postcard.cs:22
 #: ViewModels\PostcardEditViewModel.cs:21
+#: ViewModels\PostcardViewModel.cs:28
+#: ViewModels\PostcardViewModel.cs:30
 #: Views\Postcards\Index.cshtml:16
 #: Views\Series\Create.cshtml:17
 #: Views\Series\Delete.cshtml:15
@@ -686,21 +703,21 @@ msgstr "Название хранилища не может быть длинн�
 msgid "Storage Name should be defined"
 msgstr "Название хранилища должно быть заполнено"
 
-#: Models\Series.cs:13
+#: Models\Series.cs:14
 #: ViewModels\SeriesViewModel.cs:11
 msgid "Title"
 msgstr "Название"
 
-#: Models\Series.cs:12
+#: Models\Series.cs:13
 #: ViewModels\SeriesViewModel.cs:10
 msgid "Title cannot be longer than 150 characters"
 msgstr ""
 
-#: Models\Series.cs:11
+#: Models\Series.cs:12
 msgid "Title should be defined"
 msgstr "Название должно быть заполнено"
 
-#: Controllers\PostcardsController.cs:410
+#: Controllers\PostcardsController.cs:444
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr "Удаление невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
@@ -709,21 +726,22 @@ msgid "Unable to save changes. Try again, and if the problem persists see your s
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
 #: Controllers\PhotographersController.cs:93
-#: Controllers\PostcardsController.cs:160
-#: Controllers\PostcardsController.cs:327
-#: Controllers\PostcardsController.cs:332
+#: Controllers\PostcardsController.cs:194
+#: Controllers\PostcardsController.cs:361
+#: Controllers\PostcardsController.cs:366
 #: Controllers\SeriesController.cs:92
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
 #: Models\Postcard.cs:12
-#: Models\Series.cs:16
+#: Models\Series.cs:17
 #: ViewModels\PostcardEditViewModel.cs:11
+#: ViewModels\PostcardViewModel.cs:13
 #: ViewModels\SeriesViewModel.cs:14
 msgid "Year"
 msgstr "Год"
 
-#: Models\Series.cs:17
+#: Models\Series.cs:18
 #: ViewModels\SeriesViewModel.cs:15
 msgid "Year cannot be longer than 150 characters"
 msgstr "Год не может быть длиннее 150 символов"

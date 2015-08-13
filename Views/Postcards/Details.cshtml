@@ -1,4 +1,4 @@
-﻿@model PostcardsManager.Models.Postcard
+﻿@model PostcardsManager.ViewModels.PostcardViewModel
 
 @{
     ViewBag.Title = "[[[Details]]]";
@@ -18,10 +18,10 @@
             <dd>@Html.DisplayFor(model => model.Year)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.PhotographerId)</dt>
-            <dd>@Html.DisplayFor(model => model.Photographer.FullName)</dd>
+            <dd>@Html.DisplayFor(model => model.PhotographerName)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.SeriesId)</dt>
-            <dd>@Html.DisplayFor(model => model.Series.Title)</dd>
+            <dd>@Html.DisplayFor(model => model.SeriesTitle)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.NumberInSeries)</dt>
             <dd>@Html.DisplayFor(model => model.NumberInSeries)</dd>
@@ -64,8 +64,8 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#front" aria-controls="front" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageFrontId)</a></li>
-                <li role="presentation"><a href="#back" aria-controls="back" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageBackId)</a></li>
+                <li role="presentation" class="active"><a href="#front" aria-controls="front" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageFrontPreviewUrl)</a></li>
+                <li role="presentation"><a href="#back" aria-controls="back" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageBackPreviewUrl)</a></li>
             </ul>
 
             <div class="tab-content">
@@ -74,8 +74,8 @@
                     {
                         <div class="picture-front" itemscope itemtype="http://schema.org/ImageGallery">
                             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                <a href="@Model.ImageFront.Url" itemprop="contentUrl" data-size="600x400">
-                                    <img src="@Model.ImageFront.Url" itemprop="thumbnail" alt="Image description"/>
+                                <a href="@Model.ImageFrontFullUrl" itemprop="contentUrl" data-size="1280x800">
+                                    <img src="@Model.ImageFrontPreviewUrl" itemprop="thumbnail" alt="Image description" />
                                 </a>
                             </figure>
                         </div>
@@ -86,8 +86,8 @@
                     {
                         <div class="picture-back" itemscope itemtype="http://schema.org/ImageGallery">
                             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                <a href="@Model.ImageBack.Url" itemprop="contentUrl" data-size="600x400">
-                                    <img src="@Model.ImageBack.Url" itemprop="thumbnail" alt="Image description"/>
+                                <a href="@Model.ImageBackFullUrl" itemprop="contentUrl" data-size="1280x800">
+                                    <img src="@Model.ImageBackPreviewUrl" itemprop="thumbnail" alt="Image description"/>
                                 </a>
                             </figure>
                         </div>

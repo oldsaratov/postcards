@@ -50,19 +50,53 @@ namespace PostcardsManager.Controllers
                 return HttpNotFound();
             }
 
+            var postcardVm = new PostcardViewModel
+            {
+                ImageFrontId = postcard.ImageFrontId,
+                ImageBackId = postcard.ImageBackId,
+                Year = postcard.Year,
+                FrontTitle = postcard.FrontTitle,
+                FrontTitleFont = postcard.FrontTitleFont,
+                FrontTitleFontColor = postcard.FrontTitleFontColor,
+                BackTitle = postcard.BackTitle,
+                BackTitleFont = postcard.BackTitleFont,
+                BackTitleFontColor = postcard.BackTitleFontColor,
+                BackType = postcard.BackType,
+                BackTitlePlace = postcard.BackTitlePlace,
+                NumberInSeries = postcard.NumberInSeries,
+                PostDate = postcard.PostDate,
+                PublishPlace = postcard.PublishPlace
+            };
+
             if (postcard.ImageFront != null)
             {
-                postcard.ImageFront.Url =
+                postcardVm.ImageFrontPreviewUrl =
                     Urls.Cdn(new CdnPathBuilder(postcard.ImageFrontUniqId).ResizeHeight(400)).OriginalString;
+                postcardVm.ImageFrontFullUrl =
+                    Urls.Cdn(new CdnPathBuilder(postcard.ImageFrontUniqId).ResizeHeight(1000)).OriginalString;
             }
 
             if (postcard.ImageBack != null)
             {
-                postcard.ImageBack.Url =
+                postcardVm.ImageBackPreviewUrl =
                     Urls.Cdn(new CdnPathBuilder(postcard.ImageBackUniqId).ResizeHeight(400)).OriginalString;
+                postcardVm.ImageBackFullUrl =
+                    Urls.Cdn(new CdnPathBuilder(postcard.ImageBackUniqId).ResizeHeight(1000)).OriginalString;
             }
 
-            return View(postcard);
+            if (postcard.SeriesId.HasValue)
+            {
+                postcardVm.SeriesId = postcard.SeriesId;
+                postcardVm.SeriesTitle = postcard.Series.Title;
+            }
+
+            if (postcard.PhotographerId.HasValue)
+            {
+                postcardVm.PhotographerId = postcard.PhotographerId;
+                postcardVm.PhotographerName = postcard.Photographer.FullName;
+            }
+
+            return View(postcardVm);
         }
 
         [Authorize]
