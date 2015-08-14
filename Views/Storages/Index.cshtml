@@ -22,9 +22,6 @@
             @Html.DisplayNameFor(model => model.PrivateKey)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StorageLimit)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Enabled)
         </th>
         <th></th>
@@ -40,9 +37,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PrivateKey)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StorageLimit) (<span class="badge">@item.Images.Count [[[current]]]</span>)
         </td>
         <td>
             @if (item.Enabled)

@@ -102,7 +102,7 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
+            ViewBag.PublicKey = db.Storages.First(s => s.Enabled).PublicKey;
 
             PopulateSeriesDropDownList();
             PopulatePhotographersDropDownList();
@@ -122,7 +122,7 @@ namespace PostcardsManager.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var storage = db.Storages.ToList().First(s => s.IsActive);
+                    var storage = db.Storages.ToList().First(s => s.Enabled);
                     var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                     Image imageFront = null;
@@ -245,7 +245,7 @@ namespace PostcardsManager.Controllers
             if (postcard.ImageBack != null)
                 postcardVm.ImageBackUrl = postcard.ImageBack.UniqImageId.ToString();
 
-            ViewBag.PublicKey = db.Storages.OrderBy(s => s.StorageLimit).ToList().First(s => s.IsActive).PublicKey;
+            ViewBag.PublicKey = db.Storages.First(s => s.Enabled).PublicKey;
             PopulateSeriesDropDownList(postcard.SeriesId);
             PopulatePhotographersDropDownList(postcard.PhotographerId);
 
@@ -269,7 +269,7 @@ namespace PostcardsManager.Controllers
 
             try
             {
-                var storage = db.Storages.ToList().First(s => s.IsActive);
+                var storage = db.Storages.ToList().First(s => s.Enabled);
                 var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                 var oldFrontImage = postcardToUpdate.ImageFrontUniqId;
@@ -429,7 +429,7 @@ namespace PostcardsManager.Controllers
                 db.Postcards.Remove(postcard);
                 db.SaveChanges();
 
-                var storage = db.Storages.ToList().First(s => s.IsActive);
+                var storage = db.Storages.ToList().First(s => s.Enabled);
                 var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                 if (imageFrontId != Guid.Empty)

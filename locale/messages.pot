@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-14 09:57+03:00\n"
+"POT-Creation-Date: 2015-08-14 10:13+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,8 +14,8 @@ msgstr ""
 
 #: Views\Home\Index.cshtml:18
 #: Views\Home\Index.cshtml:51
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:17
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:18
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:51
 msgid "Add"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:91
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:102
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
 #: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
@@ -312,7 +312,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:48
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:90
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:101
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:53
@@ -357,7 +357,7 @@ msgid "First name should be defined"
 msgstr ""
 
 #: Views\Home\Index.cshtml:16
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:16
 msgid "First of all, please add publishers, series, postcards and other to database."
 msgstr ""
 
@@ -431,7 +431,7 @@ msgid "Login"
 msgstr ""
 
 #: Views\Home\Index.cshtml:5
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:5
 msgid "Main Page"
 msgstr ""
 
@@ -448,7 +448,7 @@ msgid "Name should be defined"
 msgstr ""
 
 #: Views\Home\Index.cshtml:15
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:14
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:15
 msgid "No postcards in database!"
 msgstr ""
 
@@ -464,12 +464,12 @@ msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:40
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:39
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:40
 msgid "oldsaratov.ru"
 msgstr ""
 
 #: Views\Home\Index.cshtml:85
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:84
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:85
 msgid "Open"
 msgstr ""
 
@@ -495,7 +495,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:17
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:59
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:60
 msgid "Photographers"
 msgstr ""
 
@@ -526,12 +526,12 @@ msgstr ""
 #: Views\Shared\_Layout.cshtml:51
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:51
 msgid "Postcards"
 msgstr ""
 
 #: Views\Shared\_Layout.cshtml:7
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:6
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:7
 msgid "Postcards manager"
 msgstr ""
 
@@ -607,7 +607,7 @@ msgstr ""
 #: Views\Shared\_Layout.cshtml:54
 #: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:53
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:54
 msgid "Publishers"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr ""
 #: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:19
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:56
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:57
 msgid "Series"
 msgstr ""
 

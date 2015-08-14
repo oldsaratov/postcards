@@ -25,18 +25,9 @@ namespace PostcardsManager.Models
         [Display(Name = "[[[PrivateKey]]]")]
         public string PrivateKey { get; set; }
         
-        [Required(ErrorMessage = "[[[Storage Limit should be defined]]]")]
-        [Display(Name = "[[[Storage Limit]]]")]
-        public int StorageLimit { get; set; }
-        
         [Display(Name = "[[[Status]]]")]
         public bool Enabled { get; set; }
-
-        public bool IsActive
-        {
-            get { return Enabled && Images != null && Images.Count < StorageLimit - 2; }
-        }
-
+        
         public virtual ICollection<Image> Images { get; set; }
     }
 }
