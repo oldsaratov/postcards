@@ -45,8 +45,7 @@ namespace PostcardsManager.Controllers
             var viewModel = new SeriesViewModel
             {
                 Postcards =
-                    db.Postcards.OrderByDescending(p => p.Id)
-                        .Take(50)
+                    db.Postcards.Where(p => p.SeriesId == id).OrderByDescending(p => p.Id)
                         .ToList()
                         .Select(p => new PostcardMainPageViewModel
                         {
