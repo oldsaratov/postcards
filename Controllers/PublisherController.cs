@@ -44,8 +44,6 @@ namespace PostcardsManager.Controllers
         }
 
         // POST: Publisher/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -87,9 +85,9 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var studentToUpdate = db.Publishers.Find(id);
-            if (TryUpdateModel(studentToUpdate, "",
-                new[] { "Name", "Description", "SeriesId" }))
+            var publisherToUpdate = db.Publishers.Find(id);
+            if (TryUpdateModel(publisherToUpdate, "",
+                new[] {"Name", "Description", "SeriesId"}))
             {
                 try
                 {
@@ -99,11 +97,12 @@ namespace PostcardsManager.Controllers
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                    ModelState.AddModelError("",
+                        "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
 
-            return View(studentToUpdate);
+            return View(publisherToUpdate);
         }
 
         // GET: Publisher/Delete/5
@@ -145,8 +144,8 @@ namespace PostcardsManager.Controllers
             }
             catch (DataException /* dex */)
             {
-                //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
-                ModelState.AddModelError(string.Empty, "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]");
+                ModelState.AddModelError(string.Empty,
+                    "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]");
                 return View(publisher);
             }
         }

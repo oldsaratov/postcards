@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -120,8 +119,8 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var courseToUpdate = db.Series.Find(id);
-            if (TryUpdateModel(courseToUpdate, "",
+            var seriesToUpdate = db.Series.Find(id);
+            if (TryUpdateModel(seriesToUpdate, "",
                 new[] { "Title", "Year", "PublisherId", "Description" }))
             {
                 try
@@ -135,8 +134,8 @@ namespace PostcardsManager.Controllers
                     ModelState.AddModelError("", "[[[Unable to save changes. Try again, and if the problem persists see your system administrator.]]]");
                 }
             }
-            PopulatePublishersDropDownList(courseToUpdate.PublisherId);
-            return View(courseToUpdate);
+            PopulatePublishersDropDownList(seriesToUpdate.PublisherId);
+            return View(seriesToUpdate);
         }
 
         private void PopulatePublishersDropDownList(object selectedPublisher = null)

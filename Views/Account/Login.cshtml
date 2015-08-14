@@ -1,4 +1,5 @@
 ﻿@using System.Configuration;
+@using i18n
 @{
     ViewBag.Title = "[[[Login]]]";
 }
@@ -16,6 +17,7 @@
     var xsrf = document.getElementsByName("__RequestVerificationToken")[0].value;
 
     lock.show({
+        dict: '@Context.GetPrincipalAppLanguageForRequest()',
         container: 'root'
       , callbackURL: window.location.origin + '/signin-auth0'
       , responseType: 'code'

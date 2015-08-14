@@ -10,6 +10,7 @@ namespace PostcardsManager.Controllers
     public class PhotographersController : Controller
     {
         private readonly PostcardContext db = new PostcardContext();
+        
         // GET: Photographer
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -70,8 +71,6 @@ namespace PostcardsManager.Controllers
         }
 
         // POST: Photographer/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -88,7 +87,6 @@ namespace PostcardsManager.Controllers
             }
             catch (RetryLimitExceededException /* dex */)
             {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
                 ModelState.AddModelError("",
                     "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
             }
@@ -112,8 +110,6 @@ namespace PostcardsManager.Controllers
         }
 
         // POST: Photographer/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -123,8 +119,8 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var studentToUpdate = db.Photographers.Find(id);
-            if (TryUpdateModel(studentToUpdate, "",
+            var photographerToUpdate = db.Photographers.Find(id);
+            if (TryUpdateModel(photographerToUpdate, "",
                 new[] {"LastName", "FirstName"}))
             {
                 try
@@ -139,7 +135,7 @@ namespace PostcardsManager.Controllers
                         "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
-            return View(studentToUpdate);
+            return View(photographerToUpdate);
         }
 
         // GET: Photographer/Delete/5

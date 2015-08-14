@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using PostcardsManager.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PostcardsManager.ViewModels
 {

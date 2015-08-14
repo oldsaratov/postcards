@@ -26,8 +26,6 @@ namespace PostcardsManager.Controllers
         }
 
         // POST: Storages/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -60,8 +58,6 @@ namespace PostcardsManager.Controllers
         }
 
         // POST: Storages/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -98,7 +94,8 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            Storage storage = db.Storages.Find(id);
+            var storage = db.Storages.Find(id);
+
             db.Storages.Remove(storage);
             db.SaveChanges();
             return RedirectToAction("Index");

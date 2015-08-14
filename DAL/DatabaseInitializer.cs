@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using PostcardsManager.Migrations;
 using PostcardsManager.Models;
 using PostcardsManager.Properties;
 

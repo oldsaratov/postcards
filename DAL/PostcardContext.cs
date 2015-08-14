@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using PostcardsManager.Models;
-using PostcardsManager.ViewModels;
 
 namespace PostcardsManager.DAL
 {

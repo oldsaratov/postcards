@@ -73,9 +73,6 @@
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
@@ -164,9 +161,8 @@
       <Private>True</Private>
       <HintPath>packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="UploadcareCSharp, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\uploadcare-csharp\UploadcareCSharp\bin\Release\UploadcareCSharp.dll</HintPath>
+    <Reference Include="UploadcareCSharp">
+      <HintPath>packages\UploadcareCSharp.0.3.1\lib\UploadcareCSharp.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
@@ -193,15 +189,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Migrations\201508031806491_init.cs" />
     <Compile Include="Migrations\201508031806491_init.Designer.cs">
       <DependentUpon>201508031806491_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Postcard.cs" />
     <Compile Include="Models\Storage.cs" />
@@ -227,6 +219,7 @@
     <Content Include="Content\default-skin.css" />
     <Content Include="Content\default-skin.png" />
     <Content Include="Content\default-skin.svg" />
+    <Content Include="Content\images\cover.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\index.css" />
     <Content Include="Content\photoswipe.css" />

@@ -1,5 +1,3 @@
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
 using System;
 using System.Configuration;
 using System.Linq;
@@ -7,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 
 namespace PostcardsManager.Controllers
 {
@@ -47,9 +47,9 @@ namespace PostcardsManager.Controllers
             AuthenticationManager.SignOut(appTypes);
 
             var absoluteReturnUrl = string.IsNullOrEmpty(returnUrl) ?
-                this.Url.Action("Index", "Home", new { }, this.Request.Url.Scheme) :
-                this.Url.IsLocalUrl(returnUrl) ?
-                    new Uri(this.Request.Url, returnUrl).AbsoluteUri : returnUrl;
+                Url.Action("Index", "Home", new { }, Request.Url.Scheme) :
+                Url.IsLocalUrl(returnUrl) ?
+                    new Uri(Request.Url, returnUrl).AbsoluteUri : returnUrl;
 
             return Redirect(
                 string.Format("https://{0}/logout?returnTo={1}",
@@ -61,8 +61,6 @@ namespace PostcardsManager.Controllers
         {
             var identity = new ClaimsIdentity(externalIdentity.Claims, DefaultAuthenticationTypes.ApplicationCookie);
 
-            // This claim is required for the ASP.NET Anti-Forgery Token to function.
-            // See http://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgeryconfig.uniqueclaimtypeidentifier(v=vs.111).aspx
             identity.AddClaim(
                 new Claim(
                     "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", 
@@ -78,10 +76,7 @@ namespace PostcardsManager.Controllers
             {
                 return Redirect(returnUrl);
             }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
