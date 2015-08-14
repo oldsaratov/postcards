@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.IEnumerable<PostcardsManager.Models.Publisher>
+﻿@model IEnumerable<PostcardsManager.Models.Publisher>
 
 @{
     ViewBag.Title = "[[[Publishers]]]";
@@ -27,14 +27,8 @@
                     </td>
                     <td>
                         @Html.ActionLink("[[[Details]]]", "Details", new { id = item.Id }) |
-                        @if (Request.IsAuthenticated)
-                        {
-                            Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id });
-                        } |
-                        @if (Request.IsAuthenticated)
-                        {
-                            Html.ActionLink("[[[Delete]]]", "Delete", new { id = item.Id });
-                        }
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }

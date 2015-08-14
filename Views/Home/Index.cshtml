@@ -1,5 +1,4 @@
-﻿@using System.Linq
-@model System.Collections.Generic.IEnumerable<PostcardsManager.ViewModels.PostcardMainPageViewModel>
+﻿@model IEnumerable<PostcardsManager.ViewModels.PostcardMainPageViewModel>
 
 @{
     ViewBag.Title = "[[[Main Page]]]";
@@ -26,7 +25,7 @@
         <section class="rb-art-constants">
             <div class="rb-art-cardbox rb-art-cardbox--title">
                 <div class="rb-art-cardbox__wrap">
-                    <img alt="" height="226" src="http://www.ucarecdn.com/d4d21a76-33f4-4953-84fb-294f1a9e62b3/icecream1.png" width="360">
+                    <img alt="" height="226" src="~/Content/images/cover.jpg" width="360">
                 </div>
             </div>
             <a class="rb-art-cardbox rb-art-cardbox--add" data-spa="" href="@Url.Action("Create", "Postcards")">

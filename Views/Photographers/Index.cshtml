@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<PostcardsManager.Models.Photographer>
+﻿@model List<PostcardsManager.Models.Photographer>
 
 @{
     ViewBag.Title = "[[[Photographers]]]";
@@ -43,14 +43,8 @@
                     </td>
                     <td>
                         @Html.ActionLink("[[[Details]]]", "Details", new {id = item.Id}) |
-                        @if (Request.IsAuthenticated)
-                        {
-                            @Html.ActionLink("[[[Edit]]]", "Edit", new {id = item.Id});
-                        } |
-                        @if (Request.IsAuthenticated)
-                        {
-                            @Html.ActionLink("[[[Delete]]]", "Delete", new {id = item.Id});
-                        }
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new {id = item.Id}) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new {id = item.Id})
                     </td>
                 </tr>
             }

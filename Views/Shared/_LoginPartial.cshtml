@@ -1,10 +1,10 @@
 ﻿@if (!Request.IsAuthenticated)
 {
     <div class="rb-art-menu__item login-menu">
-        @Html.ActionLink("[[[Register]]]", "Login", "Account", routeValues: null, htmlAttributes: new {id = "registerLink", @class = "rb-art-menu__link"})
+        @Html.ActionLink("[[[Register]]]", "Login", "Account", null, new {id = "registerLink", @class = "rb-art-menu__link"})
     </div>
     <div class="rb-art-menu__item">
-        @Html.ActionLink("[[[Login]]]", "Login", "Account", routeValues: null, htmlAttributes: new {@class = "rb-art-menu__link"})
+        @Html.ActionLink("[[[Login]]]", "Login", "Account", null, new {@class = "rb-art-menu__link"})
     </div>
 }
 else

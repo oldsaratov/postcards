@@ -189,10 +189,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508031806491_init.cs" />
-    <Compile Include="Migrations\201508031806491_init.Designer.cs">
-      <DependentUpon>201508031806491_init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Postcard.cs" />
@@ -238,8 +234,11 @@
     </Content>
     <Content Include="locale\messages.pot" />
     <Content Include="locale\ru\messages.po" />
+    <None Include="Properties\PublishProfiles\postcard-qa.pubxml" />
     <None Include="Properties\PublishProfiles\postcards-qa %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\postcards-qa %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\postcards-qa.pubxml" />
+    <None Include="Properties\PublishProfiles\postcards-saratov.pubxml" />
     <None Include="Properties\PublishProfiles\postcards.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -310,11 +309,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508031806491_init.resx">
-      <DependentUpon>201508031806491_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

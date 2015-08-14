@@ -52,6 +52,7 @@ namespace PostcardsManager.Controllers
 
             var postcardVm = new PostcardViewModel
             {
+                Id = postcard.Id,
                 ImageFrontId = postcard.ImageFrontId,
                 ImageBackId = postcard.ImageBackId,
                 Year = postcard.Year,
