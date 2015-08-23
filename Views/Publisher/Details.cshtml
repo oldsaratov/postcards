@@ -1,4 +1,4 @@
-﻿@model PostcardsManager.Models.Publisher
+﻿@model PostcardsManager.ViewModels.PublisherViewModel
 
 @{
     ViewBag.Title = "[[[Details]]]";
@@ -17,7 +17,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.Name)
             </dd>
@@ -28,6 +27,19 @@
                 @Html.DisplayFor(model => model.Description)
             </dd>
         </dl>
+    </div>
+    <div class="row">
+        <hr />
+        <h4>[[[Series]]]</h4>
+    </div>
+    <div class="row">
+            @foreach (var item in Model.Series)
+            {
+                <div class="col-lg-4 text-center">
+                    <a href="@Url.Action("Details", "Series", new {id = item.Id})"><img src="@item.CoverUrl" alt="@item.Title" /></a>
+                    <p>@item.Title</p>
+                </div>
+            }
     </div>
     <div class="row">
         <p>

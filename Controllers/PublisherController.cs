@@ -1,11 +1,14 @@
 ﻿using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using PostcardsManager.DAL;
 using PostcardsManager.Models;
+using PostcardsManager.ViewModels;
+using UploadcareCSharp.Url;
 
 namespace PostcardsManager.Controllers
 {
@@ -33,7 +36,22 @@ namespace PostcardsManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(publisher);
+
+            var publisherVm = new PublisherViewModel();
+            publisherVm.Id = publisher.Id;
+            publisherVm.Name = publisher.Name;
+            publisherVm.Description = publisher.Description;
+            publisherVm.Series =
+                publisher.Series.Where(series => series.Postcards.Any()).Select(series => new SeriesViewModel()
+                {
+                    Id = series.Id,
+                    Title = series.Title,
+                    CoverUrl =
+                        Urls.Cdn(new CdnPathBuilder(series.Postcards.First().ImageFrontUniqId).Resize(360, 226))
+                            .OriginalString
+                }).ToList();
+
+            return View(publisherVm);
         }
 
         // GET: Publisher/Create

@@ -21,6 +21,8 @@ namespace PostcardsManager.ViewModels
         [StringLength(1000, ErrorMessage = "[[[Description cannot be longer than 200 characters]]]")]
         [Display(Name = "[[[Description]]]")]
         public string Description { get; set; }
-        public List<PostcardMainPageViewModel> Postcards { get; set; } 
+        public List<PostcardMainPageViewModel> Postcards { get; set; }
+
+        public string CoverUrl { get; set; }
     }
 }

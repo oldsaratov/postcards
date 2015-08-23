@@ -192,10 +192,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Postcard.cs" />
+    <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\Series.cs" />
     <Compile Include="ViewModels\PostcardViewModel.cs" />
-    <Compile Include="Models\Publisher.cs" />
+    <Compile Include="ViewModels\PublisherViewModel.cs" />
     <Compile Include="Models\Photographer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

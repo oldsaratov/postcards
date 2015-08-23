@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-08-14 15:29+03:00\n"
-"PO-Revision-Date: 2015-08-14 15:29+03:00\n"
+"POT-Creation-Date: 2015-08-14 22:17+03:00\n"
+"PO-Revision-Date: 2015-08-14 22:17+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,10 +13,10 @@ msgstr ""
 msgid "Active"
 msgstr "Активно"
 
-#: Views\Home\Index.cshtml:18
-#: Views\Home\Index.cshtml:51
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:18
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:51
+#: Views\Home\Index.cshtml:17
+#: Views\Home\Index.cshtml:50
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:17
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:50
 msgid "Add"
 msgstr "Добавить"
 
@@ -103,30 +103,30 @@ msgstr "Назад к списку"
 #: Views\Photographers\Edit.cshtml:47
 #: Views\Postcards\Create.cshtml:152
 #: Views\Postcards\Delete.cshtml:60
-#: Views\Postcards\Details.cshtml:102
+#: Views\Postcards\Details.cshtml:108
 #: Views\Postcards\Edit.cshtml:153
 #: Views\Publisher\Create.cshtml:46
 #: Views\Publisher\Delete.cshtml:37
-#: Views\Publisher\Details.cshtml:35
+#: Views\Publisher\Details.cshtml:47
 #: Views\Publisher\Edit.cshtml:47
 #: Views\Series\Create.cshtml:62
 #: Views\Series\Delete.cshtml:53
-#: Views\Series\Details.cshtml:61
+#: Views\Series\Details.cshtml:65
 #: obj\Release\Package\PackageTmp\Views\Photographers\Create.cshtml:45
 #: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:37
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Postcards\Create.cshtml:152
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:60
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:102
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:108
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:153
 #: obj\Release\Package\PackageTmp\Views\Publisher\Create.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:37
-#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:35
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:62
 #: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:53
-#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:61
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:65
 msgid "Back To List"
 msgstr "Назад к списку"
 
@@ -198,7 +198,7 @@ msgstr "Создать"
 #: Views\Photographers\Delete.cshtml:4
 #: Views\Photographers\Delete.cshtml:9
 #: Views\Photographers\Delete.cshtml:46
-#: Views\Photographers\Index.cshtml:52
+#: Views\Photographers\Index.cshtml:47
 #: Views\Postcards\Delete.cshtml:4
 #: Views\Postcards\Delete.cshtml:9
 #: Views\Postcards\Delete.cshtml:59
@@ -206,30 +206,30 @@ msgstr "Создать"
 #: Views\Publisher\Delete.cshtml:4
 #: Views\Publisher\Delete.cshtml:9
 #: Views\Publisher\Delete.cshtml:36
-#: Views\Publisher\Index.cshtml:36
+#: Views\Publisher\Index.cshtml:31
 #: Views\Series\Delete.cshtml:4
 #: Views\Series\Delete.cshtml:9
 #: Views\Series\Delete.cshtml:52
-#: Views\Series\Index.cshtml:64
+#: Views\Series\Index.cshtml:59
 #: Views\Storages\Delete.cshtml:4
 #: Views\Storages\Delete.cshtml:8
 #: Views\Storages\Index.cshtml:55
 #: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Photographers\Delete.cshtml:46
-#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:52
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:47
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Postcards\Delete.cshtml:59
-#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:57
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:52
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Publisher\Delete.cshtml:36
-#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:36
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:31
 #: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:9
 #: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:52
-#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:64
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:59
 #: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Storages\Delete.cshtml:8
 #: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:55
@@ -237,12 +237,13 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: Controllers\PhotographersController.cs:152
-#: Controllers\PublisherController.cs:148
+#: Controllers\PublisherController.cs:166
 msgid "Delete failed. Try again, and if the problem persists see your system administrator."
 msgstr "Удаление невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
 #: Models\Publisher.cs:17
 #: Models\Series.cs:21
+#: ViewModels\PublisherViewModel.cs:14
 #: ViewModels\SeriesViewModel.cs:22
 msgid "Description"
 msgstr "Описание"
@@ -288,38 +289,38 @@ msgstr "Не активно"
 #: Views\Photographers\Details.cshtml:36
 #: Views\Photographers\Edit.cshtml:4
 #: Views\Photographers\Edit.cshtml:9
-#: Views\Photographers\Index.cshtml:48
-#: Views\Postcards\Details.cshtml:101
+#: Views\Photographers\Index.cshtml:46
+#: Views\Postcards\Details.cshtml:107
 #: Views\Postcards\Edit.cshtml:4
 #: Views\Postcards\Edit.cshtml:13
 #: Views\Postcards\Index.cshtml:51
-#: Views\Publisher\Details.cshtml:34
+#: Views\Publisher\Details.cshtml:46
 #: Views\Publisher\Edit.cshtml:4
 #: Views\Publisher\Edit.cshtml:9
-#: Views\Publisher\Index.cshtml:32
-#: Views\Series\Details.cshtml:60
+#: Views\Publisher\Index.cshtml:30
+#: Views\Series\Details.cshtml:64
 #: Views\Series\Edit.cshtml:4
 #: Views\Series\Edit.cshtml:10
-#: Views\Series\Index.cshtml:60
+#: Views\Series\Index.cshtml:58
 #: Views\Storages\Edit.cshtml:4
 #: Views\Storages\Edit.cshtml:8
 #: Views\Storages\Index.cshtml:52
 #: obj\Release\Package\PackageTmp\Views\Photographers\Details.cshtml:36
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Photographers\Edit.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:48
-#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:101
+#: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:46
+#: obj\Release\Package\PackageTmp\Views\Postcards\Details.cshtml:107
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Edit.cshtml:13
-#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:53
-#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:34
+#: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:51
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:46
 #: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Publisher\Edit.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:32
-#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:30
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:64
 #: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:10
-#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:60
+#: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:58
 #: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Storages\Edit.cshtml:8
 #: obj\Release\Package\PackageTmp\Views\Storages\Index.cshtml:52
@@ -352,8 +353,8 @@ msgstr "Имя не может быть длиннее 50 символов"
 msgid "First name should be defined"
 msgstr " Имя должно быть заполнено"
 
-#: Views\Home\Index.cshtml:16
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:16
+#: Views\Home\Index.cshtml:15
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:15
 msgid "First of all, please add publishers, series, postcards and other to database."
 msgstr "Пожалуйста, для начала добавьте издателей, серии, открытки и остальное в базу данных."
 
@@ -426,8 +427,8 @@ msgstr "Выход"
 msgid "Login"
 msgstr "Вход"
 
-#: Views\Home\Index.cshtml:5
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:5
+#: Views\Home\Index.cshtml:4
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:4
 msgid "Main Page"
 msgstr "Главная страница"
 
@@ -443,8 +444,8 @@ msgstr "Отчество не может быть длиннее 50 символ
 msgid "Name should be defined"
 msgstr "Имя должно быть заполнено"
 
-#: Views\Home\Index.cshtml:15
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:15
+#: Views\Home\Index.cshtml:14
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:14
 msgid "No postcards in database!"
 msgstr "В базе еще нет открыток!"
 
@@ -464,8 +465,8 @@ msgstr " Номер в серии не может быть длиннее 3 си
 msgid "oldsaratov.ru"
 msgstr "oldsaratov.ru"
 
-#: Views\Home\Index.cshtml:85
-#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:85
+#: Views\Home\Index.cshtml:84
+#: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:84
 msgid "Open"
 msgstr "Открыть"
 
@@ -519,9 +520,11 @@ msgstr "Открытка"
 
 #: Views\Postcards\Index.cshtml:4
 #: Views\Postcards\Index.cshtml:9
+#: Views\Series\Details.cshtml:51
 #: Views\Shared\_Layout.cshtml:51
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:9
+#: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:51
 #: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:51
 msgid "Postcards"
 msgstr "Открытки"
@@ -591,6 +594,7 @@ msgid "Publisher name"
 msgstr "Имя издателя"
 
 #: Models\Publisher.cs:13
+#: ViewModels\PublisherViewModel.cs:11
 msgid "Publisher Name"
 msgstr "Имя издателя"
 
@@ -600,10 +604,10 @@ msgstr " Имя издателя не может быть длиннее 200 с�
 
 #: Views\Publisher\Index.cshtml:4
 #: Views\Publisher\Index.cshtml:9
-#: Views\Shared\_Layout.cshtml:54
+#: Views\Shared\_Layout.cshtml:57
 #: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Publisher\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:54
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:57
 msgid "Publishers"
 msgstr "Издатели"
 
@@ -640,21 +644,23 @@ msgstr "Выберите издателя"
 #: ViewModels\PostcardViewModel.cs:25
 #: ViewModels\PostcardViewModel.cs:27
 #: Views\Postcards\Index.cshtml:16
+#: Views\Publisher\Details.cshtml:33
 #: Views\Series\Create.cshtml:17
 #: Views\Series\Delete.cshtml:15
 #: Views\Series\Details.cshtml:12
 #: Views\Series\Edit.cshtml:19
 #: Views\Series\Index.cshtml:4
 #: Views\Series\Index.cshtml:9
-#: Views\Shared\_Layout.cshtml:57
+#: Views\Shared\_Layout.cshtml:54
 #: obj\Release\Package\PackageTmp\Views\Postcards\Index.cshtml:16
+#: obj\Release\Package\PackageTmp\Views\Publisher\Details.cshtml:33
 #: obj\Release\Package\PackageTmp\Views\Series\Create.cshtml:17
 #: obj\Release\Package\PackageTmp\Views\Series\Delete.cshtml:15
 #: obj\Release\Package\PackageTmp\Views\Series\Details.cshtml:12
 #: obj\Release\Package\PackageTmp\Views\Series\Edit.cshtml:19
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:4
 #: obj\Release\Package\PackageTmp\Views\Series\Index.cshtml:9
-#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:57
+#: obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml:54
 msgid "Series"
 msgstr "Серии"
 
@@ -708,7 +714,7 @@ msgstr "Название должно быть заполнено"
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr "Удаление невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
-#: Controllers\SeriesController.cs:134
+#: Controllers\SeriesController.cs:133
 msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
@@ -716,7 +722,7 @@ msgstr "Сохранение невозможно. Попробуйте еще �
 #: Controllers\PostcardsController.cs:195
 #: Controllers\PostcardsController.cs:362
 #: Controllers\PostcardsController.cs:367
-#: Controllers\SeriesController.cs:91
+#: Controllers\SeriesController.cs:90
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 

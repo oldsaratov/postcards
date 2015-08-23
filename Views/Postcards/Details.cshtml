@@ -21,17 +21,23 @@
             <dd>@Html.DisplayFor(model => model.PhotographerName)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.SeriesId)</dt>
-            <dd>@Html.DisplayFor(model => model.SeriesTitle)</dd>
+            @if (Model.SeriesId.HasValue)
+            {
+                <dd>@Html.ActionLink(Model.SeriesTitle, "Details", "Series", new {id = Model.SeriesId}, null)</dd>
+            }
+            else
+            {
+                <dt>@Html.DisplayFor(model => model.SeriesTitle)</dt>
+            }
+        <dt>@Html.DisplayNameFor(model => model.NumberInSeries)</dt>
+        <dd>@Html.DisplayFor(model => model.NumberInSeries)</dd>
 
-            <dt>@Html.DisplayNameFor(model => model.NumberInSeries)</dt>
-            <dd>@Html.DisplayFor(model => model.NumberInSeries)</dd>
+        <dt>@Html.DisplayNameFor(model => model.PostDate)</dt>
+        <dd>@Html.DisplayFor(model => model.PostDate)</dd>
 
-            <dt>@Html.DisplayNameFor(model => model.PostDate)</dt>
-            <dd>@Html.DisplayFor(model => model.PostDate)</dd>
-
-            <dt>@Html.DisplayNameFor(model => model.PublishPlace)</dt>
-            <dd>@Html.DisplayFor(model => model.PublishPlace)</dd>
-        </dl>
+        <dt>@Html.DisplayNameFor(model => model.PublishPlace)</dt>
+        <dd>@Html.DisplayFor(model => model.PublishPlace)</dd>
+</dl>
     </div>
     <div class="row">
         <hr/>
