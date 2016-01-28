@@ -1,0 +1,6 @@
+namespace PostcardsManager.Areas.HelpPage.ModelDescriptions
+{
+    public class SimpleTypeModelDescription : ModelDescription
+    {
+    }
+}
