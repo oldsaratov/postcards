@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-01-28 10:13+03:00\n"
+"POT-Creation-Date: 2016-01-31 21:08+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,52 +32,52 @@ msgstr ""
 msgid "Are you sure you want to delete this?"
 msgstr ""
 
-#: Models\Postcard.cs:19
+#: PostcardsManager.Models\Postcard.cs:19
 #: ViewModels\PostcardEditViewModel.cs:16
 #: ViewModels\PostcardViewModel.cs:16
 msgid "Back Image"
 msgstr ""
 
-#: Models\Postcard.cs:41
+#: PostcardsManager.Models\Postcard.cs:41
 #: ViewModels\PostcardEditViewModel.cs:38
 #: ViewModels\PostcardViewModel.cs:44
 msgid "Back Title"
 msgstr ""
 
-#: Models\Postcard.cs:40
+#: PostcardsManager.Models\Postcard.cs:40
 #: ViewModels\PostcardEditViewModel.cs:37
 msgid "Back Title cannot be longer than 200 characters"
 msgstr ""
 
-#: Models\Postcard.cs:45
+#: PostcardsManager.Models\Postcard.cs:45
 #: ViewModels\PostcardEditViewModel.cs:42
 #: ViewModels\PostcardViewModel.cs:47
 msgid "Back title font"
 msgstr ""
 
-#: Models\Postcard.cs:44
+#: PostcardsManager.Models\Postcard.cs:44
 #: ViewModels\PostcardEditViewModel.cs:41
 msgid "Back title font cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Postcard.cs:49
+#: PostcardsManager.Models\Postcard.cs:49
 #: ViewModels\PostcardEditViewModel.cs:46
 #: ViewModels\PostcardViewModel.cs:50
 msgid "Back title font color"
 msgstr ""
 
-#: Models\Postcard.cs:48
+#: PostcardsManager.Models\Postcard.cs:48
 #: ViewModels\PostcardEditViewModel.cs:45
 msgid "Back title font color cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Postcard.cs:57
+#: PostcardsManager.Models\Postcard.cs:57
 #: ViewModels\PostcardEditViewModel.cs:54
 #: ViewModels\PostcardViewModel.cs:56
 msgid "Back title place"
 msgstr ""
 
-#: Models\Postcard.cs:56
+#: PostcardsManager.Models\Postcard.cs:56
 #: ViewModels\PostcardEditViewModel.cs:53
 msgid "Back title place cannot be longer than 50 characters"
 msgstr ""
@@ -129,13 +129,13 @@ msgstr ""
 msgid "Back To List"
 msgstr ""
 
-#: Models\Postcard.cs:53
+#: PostcardsManager.Models\Postcard.cs:53
 #: ViewModels\PostcardEditViewModel.cs:50
 #: ViewModels\PostcardViewModel.cs:53
 msgid "Back type"
 msgstr ""
 
-#: Models\Postcard.cs:52
+#: PostcardsManager.Models\Postcard.cs:52
 #: ViewModels\PostcardEditViewModel.cs:49
 msgid "Back type cannot be longer than 50 characters"
 msgstr ""
@@ -235,21 +235,21 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: Controllers\PhotographersController.cs:152
-#: Controllers\PublisherController.cs:166
+#: Controllers\PhotographersController.cs:151
+#: Controllers\PublisherController.cs:164
 msgid "Delete failed. Try again, and if the problem persists see your system administrator."
 msgstr ""
 
-#: Models\Publisher.cs:17
-#: Models\Series.cs:21
+#: PostcardsManager.Models\Publisher.cs:17
+#: PostcardsManager.Models\Series.cs:21
 #: ViewModels\PublisherViewModel.cs:14
-#: ViewModels\SeriesViewModel.cs:22
+#: ViewModels\SeriesViewModel.cs:27
 msgid "Description"
 msgstr ""
 
-#: Models\Publisher.cs:16
-#: Models\Series.cs:20
-#: ViewModels\SeriesViewModel.cs:21
+#: PostcardsManager.Models\Publisher.cs:16
+#: PostcardsManager.Models\Series.cs:20
+#: ViewModels\SeriesViewModel.cs:26
 msgid "Description cannot be longer than 200 characters"
 msgstr ""
 
@@ -338,17 +338,17 @@ msgstr ""
 msgid "Find By Name"
 msgstr ""
 
-#: Models\Photographer.cs:25
+#: PostcardsManager.Models\Photographer.cs:25
 #: Views\Photographers\Index.cshtml:30
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:30
 msgid "First Name"
 msgstr ""
 
-#: Models\Photographer.cs:23
+#: PostcardsManager.Models\Photographer.cs:23
 msgid "First name cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Photographer.cs:22
+#: PostcardsManager.Models\Photographer.cs:22
 msgid "First name should be defined"
 msgstr ""
 
@@ -357,60 +357,60 @@ msgstr ""
 msgid "First of all, please add publishers, series, postcards and other to database."
 msgstr ""
 
-#: Models\Postcard.cs:16
+#: PostcardsManager.Models\Postcard.cs:16
 #: ViewModels\PostcardEditViewModel.cs:13
 #: ViewModels\PostcardViewModel.cs:13
 msgid "Front Image"
 msgstr ""
 
-#: Models\Postcard.cs:29
+#: PostcardsManager.Models\Postcard.cs:29
 #: ViewModels\PostcardEditViewModel.cs:26
 #: ViewModels\PostcardViewModel.cs:35
 msgid "Front Title"
 msgstr ""
 
-#: Models\Postcard.cs:28
+#: PostcardsManager.Models\Postcard.cs:28
 #: ViewModels\PostcardEditViewModel.cs:25
 msgid "Front Title cannot be longer than 200 characters"
 msgstr ""
 
-#: Models\Postcard.cs:33
+#: PostcardsManager.Models\Postcard.cs:33
 #: ViewModels\PostcardEditViewModel.cs:30
 #: ViewModels\PostcardViewModel.cs:38
 msgid "Front title font"
 msgstr ""
 
-#: Models\Postcard.cs:32
+#: PostcardsManager.Models\Postcard.cs:32
 #: ViewModels\PostcardEditViewModel.cs:29
 msgid "Front title font cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Postcard.cs:37
+#: PostcardsManager.Models\Postcard.cs:37
 #: ViewModels\PostcardEditViewModel.cs:34
 #: ViewModels\PostcardViewModel.cs:41
 msgid "Front title font color"
 msgstr ""
 
-#: Models\Postcard.cs:36
+#: PostcardsManager.Models\Postcard.cs:36
 #: ViewModels\PostcardEditViewModel.cs:33
 msgid "Front title font color cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Photographer.cs:28
+#: PostcardsManager.Models\Photographer.cs:28
 msgid "Full Name"
 msgstr ""
 
-#: Models\Photographer.cs:14
+#: PostcardsManager.Models\Photographer.cs:14
 #: Views\Photographers\Index.cshtml:27
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:27
 msgid "Last Name"
 msgstr ""
 
-#: Models\Photographer.cs:13
+#: PostcardsManager.Models\Photographer.cs:13
 msgid "Last name cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Photographer.cs:12
+#: PostcardsManager.Models\Photographer.cs:12
 msgid "Last name should be defined"
 msgstr ""
 
@@ -431,15 +431,15 @@ msgstr ""
 msgid "Main Page"
 msgstr ""
 
-#: Models\Photographer.cs:19
+#: PostcardsManager.Models\Photographer.cs:19
 msgid "Middle Name"
 msgstr ""
 
-#: Models\Photographer.cs:17
+#: PostcardsManager.Models\Photographer.cs:17
 msgid "Middle name cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Publisher.cs:11
+#: PostcardsManager.Models\Publisher.cs:11
 msgid "Name should be defined"
 msgstr ""
 
@@ -448,13 +448,13 @@ msgstr ""
 msgid "No postcards in database!"
 msgstr ""
 
-#: Models\Postcard.cs:61
+#: PostcardsManager.Models\Postcard.cs:61
 #: ViewModels\PostcardEditViewModel.cs:58
 #: ViewModels\PostcardViewModel.cs:59
 msgid "Number in series"
 msgstr ""
 
-#: Models\Postcard.cs:60
+#: PostcardsManager.Models\Postcard.cs:60
 #: ViewModels\PostcardEditViewModel.cs:57
 msgid "Number in series cannot be longer than 3 characters"
 msgstr ""
@@ -469,7 +469,7 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: Models\Postcard.cs:25
+#: PostcardsManager.Models\Postcard.cs:25
 #: ViewModels\PostcardEditViewModel.cs:22
 #: ViewModels\PostcardViewModel.cs:30
 #: ViewModels\PostcardViewModel.cs:32
@@ -495,13 +495,13 @@ msgstr ""
 msgid "Photographers"
 msgstr ""
 
-#: Models\Postcard.cs:65
+#: PostcardsManager.Models\Postcard.cs:65
 #: ViewModels\PostcardEditViewModel.cs:62
 #: ViewModels\PostcardViewModel.cs:62
 msgid "Post date"
 msgstr ""
 
-#: Models\Postcard.cs:64
+#: PostcardsManager.Models\Postcard.cs:64
 #: ViewModels\PostcardEditViewModel.cs:61
 msgid "Post date cannot be longer than 30 characters"
 msgstr ""
@@ -538,45 +538,45 @@ msgstr ""
 msgid "Postcards Manager"
 msgstr ""
 
-#: Models\Storage.cs:25
+#: PostcardsManager.Models\Storage.cs:25
 msgid "PrivateKey"
 msgstr ""
 
-#: Models\Storage.cs:24
+#: PostcardsManager.Models\Storage.cs:24
 msgid "PrivateKey shoud be 20 characters"
 msgstr ""
 
-#: Models\Storage.cs:23
+#: PostcardsManager.Models\Storage.cs:23
 msgid "PrivateKey shoud be more then 13 characters"
 msgstr ""
 
-#: Models\Storage.cs:22
+#: PostcardsManager.Models\Storage.cs:22
 msgid "PrivateKey should be defined"
 msgstr ""
 
-#: Models\Storage.cs:19
+#: PostcardsManager.Models\Storage.cs:19
 msgid "PublicKey"
 msgstr ""
 
-#: Models\Storage.cs:18
+#: PostcardsManager.Models\Storage.cs:18
 msgid "PublicKey shoud be 20 characters"
 msgstr ""
 
-#: Models\Storage.cs:17
+#: PostcardsManager.Models\Storage.cs:17
 msgid "PublicKey shoud be more then 13 characters"
 msgstr ""
 
-#: Models\Storage.cs:16
+#: PostcardsManager.Models\Storage.cs:16
 msgid "PublicKey should be defined"
 msgstr ""
 
-#: Models\Postcard.cs:69
+#: PostcardsManager.Models\Postcard.cs:69
 #: ViewModels\PostcardEditViewModel.cs:66
 #: ViewModels\PostcardViewModel.cs:65
 msgid "Publish place"
 msgstr ""
 
-#: Models\Series.cs:24
+#: PostcardsManager.Models\Series.cs:24
 #: Views\Publisher\Create.cshtml:17
 #: Views\Publisher\Delete.cshtml:15
 #: Views\Publisher\Details.cshtml:12
@@ -588,16 +588,16 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: ViewModels\SeriesViewModel.cs:18
+#: ViewModels\SeriesViewModel.cs:22
 msgid "Publisher name"
 msgstr ""
 
-#: Models\Publisher.cs:13
+#: PostcardsManager.Models\Publisher.cs:13
 #: ViewModels\PublisherViewModel.cs:11
 msgid "Publisher Name"
 msgstr ""
 
-#: Models\Publisher.cs:12
+#: PostcardsManager.Models\Publisher.cs:12
 msgid "Publisher Name cannot be longer than 200 characters"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Select Publisher"
 msgstr ""
 
-#: Models\Postcard.cs:22
+#: PostcardsManager.Models\Postcard.cs:22
 #: ViewModels\PostcardEditViewModel.cs:19
 #: ViewModels\PostcardViewModel.cs:25
 #: ViewModels\PostcardViewModel.cs:27
@@ -663,7 +663,7 @@ msgstr ""
 msgid "Series"
 msgstr ""
 
-#: Models\Storage.cs:28
+#: PostcardsManager.Models\Storage.cs:28
 msgid "Status"
 msgstr ""
 
@@ -683,62 +683,61 @@ msgstr ""
 msgid "Storage accounts"
 msgstr ""
 
-#: Models\Storage.cs:13
+#: PostcardsManager.Models\Storage.cs:13
 msgid "Storage Name"
 msgstr ""
 
-#: Models\Storage.cs:12
+#: PostcardsManager.Models\Storage.cs:12
 msgid "Storage Name cannot be longer than 50 characters"
 msgstr ""
 
-#: Models\Storage.cs:11
+#: PostcardsManager.Models\Storage.cs:11
 msgid "Storage Name should be defined"
 msgstr ""
 
-#: Models\Series.cs:13
-#: ViewModels\SeriesViewModel.cs:11
+#: PostcardsManager.Models\Series.cs:13
+#: ViewModels\SeriesViewModel.cs:13
 msgid "Title"
 msgstr ""
 
-#: Models\Series.cs:12
-#: ViewModels\SeriesViewModel.cs:10
+#: PostcardsManager.Models\Series.cs:12
+#: ViewModels\SeriesViewModel.cs:12
 msgid "Title cannot be longer than 150 characters"
 msgstr ""
 
-#: Models\Series.cs:11
+#: PostcardsManager.Models\Series.cs:11
 msgid "Title should be defined"
 msgstr ""
 
-#: Controllers\PostcardsController.cs:445
+#: Controllers\PostcardsController.cs:484
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
-#: Controllers\SeriesController.cs:133
+#: Controllers\SeriesController.cs:134
 msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
 msgstr ""
 
-#: Controllers\PhotographersController.cs:91
-#: Controllers\PostcardsController.cs:195
-#: Controllers\PostcardsController.cs:362
-#: Controllers\PostcardsController.cs:367
-#: Controllers\SeriesController.cs:90
+#: Controllers\PhotographersController.cs:95
+#: Controllers\PostcardsController.cs:215
+#: Controllers\PostcardsController.cs:392
+#: Controllers\SeriesController.cs:95
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr ""
 
-#: Models\Postcard.cs:12
-#: Models\Series.cs:16
+#: PostcardsManager.Models\Postcard.cs:12
+#: PostcardsManager.Models\Series.cs:16
 #: ViewModels\PostcardEditViewModel.cs:9
 #: ViewModels\PostcardViewModel.cs:10
-#: ViewModels\SeriesViewModel.cs:14
+#: ViewModels\SeriesViewModel.cs:17
 msgid "Year"
 msgstr ""
 
-#: Models\Series.cs:17
-#: ViewModels\SeriesViewModel.cs:15
+#: PostcardsManager.Models\Series.cs:17
+#: ViewModels\SeriesViewModel.cs:19
 msgid "Year cannot be longer than 150 characters"
 msgstr ""
 
-#: Models\Postcard.cs:13
+#: PostcardsManager.Models\Postcard.cs:13
 #: ViewModels\PostcardEditViewModel.cs:10
 msgid "Year cannot be longer than 50 characters"
 msgstr ""

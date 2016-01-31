@@ -5,32 +5,37 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
 using UploadcareCSharp.Url;
+using PostcardsManager.Repositories;
+using System;
 
 namespace PostcardsManager.Controllers
 {
     public class PublisherController : Controller
     {
-        private readonly PostcardContext db = new PostcardContext();
         // GET: Publisher
         public async Task<ActionResult> Index()
         {
-            var publishers = db.Publishers;
-            return View(await publishers.ToListAsync());
+            var publishersRepository = new PublisherRepository();
+            IDisposable context;
+
+            var publishers = publishersRepository.GetAll(out context);
+
+            using (context)
+            {
+                return View(await publishers.ToListAsync());
+            }
         }
 
         // GET: Publisher/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            var publishersRepository = new PublisherRepository();
+            var postcardsRepository = new PostcardsRepository();
 
-            var publisher = db.Publishers.Find(id);
+            var publisher = publishersRepository.GetById(id);
 
             if (publisher == null)
             {
@@ -41,15 +46,12 @@ namespace PostcardsManager.Controllers
             publisherVm.Id = publisher.Id;
             publisherVm.Name = publisher.Name;
             publisherVm.Description = publisher.Description;
-            publisherVm.Series =
-                publisher.Series.Where(series => series.Postcards.Any()).Select(series => new SeriesViewModel()
-                {
-                    Id = series.Id,
-                    Title = series.Title,
-                    CoverUrl =
-                        Urls.Cdn(new CdnPathBuilder(series.Postcards.First().ImageFrontUniqId).Resize(360, 226))
-                            .OriginalString
-                }).ToList();
+
+            publisherVm.Series = publisher.Series.Select(series => new SeriesViewModel()
+            {
+                Id = series.Id,
+                Title = series.Title
+            }).ToList();
 
             return View(publisherVm);
         }
@@ -67,10 +69,10 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "Name, Description, SeriesId")] Publisher publisher)
         {
+            var publishersRepository = new PublisherRepository();
             if (ModelState.IsValid)
             {
-                db.Publishers.Add(publisher);
-                await db.SaveChangesAsync();
+                publishersRepository.Add(publisher);
                 return RedirectToAction("Index");
             }
 
@@ -79,13 +81,11 @@ namespace PostcardsManager.Controllers
 
         // GET: Publisher/Edit/5
         [Authorize]
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var publisher = await db.Publishers.FindAsync(id);
+            var publishersRepository = new PublisherRepository();
+
+            var publisher = publishersRepository.GetById(id);
             if (publisher == null)
             {
                 return HttpNotFound();
@@ -97,19 +97,18 @@ namespace PostcardsManager.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> EditPost(int? id)
+        public async Task<ActionResult> EditPost(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var publisherToUpdate = db.Publishers.Find(id);
+            var publishersRepository = new PublisherRepository();
+
+            var publisherToUpdate = publishersRepository.GetById(id);
+
             if (TryUpdateModel(publisherToUpdate, "",
                 new[] {"Name", "Description", "SeriesId"}))
             {
                 try
                 {
-                    db.SaveChanges();
+                    publishersRepository.Update(publisherToUpdate);
 
                     return RedirectToAction("Index");
                 }
@@ -125,13 +124,11 @@ namespace PostcardsManager.Controllers
 
         // GET: Publisher/Delete/5
         [Authorize]
-        public async Task<ActionResult> Delete(int? id, bool? concurrencyError)
+        public async Task<ActionResult> Delete(int id, bool? concurrencyError)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var publisher = await db.Publishers.FindAsync(id);
+            var publishersRepository = new PublisherRepository();
+
+            var publisher = publishersRepository.GetById(id);
             if (publisher == null)
             {
                 if (concurrencyError.GetValueOrDefault())
@@ -152,8 +149,9 @@ namespace PostcardsManager.Controllers
         {
             try
             {
-                db.Entry(publisher).State = EntityState.Deleted;
-                await db.SaveChangesAsync();
+                var publishersRepository = new PublisherRepository();
+                publishersRepository.Delete(publisher.Id);
+
                 return RedirectToAction("Index");
             }
             catch (DbUpdateConcurrencyException)
@@ -166,15 +164,6 @@ namespace PostcardsManager.Controllers
                     "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]");
                 return View(publisher);
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

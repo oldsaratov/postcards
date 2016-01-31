@@ -2,15 +2,14 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using PostcardsManager.DAL;
 using PostcardsManager.Models;
+using PostcardsManager.Repositories;
+using System;
 
 namespace PostcardsManager.Controllers
 {
     public class PhotographersController : Controller
-    {
-        private readonly PostcardContext db = new PostcardContext();
-        
+    {   
         // GET: Photographer
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -25,37 +24,41 @@ namespace PostcardsManager.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var photographers = from s in db.Photographers
-                select s;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                photographers = photographers.Where(s => s.LastName.Contains(searchString)
-                                                         || s.FirstName.Contains(searchString));
-            }
-            switch (sortOrder)
-            {
-                case "lname_desc":
-                    photographers = photographers.OrderByDescending(s => s.LastName);
-                    break;
-                case "fname_desc":
-                    photographers = photographers.OrderByDescending(s => s.FirstName);
-                    break;
-                default: // Name ascending 
-                    photographers = photographers.OrderBy(s => s.LastName);
-                    break;
-            }
+            var photographersRepository = new PhotographerRepository();
+            IDisposable context;
 
-            return View(photographers.ToList());
+            var photographers = photographersRepository.GetAll(out context);
+
+            using (context)
+            {
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    photographers = photographers.Where(s => s.LastName.Contains(searchString)
+                                                             || s.FirstName.Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "lname_desc":
+                        photographers = photographers.OrderByDescending(s => s.LastName);
+                        break;
+                    case "fname_desc":
+                        photographers = photographers.OrderByDescending(s => s.FirstName);
+                        break;
+                    default: // Name ascending 
+                        photographers = photographers.OrderBy(s => s.LastName);
+                        break;
+                }
+
+                return View(photographers.ToList());
+            }
         }
 
         // GET: Photographer/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var photographer = db.Photographers.Find(id);
+            var photographersRepository = new PhotographerRepository();
+
+            var photographer = photographersRepository.GetById(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -80,8 +83,9 @@ namespace PostcardsManager.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Photographers.Add(photographer);
-                    db.SaveChanges();
+                    var photographersRepository = new PhotographerRepository();
+                    photographersRepository.Add(photographer);
+
                     return RedirectToAction("Index");
                 }
             }
@@ -95,13 +99,11 @@ namespace PostcardsManager.Controllers
 
         // GET: Photographer/Edit/5
         [Authorize]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var photographer = db.Photographers.Find(id);
+            var photographersRepository = new PhotographerRepository();
+
+            var photographer = photographersRepository.GetById(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -113,19 +115,17 @@ namespace PostcardsManager.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult EditPost(int? id)
+        public ActionResult EditPost(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var photographerToUpdate = db.Photographers.Find(id);
+            var photographersRepository = new PhotographerRepository();
+            var photographerToUpdate = photographersRepository.GetById(id);
+
             if (TryUpdateModel(photographerToUpdate, "",
                 new[] {"LastName", "FirstName"}))
             {
                 try
                 {
-                    db.SaveChanges();
+                    photographersRepository.Update(photographerToUpdate);
 
                     return RedirectToAction("Index");
                 }
@@ -140,18 +140,16 @@ namespace PostcardsManager.Controllers
 
         // GET: Photographer/Delete/5
         [Authorize]
-        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        public ActionResult Delete(int id, bool? saveChangesError = false)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            var photographersRepository = new PhotographerRepository();
+            var photographer = photographersRepository.GetById(id);
+
             if (saveChangesError.GetValueOrDefault())
             {
                 ViewBag.ErrorMessage =
                     "[[[Delete failed. Try again, and if the problem persists see your system administrator.]]]";
             }
-            var photographer = db.Photographers.Find(id);
             if (photographer == null)
             {
                 return HttpNotFound();
@@ -167,24 +165,15 @@ namespace PostcardsManager.Controllers
         {
             try
             {
-                var photographer = db.Photographers.Find(id);
-                db.Photographers.Remove(photographer);
-                db.SaveChanges();
+                var photographersRepository = new PhotographerRepository();
+                
+                photographersRepository.Delete(id);
             }
             catch (RetryLimitExceededException /* dex */)
             {
                 return RedirectToAction("Delete", new {id, saveChangesError = true});
             }
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

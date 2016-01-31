@@ -3,57 +3,61 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
 using UploadcareCSharp.Url;
+using PostcardsManager.Repositories;
+using System;
 
 namespace PostcardsManager.Controllers
 {
     public class SeriesController : Controller
     {
-        private readonly PostcardContext db = new PostcardContext();
         // GET: Series
         public ActionResult Index(int? selectedPublisher)
         {
-            var publishers = db.Publishers;
+            IDisposable context;
+            var seriesRepository = new SeriesRepository();
+            var publishersRepository = new PublisherRepository();
+
+            var publishers = publishersRepository.GetAll(out context).ToList();
+            context.Dispose();
             ViewBag.SelectedPublisher = new SelectList(publishers, "Id", "Name", selectedPublisher);
             var publisherId = selectedPublisher.GetValueOrDefault();
 
-            var series = db.Series
-                .Where(c => !selectedPublisher.HasValue || c.PublisherId == publisherId)
+            var series = seriesRepository.GetAll(out context).Where(c => !selectedPublisher.HasValue || c.PublisherId == publisherId)
                 .OrderBy(d => d.Id)
                 .Include(d => d.Publisher);
 
-            return View(series.ToList());
+            using (context)
+            {
+                return View(series.ToList());
+            }
         }
 
         // GET: Series/Details/5
         [Authorize]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var series = db.Series.Find(id);
+            var seriesRepository = new SeriesRepository();
+            var postcardsRepository = new PostcardsRepository();
+
+            var series = seriesRepository.GetById(id);
             if (series == null)
             {
                 return HttpNotFound();
             }
 
+            var postcards = postcardsRepository.GetBySeriesId(id).OrderByDescending(p => p.Id);
+
             var viewModel = new SeriesViewModel
             {
-                Postcards =
-                    db.Postcards.Where(p => p.SeriesId == id).OrderByDescending(p => p.Id)
-                        .ToList()
-                        .Select(p => new PostcardMainPageViewModel
-                        {
-                            Id = p.Id,
-                            ImageFrontUrl =
-                                Urls.Cdn(new CdnPathBuilder(p.ImageFrontUniqId).Resize(360, 226)).OriginalString,
-                            FrontTitle = p.FrontTitle
-                        }).ToList(),
+                Postcards = postcards.Select(p => new PostcardMainPageViewModel
+                {
+                    Id = p.Id,
+                    ImageFrontUrl = Urls.Cdn(new CdnPathBuilder(p.ImageFrontUniqId).Resize(360, 226)).OriginalString,
+                    FrontTitle = p.FrontTitle
+                }).ToList(),
                 Title = series.Title,
                 Description = series.Description,
                 Year = series.Year,
@@ -80,8 +84,9 @@ namespace PostcardsManager.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Series.Add(series);
-                    db.SaveChanges();
+                    var seriesRepository = new SeriesRepository();
+                    seriesRepository.Add(series);
+
                     return RedirectToAction("Index");
                 }
             }
@@ -94,13 +99,11 @@ namespace PostcardsManager.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var series = db.Series.Find(id);
+            var seriesRepository = new SeriesRepository();
+
+            var series = seriesRepository.GetById(id);
             if (series == null)
             {
                 return HttpNotFound();
@@ -112,19 +115,17 @@ namespace PostcardsManager.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult EditPost(int? id)
+        public ActionResult EditPost(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var seriesToUpdate = db.Series.Find(id);
+            var seriesRepository = new SeriesRepository();
+
+            var seriesToUpdate = seriesRepository.GetById(id);
             if (TryUpdateModel(seriesToUpdate, "",
                 new[] { "Title", "Year", "PublisherId", "Description" }))
             {
                 try
                 {
-                    db.SaveChanges();
+                    seriesRepository.Update(seriesToUpdate);
 
                     return RedirectToAction("Index");
                 }
@@ -139,20 +140,24 @@ namespace PostcardsManager.Controllers
 
         private void PopulatePublishersDropDownList(object selectedPublisher = null)
         {
-            var publishersQuery = from d in db.Publishers
-                select d;
-            ViewBag.PublisherID = new SelectList(publishersQuery, "Id", "Name", selectedPublisher);
+            var publisherRepository = new PublisherRepository();
+
+            IDisposable context;
+            var publishersQuery = publisherRepository.GetAll(out context);
+
+            using (context)
+            {
+                ViewBag.PublisherID = new SelectList(publishersQuery.ToList(), "Id", "Name", selectedPublisher);
+            }
         }
 
         // GET: Series/Delete/5
         [Authorize]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var series = db.Series.Find(id);
+            var seriesRepository = new SeriesRepository();
+
+            var series = seriesRepository.GetById(id);
             if (series == null)
             {
                 return HttpNotFound();
@@ -166,19 +171,10 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            var series = db.Series.Find(id);
-            db.Series.Remove(series);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            var seriesRepository = new SeriesRepository();
+            seriesRepository.Delete(id);
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return RedirectToAction("Index");
         }
     }
 }

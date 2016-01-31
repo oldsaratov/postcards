@@ -3,48 +3,58 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Web.Mvc;
-using PostcardsManager.DAL;
 using PostcardsManager.Models;
 using PostcardsManager.ViewModels;
 using UploadcareCSharp.API;
 using UploadcareCSharp.Url;
+using PostcardsManager.Repositories;
 
 namespace PostcardsManager.Controllers
 {
     public class PostcardsController : Controller
     {
-        private readonly PostcardContext db = new PostcardContext();
         // GET: Series
         public ActionResult Index(int? selectedSeries, int? selectedPhotographer)
         {
-            var series = db.Series;
-            ViewBag.SelectedSeries = new SelectList(series, "Id", "Title", selectedSeries);
-            var seriesId = selectedSeries.GetValueOrDefault();
+            var postcardsRepository = new PostcardsRepository();
+            var seriesRepository = new SeriesRepository();
+            var photographerRepository = new PhotographerRepository();
 
-            var photo = db.Photographers;
-            ViewBag.SelectedPhotographers = new SelectList(photo, "Id", "FullName", selectedPhotographer);
-            var photoId = selectedPhotographer.GetValueOrDefault();
+            IDisposable context = null;
+            var postcards = postcardsRepository.GetAll(out context);
 
-            var postcards = db.Postcards
-                .Where(c => !selectedSeries.HasValue || c.SeriesId == seriesId)
-                .Where(c => !selectedPhotographer.HasValue || c.PhotographerId == photoId)
-                .OrderBy(d => d.SeriesId)
-                .Include(d => d.Series)
-                .Include(d => d.Photographer);
+            using (context)
+            {
+                IDisposable context1;
+                var series = seriesRepository.GetAll(out context1).ToList();
+                context1.Dispose();
+                ViewBag.SelectedSeries = new SelectList(series, "Id", "Title", selectedSeries);
+                var seriesId = selectedSeries.GetValueOrDefault();
 
-            return View(postcards.ToList());
+                IDisposable context2;
+                var photo = photographerRepository.GetAll(out context2).ToList();
+                context2.Dispose();
+                ViewBag.SelectedPhotographers = new SelectList(photo, "Id", "FullName", selectedPhotographer);
+                var photoId = selectedPhotographer.GetValueOrDefault();
+
+                var result = postcards
+                    .Where(c => !selectedSeries.HasValue || c.SeriesId == seriesId)
+                    .Where(c => !selectedPhotographer.HasValue || c.PhotographerId == photoId)
+                    .OrderBy(d => d.SeriesId)
+                    .Include(d => d.Series)
+                    .Include(d => d.Photographer);
+
+                return View(result.ToList());
+            }
         }
 
         // GET: Series/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var postcard = db.Postcards.Find(id);
+            var postcardsRepository = new PostcardsRepository();
+
+            var postcard = postcardsRepository.GetById(id);
             if (postcard == null)
             {
                 return HttpNotFound();
@@ -103,7 +113,11 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.PublicKey = db.Storages.First(s => s.Enabled).PublicKey;
+            var storageRepository = new StorageRepository();
+
+            IDisposable context;
+            ViewBag.PublicKey = storageRepository.GetAll(out context).First(s => s.Enabled).PublicKey;
+            context.Dispose();
 
             PopulateSeriesDropDownList();
             PopulatePhotographersDropDownList();
@@ -123,7 +137,13 @@ namespace PostcardsManager.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var storage = db.Storages.ToList().First(s => s.Enabled);
+                    var storageRepository = new StorageRepository();
+                    var postcardsRepository = new PostcardsRepository();
+
+                    IDisposable context;
+                    var storage = storageRepository.GetAll(out context).First(s => s.Enabled);
+                    context.Dispose();
+                    
                     var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                     Image imageFront = null;
@@ -137,7 +157,7 @@ namespace PostcardsManager.Controllers
                             UniqImageId = imageId
                         };
 
-                        db.Images.Add(imageFront);
+                        postcardsRepository.AddImage(imageFront);
                         client.SaveFile(imageId);
                     }
 
@@ -152,7 +172,7 @@ namespace PostcardsManager.Controllers
                             UniqImageId = GetUniqIdFromUrl(postcardVm.ImageBackUrl)
                         };
 
-                        db.Images.Add(imageBack);
+                        postcardsRepository.AddImage(imageBack);
                         client.SaveFile(imageId);
                     }
 
@@ -182,10 +202,9 @@ namespace PostcardsManager.Controllers
                     {
                         postcard.ImageBack = imageBack;
                     }
+                    
+                    postcardsRepository.Add(postcard);
 
-                    db.Postcards.Add(postcard);
-
-                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
@@ -208,14 +227,10 @@ namespace PostcardsManager.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var postcard = db.Postcards.Find(id);
+            var postcardsRepository = new PostcardsRepository();
+            var postcard = postcardsRepository.GetById(id);
             if (postcard == null)
             {
                 return HttpNotFound();
@@ -246,7 +261,12 @@ namespace PostcardsManager.Controllers
             if (postcard.ImageBack != null)
                 postcardVm.ImageBackUrl = postcard.ImageBack.UniqImageId.ToString();
 
-            ViewBag.PublicKey = db.Storages.First(s => s.Enabled).PublicKey;
+            var storageRepository = new StorageRepository();
+
+            IDisposable context;
+            ViewBag.PublicKey = storageRepository.GetAll(out context).First(s => s.Enabled).PublicKey;
+            context.Dispose();
+
             PopulateSeriesDropDownList(postcard.SeriesId);
             PopulatePhotographersDropDownList(postcard.PhotographerId);
 
@@ -266,11 +286,18 @@ namespace PostcardsManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var postcardToUpdate = db.Postcards.Find(postcardVm.Id);
+
+            var postcardsRepository = new PostcardsRepository();
+            var postcardToUpdate = postcardsRepository.GetById(postcardVm.Id);
 
             try
             {
-                var storage = db.Storages.ToList().First(s => s.Enabled);
+                var storageRepository = new StorageRepository();
+
+                IDisposable context;
+                var storage = storageRepository.GetAll(out context).First(s => s.Enabled);
+                context.Dispose();
+
                 var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                 var oldFrontImage = postcardToUpdate.ImageFrontUniqId;
@@ -287,7 +314,7 @@ namespace PostcardsManager.Controllers
                         UniqImageId = imageId
                     };
 
-                    db.Images.Add(imageFront);
+                    postcardsRepository.AddImage(imageFront);
                     client.SaveFile(imageId);
                 }
 
@@ -302,7 +329,7 @@ namespace PostcardsManager.Controllers
                         UniqImageId = imageId
                     };
 
-                    db.Images.Add(imageBack);
+                    postcardsRepository.AddImage(imageBack);
                     client.SaveFile(imageId);
                 }
 
@@ -324,13 +351,15 @@ namespace PostcardsManager.Controllers
                 if (imageFront != null)
                 {
                     postcardToUpdate.ImageFront = imageFront;
+                    postcardToUpdate.ImageFrontId = imageFront.Id;
                 }
                 if (imageBack != null)
                 {
                     postcardToUpdate.ImageBack = imageBack;
+                    postcardToUpdate.ImageBackId = imageBack.Id;
                 }
 
-                db.SaveChanges();
+                postcardsRepository.Update(postcardToUpdate);
 
                 if (imageFront != null)
                 {
@@ -356,11 +385,6 @@ namespace PostcardsManager.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (SEHException ex)
-            {
-                ModelState.AddModelError("",
-                    "[[[Unable to save changes. Try again, and if the problem persists, see your system administrator.]]]");
-            }
             catch (Exception ex)
             {
                 ModelState.AddModelError("",
@@ -375,30 +399,39 @@ namespace PostcardsManager.Controllers
 
         private void PopulateSeriesDropDownList(object selectedSeries = null)
         {
-            var seriesQuery = from d in db.Series
-                select d;
+            var seriesRepository = new SeriesRepository();
 
+            IDisposable context;
+            var seriesQuery = seriesRepository.GetAll(out context);
 
-            ViewBag.SeriesId = new SelectList(seriesQuery, "Id", "Title", selectedSeries);
+            using (context)
+            {
+                ViewBag.SeriesId = new SelectList(seriesQuery.ToList(), "Id", "Title", selectedSeries);
+            }
         }
 
         private void PopulatePhotographersDropDownList(object selectedPhotographer = null)
         {
-            var photographerQuery = from d in db.Photographers
-                select d;
-            ViewBag.PhotographerId = new SelectList(photographerQuery, "Id", "FullName",
-                selectedPhotographer);
+
+            var photographersRepository = new SeriesRepository();
+
+            IDisposable context;
+            var photographerQuery = photographersRepository.GetAll(out context);
+
+            using (context)
+            {
+                ViewBag.PhotographerId = new SelectList(photographerQuery.ToList(), "Id", "FullName",
+                    selectedPhotographer);
+            }
         }
 
         // GET: Series/Delete/5
         [Authorize]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var postcard = db.Postcards.Find(id);
+            var postcardsRepository = new PostcardsRepository();
+            var postcard = postcardsRepository.GetById(id);
+
             if (postcard == null)
             {
                 return HttpNotFound();
@@ -412,7 +445,9 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            var postcard = db.Postcards.Find(id);
+            var postcardsRepository = new PostcardsRepository();
+            var postcard = postcardsRepository.GetById(id);
+
             try
             {
                 var imageFrontId = Guid.Empty;
@@ -427,10 +462,13 @@ namespace PostcardsManager.Controllers
                     imageBackId = postcard.ImageBack.UniqImageId;
                 }
 
-                db.Postcards.Remove(postcard);
-                db.SaveChanges();
+                postcardsRepository.Delete(id);
 
-                var storage = db.Storages.ToList().First(s => s.Enabled);
+                IDisposable context;
+                var storageRepository = new StorageRepository();
+                var storage = storageRepository.GetAll(out context).First(s => s.Enabled);
+                context.Dispose();
+
                 var client = new Client(storage.PublicKey, storage.PrivateKey);
 
                 if (imageFrontId != Guid.Empty)
@@ -445,15 +483,6 @@ namespace PostcardsManager.Controllers
                     "[[[Unable to delete. Try again, and if the problem persists, see your system administrator.]]]");
             }
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

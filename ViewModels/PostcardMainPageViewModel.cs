@@ -1,14 +1,11 @@
-﻿using Newtonsoft.Json;
-
-namespace PostcardsManager.ViewModels
+﻿namespace PostcardsManager.ViewModels
 {
     public class PostcardMainPageViewModel
     {
-        [JsonProperty("id")]
         public long Id { get; set; }
-        [JsonProperty("imageFrontUrl")]
         public string ImageFrontUrl { get; set; }
-        [JsonProperty("frontTitle")]
         public string FrontTitle { get; set; }
+        public string Year { get; set; }
+        public long SeriesId { get; set; }
     }
 }

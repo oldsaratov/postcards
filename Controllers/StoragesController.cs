@@ -2,20 +2,27 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using PostcardsManager.DAL;
 using PostcardsManager.Models;
+using PostcardsManager.Repositories;
+using System;
 
 namespace PostcardsManager.Controllers
 {
     public class StoragesController : Controller
     {
-        private PostcardContext db = new PostcardContext();
-
         // GET: Storages
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.Storages.ToList());
+            IDisposable context;
+
+            var storageRepository = new StorageRepository();
+            var storages = storageRepository.GetAll(out context);
+
+            using (context)
+            {
+                return View(storages.ToList());
+            }
         }
 
         // GET: Storages/Create
@@ -33,8 +40,9 @@ namespace PostcardsManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Storages.Add(storage);
-                db.SaveChanges();
+                var storageRepository = new StorageRepository();
+                storageRepository.Add(storage);
+
                 return RedirectToAction("Index");
             }
 
@@ -43,13 +51,11 @@ namespace PostcardsManager.Controllers
 
         // GET: Storages/Edit/5
         [Authorize]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Storage storage = db.Storages.Find(id);
+            var storageRepository = new StorageRepository();
+
+            Storage storage = storageRepository.GetById(id);
             if (storage == null)
             {
                 return HttpNotFound();
@@ -65,8 +71,10 @@ namespace PostcardsManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(storage).State = EntityState.Modified;
-                db.SaveChanges();
+                var storageRepository = new StorageRepository();
+
+                storageRepository.Update(storage);
+
                 return RedirectToAction("Index");
             }
             return View(storage);
@@ -74,13 +82,12 @@ namespace PostcardsManager.Controllers
 
         // GET: Storages/Delete/5
         [Authorize]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Storage storage = db.Storages.Find(id);
+            var storageRepository = new StorageRepository();
+
+            Storage storage = storageRepository.GetById(id);
+
             if (storage == null)
             {
                 return HttpNotFound();
@@ -94,20 +101,10 @@ namespace PostcardsManager.Controllers
         [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            var storage = db.Storages.Find(id);
+            var storageRepository = new StorageRepository();
+            storageRepository.Delete(id);
 
-            db.Storages.Remove(storage);
-            db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
