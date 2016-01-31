@@ -413,7 +413,7 @@ namespace PostcardsManager.Controllers
         private void PopulatePhotographersDropDownList(object selectedPhotographer = null)
         {
 
-            var photographersRepository = new SeriesRepository();
+            var photographersRepository = new PhotographerRepository();
 
             IDisposable context;
             var photographerQuery = photographersRepository.GetAll(out context);
