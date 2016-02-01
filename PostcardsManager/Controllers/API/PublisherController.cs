@@ -12,25 +12,22 @@ using PostcardsManager.Repositories;
 namespace PostcardsManager.Controllers.API
 {
     [EnableCors("*", "*", "*")]
-    public class SeriesController : ApiController
+    public class PublisherController : ApiController
     {
-        [ResponseType(typeof(IEnumerable<SeriesViewModel>))]
+        [ResponseType(typeof(IEnumerable<PublisherViewModel>))]
         public HttpResponseMessage GetAll()
         {
-            var seriesRepository = new SeriesRepository();
+            var publishersRepository = new PublisherRepository();
 
             IDisposable context;
-            var series = seriesRepository.GetAll(out context).OrderByDescending(p => p.Id).ToList();
+            var publishers = publishersRepository.GetAll(out context).OrderByDescending(p => p.Id).ToList();
 
             using (context)
             {
-                var results = series.Select(p => new SeriesViewModel
+                var results = publishers.Select(p => new PublisherViewModel
                 {
                     Id = p.Id,
-                    Title = p.Title,
-                    Description = p.Description,
-                    PublisherName = p.Publisher?.Name,
-                    Year = p.Year
+                    Name = p.Name,
                 });
 
                 return Request.CreateResponse(HttpStatusCode.OK, results);
