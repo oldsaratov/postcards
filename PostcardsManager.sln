@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcardsManager", "PostcardsManager.csproj", "{264E21D6-4024-4A53-B1BE-1CD42F3348FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcardsManager", "PostcardsManager\PostcardsManager.csproj", "{264E21D6-4024-4A53-B1BE-1CD42F3348FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BA324694-07F7-4D59-868A-AA10BAC225CA}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BA3246
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcardsManager.Repositories", "..\PostcardsManager.Repositories\PostcardsManager.Repositories.csproj", "{A2798AC0-07D8-4ED4-9762-6533201A89C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcardsManager.Repositories", "PostcardsManager.Repositories\PostcardsManager.Repositories.csproj", "{A2798AC0-07D8-4ED4-9762-6533201A89C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcardsManager.Models", "PostcardsManager.Models\PostcardsManager.Models.csproj", "{F76190F4-5437-4671-898F-A4FA0D5E96AE}"
 EndProject

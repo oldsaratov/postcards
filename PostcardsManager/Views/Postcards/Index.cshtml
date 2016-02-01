@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PostcardsManager.Models.Postcard>
+
+@{
+    ViewBag.Title = "[[[Postcards]]]";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>[[[Postcards]]]</h2>
+        <p>@Html.ActionLink("[[[Create new]]]", "Create")</p>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            <p>
+                [[[Series]]] @Html.DropDownList("SelectedSeries", "All")
+                [[[Photographers]]] @Html.DropDownList("SelectedPhotographers", "All")
+                <input class="btn btn-lg" type="submit" value="[[[Filter]]]" />
+            </p>
+        }
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FrontTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Series.Title)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FrontTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Series.Title)
+                    </td>
+                    <td>
+                        @Html.ActionLink("[[[Details]]]", "Details", new {id = item.Id}) |
+                        @Html.ActionLink("[[[Edit]]]", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("[[[Delete]]]", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

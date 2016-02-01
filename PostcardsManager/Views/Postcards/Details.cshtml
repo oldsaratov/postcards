@@ -1,0 +1,229 @@
+﻿@model PostcardsManager.ViewModels.PostcardViewModel
+
+@{
+    ViewBag.Title = "[[[Details]]]";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>[[[Details]]]</h2>
+    </div>
+    <div class="row">
+        <h4>[[[Postcard]]]</h4>
+        <hr/>
+    </div>
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Year)</dt>
+            <dd>@Html.DisplayFor(model => model.Year)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.PhotographerId)</dt>
+            <dd>@Html.DisplayFor(model => model.PhotographerName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.SeriesId)</dt>
+            @if (Model.SeriesId.HasValue)
+            {
+                <dd>@Html.ActionLink(Model.SeriesTitle, "Details", "Series", new {id = Model.SeriesId}, null)</dd>
+            }
+            else
+            {
+                <dt>@Html.DisplayFor(model => model.SeriesTitle)</dt>
+            }
+        <dt>@Html.DisplayNameFor(model => model.NumberInSeries)</dt>
+        <dd>@Html.DisplayFor(model => model.NumberInSeries)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.PostDate)</dt>
+        <dd>@Html.DisplayFor(model => model.PostDate)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.PublishPlace)</dt>
+        <dd>@Html.DisplayFor(model => model.PublishPlace)</dd>
+</dl>
+    </div>
+    <div class="row">
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.FrontTitle)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitle)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.FrontTitleFont)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitleFont)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.FrontTitleFontColor)</dt>
+            <dd>@Html.DisplayFor(model => model.FrontTitleFontColor)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitle)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitle)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitleFont)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitleFont)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitleFontColor)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitleFontColor)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackTitlePlace)</dt>
+            <dd>@Html.DisplayFor(model => model.BackTitlePlace)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.BackType)</dt>
+            <dd>@Html.DisplayFor(model => model.BackType)</dd>
+        </dl>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#front" aria-controls="front" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageFrontPreviewUrl)</a></li>
+                <li role="presentation"><a href="#back" aria-controls="back" role="tab" data-toggle="tab">@Html.DisplayNameFor(model => model.ImageBackPreviewUrl)</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="front">
+                    @if (Model.ImageFrontId.HasValue)
+                    {
+                        <div class="picture-front" itemscope itemtype="http://schema.org/ImageGallery">
+                            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                <a href="@Model.ImageFrontFullUrl" itemprop="contentUrl" data-size="1280x800">
+                                    <img src="@Model.ImageFrontPreviewUrl" itemprop="thumbnail" alt="Image description" />
+                                </a>
+                            </figure>
+                        </div>
+                    }
+                </div>
+                <div role="tabpanel" class="tab-pane" id="back">
+                    @if (Model.ImageBackId.HasValue)
+                    {
+                        <div class="picture-back" itemscope itemtype="http://schema.org/ImageGallery">
+                            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                <a href="@Model.ImageBackFullUrl" itemprop="contentUrl" data-size="1280x800">
+                                    <img src="@Model.ImageBackPreviewUrl" itemprop="thumbnail" alt="Image description"/>
+                                </a>
+                            </figure>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            @Html.ActionLink("[[[Edit]]]", "Edit", new {id = Model.Id}) |
+            @Html.ActionLink("[[[Back To List]]]", "Index")
+        </p>
+    </div>
+</div>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.picture-front').each(function() {
+            var $pic = $(this),
+                getItems = function() {
+                    var items = [];
+                    $pic.find('a').each(function() {
+                        var $href = $(this).attr('href'),
+                            $size = $(this).data('size').split('x'),
+                            $width = $size[0],
+                            $height = $size[1];
+
+                        var item = {
+                            src: $href,
+                            w: $width,
+                            h: $height
+                        }
+
+                        items.push(item);
+                    });
+                    return items;
+                }
+            var items = getItems();
+
+            var $pswp = $('.pswp')[0];
+            $pic.on('click', 'figure', function (event) {
+                event.preventDefault();
+
+                var $index = $(this).index();
+                var options = {
+                    index: $index,
+                    bgOpacity: 0.7,
+                    showHideOpacity: true
+                }
+
+                // Initialize PhotoSwipe
+                var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                lightBox.init();
+            });
+        });
+        $('.picture-back').each(function () {
+            var $pic = $(this),
+                getItems = function () {
+                    var items = [];
+                    $pic.find('a').each(function () {
+                        var $href = $(this).attr('href'),
+                            $size = $(this).data('size').split('x'),
+                            $width = $size[0],
+                            $height = $size[1];
+
+                        var item = {
+                            src: $href,
+                            w: $width,
+                            h: $height
+                        }
+
+                        items.push(item);
+                    });
+                    return items;
+                }
+
+            var items = getItems();
+
+            var $pswp = $('.pswp')[0];
+            $pic.on('click', 'figure', function (event) {
+                event.preventDefault();
+
+                var $index = $(this).index();
+                var options = {
+                    index: $index,
+                    bgOpacity: 0.7,
+                    showHideOpacity: true
+                }
+
+                // Initialize PhotoSwipe
+                var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                lightBox.init();
+            });
+        });
+    </script>
+}
