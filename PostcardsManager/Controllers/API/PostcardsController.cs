@@ -31,6 +31,7 @@ namespace PostcardsManager.Controllers.API
                     ImageFrontUrl = Urls.Cdn(new CdnPathBuilder(p.ImageFrontUniqId).Resize(360, 226)).OriginalString,
                     FrontTitle = p.FrontTitle,
                     SeriesId = p.SeriesId,
+                    PhotographerId = p.PhotographerId,
                     Year = p.Year
                 });
 

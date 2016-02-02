@@ -14,5 +14,7 @@ namespace PostcardsManager.ViewModels
         public string Year { get; set; }
         [JsonProperty("seriesId")]
         public int? SeriesId { get; set; }
+        [JsonProperty("photographerId")]
+        public int? PhotographerId { get; set; }
     }
 }

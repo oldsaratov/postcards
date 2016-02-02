@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using PostcardsManager.Models;
 using PostcardsManager.Repositories;
 using System;
+using PostcardsManager.ViewModels;
 
 namespace PostcardsManager.Controllers
 {
@@ -77,8 +78,16 @@ namespace PostcardsManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "LastName, FirstName")] Photographer photographer)
+        public ActionResult Create([Bind(Include = "LastName, FirstName")] PhotographerViewModel photographerVm)
         {
+            var photographer = new Photographer()
+            {
+                Id = photographerVm.Id,
+                FirstName = photographerVm.FirstName,
+                MiddleName = photographerVm.MiddleName,
+                LastName = photographerVm.LastName
+            };
+
             try
             {
                 if (ModelState.IsValid)
