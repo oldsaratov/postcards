@@ -244,6 +244,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\API\PhotographerAPIViewModel.cs" />
+    <Compile Include="ViewModels\API\PostcardAPIViewModel.cs" />
     <Compile Include="ViewModels\API\PostcardMainPageAPIViewModel.cs" />
     <Compile Include="ViewModels\API\PublisherAPIViewModel.cs" />
     <Compile Include="ViewModels\API\SeriesAPIViewModel.cs" />

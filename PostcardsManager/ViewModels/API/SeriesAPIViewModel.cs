@@ -1,9 +1,19 @@
 ﻿using Newtonsoft.Json;
+using PostcardsManager.Models;
 
 namespace PostcardsManager.ViewModels
 {
     public class SeriesAPIViewModel
     {
+        public SeriesAPIViewModel(Series series)
+        {
+            Id = series.Id;
+            Title = series.Title;
+            Year = series.Year;
+            PublisherId = series.PublisherId;
+            Description = series.Description;
+        }
+
         [JsonProperty("id")]
         public long Id { get; set; }
         

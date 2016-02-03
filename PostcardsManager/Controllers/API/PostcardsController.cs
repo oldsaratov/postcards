@@ -15,8 +15,10 @@ namespace PostcardsManager.Controllers.API
     [EnableCors("*", "*", "*")]
     public class PostcardsController : ApiController
     {
+        private object postcard;
+
         [ResponseType(typeof(IEnumerable<PostcardMainPageAPIViewModel>))]
-        public HttpResponseMessage GetAll()
+        public HttpResponseMessage GetAllForMainPage()
         {
             var postcardsRepository = new PostcardsRepository();
             
@@ -37,6 +39,33 @@ namespace PostcardsManager.Controllers.API
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
+        }
+
+        [ResponseType(typeof(IEnumerable<PostcardAPIViewModel>))]
+        public HttpResponseMessage GetAll()
+        {
+            var postcardsRepository = new PostcardsRepository();
+
+            IDisposable context = null;
+            var postcards = postcardsRepository.GetAll(out context);
+
+            using (context)
+            {
+                var result = postcards.ToList().Select(p => new PostcardAPIViewModel(p));
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        [ResponseType(typeof(IEnumerable<PostcardAPIViewModel>))]
+        public HttpResponseMessage GetById(int id)
+        {
+            var postcardsRepository = new PostcardsRepository();
+            
+            var postcard = postcardsRepository.GetById(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new PostcardAPIViewModel(postcard));
+
         }
     }
 }

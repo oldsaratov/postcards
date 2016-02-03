@@ -24,15 +24,21 @@ namespace PostcardsManager.Controllers.API
 
             using (context)
             {
-                var results = publishers.Select(p => new PublisherAPIViewModel
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Description = p.Description
-                });
+                var results = publishers.Select(p => new PublisherAPIViewModel(p));
 
                 return Request.CreateResponse(HttpStatusCode.OK, results);
             }
+        }
+
+        [ResponseType(typeof(IEnumerable<PublisherAPIViewModel>))]
+        public HttpResponseMessage GetById(int id)
+        {
+            var publishersRepository = new PublisherRepository();
+
+            var publisher = publishersRepository.GetById(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new PublisherAPIViewModel(publisher));
+
         }
     }
 }
