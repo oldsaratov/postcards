@@ -41,9 +41,7 @@ namespace PostcardsManager.Controllers
                 var result = postcards
                     .Where(c => !selectedSeries.HasValue || c.SeriesId == seriesId)
                     .Where(c => !selectedPhotographer.HasValue || c.PhotographerId == photoId)
-                    .OrderBy(d => d.SeriesId)
-                    .Include(d => d.Series)
-                    .Include(d => d.Photographer);
+                    .OrderBy(d => d.SeriesId);
 
                 return View(result.ToList());
             }

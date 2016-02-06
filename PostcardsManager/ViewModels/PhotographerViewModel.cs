@@ -1,11 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using PostcardsManager.Models;
 
 namespace PostcardsManager.ViewModels
 {
     public class PhotographerViewModel
     {
+        public PhotographerViewModel(Photographer model)
+        {
+            Id = model.Id;
+            LastName = model.LastName;
+            MiddleName = model.MiddleName;
+            FirstName = model.FirstName;
+        }
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "[[[Last name should be defined]]]")]

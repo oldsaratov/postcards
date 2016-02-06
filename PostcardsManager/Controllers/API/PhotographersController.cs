@@ -8,6 +8,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using PostcardsManager.ViewModels;
 using PostcardsManager.Repositories;
+using PostcardsManager.Models;
 
 namespace PostcardsManager.Controllers.API
 {
@@ -39,6 +40,43 @@ namespace PostcardsManager.Controllers.API
 
             return Request.CreateResponse(HttpStatusCode.OK, new PhotographerAPIViewModel(photographer));
 
+        }
+
+        [HttpPost]
+        [ResponseType(typeof(void))]
+        public HttpResponseMessage Add(PhotographerAPIViewModel model)
+        {
+            var photographerRepository = new PhotographerRepository();
+
+            var newPhotographer = new Photographer()
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                MiddleName = model.MiddleName
+            };
+
+            photographerRepository.Add(newPhotographer);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        [ResponseType(typeof(void))]
+        public HttpResponseMessage Update(PhotographerAPIViewModel model)
+        {
+            var photographerRepository = new PhotographerRepository();
+
+            var updatedPhotographer = new Photographer
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                MiddleName = model.MiddleName
+            };
+
+            photographerRepository.Update(updatedPhotographer);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

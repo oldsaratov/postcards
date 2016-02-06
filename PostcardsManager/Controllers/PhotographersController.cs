@@ -50,7 +50,7 @@ namespace PostcardsManager.Controllers
                         break;
                 }
 
-                return View(photographers.ToList());
+                return View(photographers.ToList().Select(x => new PhotographerViewModel(x)));
             }
         }
 
