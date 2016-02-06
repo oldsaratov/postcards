@@ -5,14 +5,16 @@ namespace PostcardsManager.ViewModels
 {
     public class PhotographerAPIViewModel
     {
-        private Photographer p;
-
         public PhotographerAPIViewModel(Photographer photographer)
         {
             Id = photographer.Id;
             LastName = photographer.LastName;
             MiddleName = photographer.MiddleName;
             FirstName = photographer.FirstName;
+        }
+
+        public PhotographerAPIViewModel()
+        {
         }
 
         [JsonProperty("id")]

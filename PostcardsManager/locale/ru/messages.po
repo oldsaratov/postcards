@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-02-06 17:45+03:00\n"
-"PO-Revision-Date: 2016-02-06 17:45+03:00\n"
+"POT-Creation-Date: 2016-02-06 19:29+03:00\n"
+"PO-Revision-Date: 2016-02-06 19:29+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -339,19 +339,16 @@ msgstr "Фильтр"
 msgid "Find By Name"
 msgstr "Искать по имени"
 
-#: Models\Photographer.cs:25
 #: ViewModels\PhotographerViewModel.cs:30
 #: Views\Photographers\Index.cshtml:30
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:30
 msgid "First Name"
 msgstr "Имя"
 
-#: Models\Photographer.cs:23
 #: ViewModels\PhotographerViewModel.cs:29
 msgid "First name cannot be longer than 50 characters"
 msgstr "Имя не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:22
 #: ViewModels\PhotographerViewModel.cs:28
 msgid "First name should be defined"
 msgstr " Имя должно быть заполнено"
@@ -400,24 +397,20 @@ msgstr "Цвет шрифта надписи"
 msgid "Front title font color cannot be longer than 50 characters"
 msgstr "Цвет шрифта надписи не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:28
 #: ViewModels\PhotographerViewModel.cs:33
 msgid "Full Name"
 msgstr "Полное имя"
 
-#: Models\Photographer.cs:14
 #: ViewModels\PhotographerViewModel.cs:21
 #: Views\Photographers\Index.cshtml:27
 #: obj\Release\Package\PackageTmp\Views\Photographers\Index.cshtml:27
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: Models\Photographer.cs:13
 #: ViewModels\PhotographerViewModel.cs:20
 msgid "Last name cannot be longer than 50 characters"
 msgstr "Фамилия не может быть длиннее 50 символов"
 
-#: Models\Photographer.cs:12
 #: ViewModels\PhotographerViewModel.cs:19
 msgid "Last name should be defined"
 msgstr "Фамилия должна быть заполнена"
@@ -439,12 +432,10 @@ msgstr "Вход"
 msgid "Main Page"
 msgstr "Главная страница"
 
-#: Models\Photographer.cs:19
 #: ViewModels\PhotographerViewModel.cs:25
 msgid "Middle Name"
 msgstr "Отчество"
 
-#: Models\Photographer.cs:17
 #: ViewModels\PhotographerViewModel.cs:24
 msgid "Middle name cannot be longer than 50 characters"
 msgstr "Отчество не может быть длиннее 50 символов"

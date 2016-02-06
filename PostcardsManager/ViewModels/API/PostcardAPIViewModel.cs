@@ -7,6 +7,10 @@ namespace PostcardsManager.ViewModels
 {
     public class PostcardAPIViewModel
     {
+        public PostcardAPIViewModel()
+        {
+        }
+
         public PostcardAPIViewModel(Postcard postcard)
         {
             Id = postcard.Id;

@@ -5,6 +5,10 @@ namespace PostcardsManager.ViewModels
 {
     public class PublisherAPIViewModel
     {
+        public PublisherAPIViewModel()
+        {
+        }
+
         public PublisherAPIViewModel(Publisher publisher)
         {
             Id = publisher.Id;

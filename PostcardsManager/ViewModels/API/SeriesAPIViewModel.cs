@@ -5,6 +5,10 @@ namespace PostcardsManager.ViewModels
 {
     public class SeriesAPIViewModel
     {
+        public SeriesAPIViewModel()
+        {
+        }
+
         public SeriesAPIViewModel(Series series)
         {
             Id = series.Id;
