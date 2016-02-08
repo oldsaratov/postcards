@@ -42,7 +42,7 @@ namespace PostcardsManager.Repositories
         {
             using (var context = new PostcardContext())
             {
-                var model = context.Postcards.Where(x => x.SeriesId == seriesId).ToList();
+                var model = context.Postcards.Include(x => x.ImageFront).Include(x => x.ImageBack).Where(x => x.SeriesId == seriesId).ToList();
 
                 return model;
             }
