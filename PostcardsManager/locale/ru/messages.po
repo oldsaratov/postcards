@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-02-06 19:29+03:00\n"
-"PO-Revision-Date: 2016-02-06 19:29+03:00\n"
+"POT-Creation-Date: 2016-02-08 21:43+03:00\n"
+"PO-Revision-Date: 2016-02-08 21:43+03:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -714,14 +714,14 @@ msgstr "Название должно быть заполнено"
 msgid "Unable to delete. Try again, and if the problem persists, see your system administrator."
 msgstr "Удаление невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
-#: Controllers\SeriesController.cs:134
+#: Controllers\SeriesController.cs:133
 msgid "Unable to save changes. Try again, and if the problem persists see your system administrator."
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 
 #: Controllers\PhotographersController.cs:104
 #: Controllers\PostcardsController.cs:212
 #: Controllers\PostcardsController.cs:389
-#: Controllers\SeriesController.cs:95
+#: Controllers\SeriesController.cs:94
 msgid "Unable to save changes. Try again, and if the problem persists, see your system administrator."
 msgstr "Сохранение невозможно. Попробуйте еще раз и если проблема будет продолжаться - обратитесь к системному администратору."
 

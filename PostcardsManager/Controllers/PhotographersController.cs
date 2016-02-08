@@ -64,7 +64,7 @@ namespace PostcardsManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(photographer);
+            return View(new PhotographerViewModel(photographer));
         }
 
         // GET: Photographer/Create

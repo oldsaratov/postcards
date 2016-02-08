@@ -36,7 +36,6 @@ namespace PostcardsManager.Controllers
         }
 
         // GET: Series/Details/5
-        [Authorize]
         public ActionResult Details(int id)
         {
             var seriesRepository = new SeriesRepository();
